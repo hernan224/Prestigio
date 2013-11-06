@@ -412,7 +412,7 @@ a:active {
 /* -- WRAPPER -- */
 
 body {
-	background: #f2f2f2;
+	background: url(images/site-background-brickwall.png) #fff repeat;
 }
 
 #page {
@@ -428,6 +428,7 @@ body {
 .site-header {
 	background: #194C25;
 	padding: 30px;
+	position: relative;
 }
 
 .site-title {
@@ -499,10 +500,64 @@ body {
 .main-navigation li.current-menu-item a {
 }
 
+.secondary-navigation {
+	background: #309147;
+	border-bottom: 1px solid #ccc;
+	clear: both;
+	float: left;
+	position: relative;
+	left: -30px;
+	bottom: -30px;
+	width: 940px;
+}
+
+.secondary-navigation ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+.secondary-navigation li {
+	float: left;
+	position: relative;
+}
+.secondary-navigation a {
+	border-radius: 4px;
+	color: #eee;
+	display: block;
+	font-weight: bold;
+	padding: 20px 40px;
+	text-decoration: none;
+	transition: background 0.25s ease;
+}
+
+.secondary-navigation ul ul {
+	background: #309147;
+	display: none;
+	float: left;
+	left: 0;
+	position: absolute;
+	top: 64px;
+	z-index: 99999;
+}
+
+.secondary-navigation ul ul li {
+	border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.secondary-navigation ul ul a {
+	width: 140px;
+	font-weight: normal;
+}
+
+.secondary-navigation ul li:hover > ul {
+	display: block;
+}
+
 /* -- MAIN -- */
 
 .site-content {
 	clear: both;
+	float: left;
 	padding: 20px;
 }
 
@@ -614,16 +669,6 @@ object {
 }
 
 
-/* =Comments
------------------------------------------------ */
-
-.comment-content a {
-	word-wrap: break-word;
-}
-.bypostauthor {
-}
-
-
 /* =Widgets
 ----------------------------------------------- */
 
@@ -642,16 +687,13 @@ object {
 }
 
 
-/* =Infinite Scroll
------------------------------------------------ */
+/* --- FOOTER --- */
 
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
-.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
-	display: none;
-}
-
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
-.infinity-end.neverending .site-footer {
-	display: block;
+.site-footer {
+	background: #eee;
+	border-top: 1px solid #dedede;
+	clear: both;
+	float: left;
+	padding: 20px;
+	width: 100%;
 }
