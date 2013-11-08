@@ -328,15 +328,15 @@ textarea {
 
 /* Links */
 a {
-	color: royalblue;
+	color: #309147;
 }
 a:visited {
-	color: purple;
+	color: #309147;
 }
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	color: #309147;
 }
 
 /* Alignment */
@@ -694,6 +694,51 @@ object {
 	border-top: 1px solid #dedede;
 	clear: both;
 	float: left;
+	font-size: 14px;
 	padding: 20px;
 	width: 100%;
 }
+
+.site-footer a {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.site-footer ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.site-info-logo, .site-info-contact, .footer-navigation {
+	float: left;
+	width: 300px;
+	margin-right: 20px;
+}
+
+	.site-info-logo a {
+		background: url(images/site-footer-logo.png) no-repeat;
+		display: block;
+		font-size: 0;
+		width: 120px;
+		height: 60px;
+	}
+
+.footer-navigation {
+	margin-right: 0;
+}
+
+.site-info-copyright {
+	border-top: 1px solid #dedede;
+	clear: both;
+	float: left;
+	margin-top: 30px;
+	padding-top: 10px;
+	position: relative;
+	width: 900px;
+}
+
+	.site-info-copyright p {
+		font-size: 12px;
+		text-align: center;
+	}
