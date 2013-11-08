@@ -73,6 +73,26 @@ function prestigio_widgets_init() {
 add_action( 'widgets_init', 'prestigio_widgets_init' );
 
 /**
+* Register property search widget area
+*/
+// Register Sidebar
+function prestigio_property_search()  {
+
+	$args = array(
+		'id'            => 'property-search',
+		'name'          => __( 'Buscador de propiedades', 'prestigio' ),
+		'description'   => __( 'Área para la ubicación del buscador del sitio', 'prestigio' ),
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+		'before_widget' => '<li id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</li>',
+	);
+	register_sidebar( $args );
+
+}
+add_action( 'widgets_init', 'prestigio_property_search' );
+
+/**
  * Enqueue scripts and styles
  */
 function prestigio_scripts() {

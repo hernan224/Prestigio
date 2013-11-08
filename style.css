@@ -233,7 +233,7 @@ textarea {
 	font-size: 100%; /* Corrects font size not being inherited in all browsers */
 	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
 	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
-	*vertical-align: middle; /* Improves appearance and consistency in all browsers */
+	vertical-align: middle; /* Improves appearance and consistency in all browsers */
 }
 button,
 input {
@@ -448,7 +448,7 @@ body {
 .main-navigation {
 	display: block;
 	float: right;
-	margin-top: 12px;
+	margin-top: 14px;
 }
 .main-navigation ul {
 	list-style: none;
@@ -466,7 +466,7 @@ body {
 	font-weight: bold;
 	padding: 10px 20px;
 	text-decoration: none;
-	transition: background 0.25s ease;
+	transition: all 0.25s ease;
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -488,6 +488,7 @@ body {
 }
 .main-navigation li:hover > a {
 	background: #309147;
+	box-shadow: 0 2px 0 rgba(0,0,0,0.3);
 }
 .main-navigation ul ul :hover > a {
 }
@@ -522,6 +523,7 @@ body {
 }
 .secondary-navigation a {
 	border-radius: 4px;
+	border-right: 1px solid rgba(255,255,255,0.1);
 	color: #eee;
 	display: block;
 	font-weight: bold;
@@ -553,6 +555,83 @@ body {
 	display: block;
 }
 
+.secondary-navigation ul li ul a:hover {
+	background: #194C25;
+}
+
+/* Property search form */
+
+.property-search {
+	color: #eee;
+	float: right;
+	font-size: 14px;
+	margin: 20px 40px 0 0;
+	position: relative;
+
+}
+
+	.property-search .widget {
+		margin: 0;
+	}
+
+	.wpp_search_properties_widget {
+		float: right;
+	}
+
+	.property-search li {
+		float: left;
+		clear: none;
+		list-style: none;
+	}
+
+	.property-search ul ul {
+		display: block;
+		position: relative;
+		top: 0;
+	}
+
+	.property-search ul ul li {
+		border: none;
+	}
+
+	.wpp_search_label {
+		float: left;
+		width: auto !important;
+	}
+
+	.wpp_search_form_element {
+		float: left;
+		margin-right: 10px;
+		width: 80px;
+	}
+
+	.wpp_search_form_element:first-child {
+		width: 290px;
+	}
+
+		.property-search .submit {
+			margin-right: 0 !important;
+		}
+
+	.wpp_search_post_label_colon {
+		visibility: hidden;
+	}
+
+	.wpp_search_elements input[type=submit] {
+		background: #194C25;
+		border: none;
+		box-shadow: none;
+		color: #eee;
+		font-size: 14px;
+		font-weight: bold;
+		padding: 10px 20px;
+		text-shadow: none;
+		position: relative;
+		top: -5px;
+		width: auto;
+	}
+
+	
 /* -- MAIN -- */
 
 .site-content {
@@ -691,7 +770,8 @@ object {
 
 .site-footer {
 	background: #eee;
-	border-top: 1px solid #dedede;
+	border-top: 1px solid #fff;
+	box-shadow: 0 -1px 0 #dedede;
 	clear: both;
 	float: left;
 	font-size: 14px;
@@ -729,7 +809,8 @@ object {
 }
 
 .site-info-copyright {
-	border-top: 1px solid #dedede;
+	border-top: 1px solid #fff;
+	box-shadow: 0 -1px 0 #dedede;
 	clear: both;
 	float: left;
 	margin-top: 30px;
