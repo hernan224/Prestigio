@@ -1,0 +1,1048 @@
+//Mixins
+@import "../sass/bootstrap/bootstrap";
+@import "../sass/_justifygrid";
+@import "../sass/_media-queries";
+@import "../sass/_mixins";
+@import "compass";
+
+
+//Variables
+//-------------------------------------------------
+//COLORES
+//verde oscuro
+$n1:#194C25;
+//verde claro
+$n2:#309147;
+//violeta oscuro
+$n3:#5652A3;
+//violeta-claro
+$n4:#7B75E8;
+
+//GRISES (de oscuro a claro)
+$n5:#161A17;
+$n6:#2F3731;
+$n7:#6A7C6F;
+$n8:#839989;
+$n9:#AEBFB3;
+$n10:#DAE6DD;
+//
+
+$default-border-radius: 0;
+//---------------------------------
+
+
+// CSS Importado
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,700italic,400,700|Roboto:400,700,400italic,700italic|Open+Sans:400italic,700italic,400,700);
+
+
+/***********************
+ ***********************
+ ******  ESTILOS  ******
+ ***********************
+ *************************/
+
+/** Generales **/
+
+html{
+  font-size: 16px;
+
+  @include max-screen($screen-sm-max){
+    font-size: 14px;
+  }
+
+  @include max-screen($screen-xs-max){
+    font-size: 12px;
+  }
+}
+
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  @include rem-fallback(font-size, 1);
+  line-height: 1.5;
+  color: $n5;
+  background-color: lighten($n5, 80%);
+}
+
+
+h1, h2, h3{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  color: lighten($n5, 15%);
+}
+
+h4, h5, h6{
+  font-family: 'Roboto', sans-serif;
+  //font-size: 1.125em;
+  @include rem-fallback(font-size, 1.125);
+  line-height: 1.5;
+  color: lighten($n5, 15%);
+}
+
+h1{
+  @include rem-fallback(font-size, 2.375);
+  //font-size: 2.375em;
+}
+
+h2{
+  @include rem-fallback(font-size, 1.75);
+  //font-size: 1.75em;
+}
+
+h3{
+  @include rem-fallback(font-size, 1.3125);
+  //font-size: 1.3125;
+}
+
+h4{
+  font-weight: 700;
+  font-style: normal;
+}
+
+h5{
+  font-weight: 400;
+  font-style: italic;
+}
+
+h6{
+  font-weight: 400;
+  font-style: normal;
+}
+
+p{
+  @include rem-fallback(font-size, 1);
+  line-height: 1.5;
+}
+
+p a{
+  text-decoration: none;
+  @include rem-fallback(font-size, 0.9);
+  color: $n2;
+  font-weight: 700;
+
+  &:hover{
+    color: $n4;
+    text-decoration: none;
+  }
+}
+
+
+.contenedor{
+  background-color: #fff;
+  border: solid lighten($n5, 70%);
+  //border-color: $n2;
+  border-width: 0 2px;
+
+  @extend .container;
+}
+
+/** Logos del header y el footer **/
+a.logo{
+  display:inline-block;
+  text-decoration:none;
+  text-indent:-999em;
+  background: url(http://hernanzubiri.com.ar/tecnophos/prestigio/logo-blanco.svg) no-repeat top left; /** Falta fallback de SVG a PNG para IE 8 **/
+  //background-size:cover;
+
+  //margin-left: 1.5em;
+
+
+  &.grande{
+    /** Logo Header **/
+    width:100%;
+    height: 150px;
+    background-size:90%;
+    @include rem-fallback(margin, 3, 0, 1, 1);
+
+    @include max-screen($screen-sm-max){
+      max-width:270px;
+      //height:150px;
+    };
+    @include max-screen($screen-xs-max){
+      min-width:200px;
+      max-height:110px;
+      //height:100%;
+      @include rem-fallback(margin, 1, 0, 0.5, 0.25);
+      //margin:1em 0 0.5em 0.25em;
+    };
+  }
+
+  &.chico{
+    background: url(http://hernanzubiri.com.ar/tecnophos/prestigio/logo_svg.svg) no-repeat top left;
+    width:180px;
+    height: 80px;
+    background-size:100%;
+    @include rem-fallback(margin, 1, 0);
+  }
+
+
+
+}
+
+
+/** Header **/
+header{
+  @include rem-fallback(padding, 1.5);
+  position:relative;
+
+  .fondo{
+    background: transparent url(http://hernanzubiri.com.ar/tecnophos/prestigio/prueba-web-bg-3.jpg) bottom center no-repeat;
+    //background-image: url(http://hernanzubiri.com.ar/tecnophos/prestigio/prueba-web-bg-3.jpg);
+    //height:100%;
+    //width:100%;
+    //display:block;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-size:cover;
+    //opacity:0.83;
+  }
+}
+
+
+/** Barras de navegación **/
+
+nav{
+  &.navbar-principal{
+    /** barra de navegación principal (propiedades) **/
+    //margin-top:-6em;
+    z-index:990;
+    //margin: 0 -15px 1.5em -15px;
+    @include rem('margin', 0 -15px 24px -15px);
+    //border-radius:0;
+    @include  border-radius();
+    background-color: lighten($n5, 85%);
+    //background-color: $n1;
+    border-color:lighten($n5, 65%);
+    border-width:2px 0 4px 0;
+
+    //color: #fff;
+    &>ul{
+      @extend %grid;
+      //padding-left:12.5%;
+      &>li{
+        //margin:0;
+        @extend %grid-cell;
+        width:28%;
+
+        @include max-screen($screen-sm-max){
+          width:33.15%;
+        };
+        @include max-screen($screen-xs-max){
+          width:99.5%;
+        };
+
+      }
+    }
+
+    a.btn-principal {
+      font-family: 'Roboto', sans-serif;
+
+      @include rem-fallback(font-size, 1.25);
+      //padding:0.85em 2em;
+      @include rem-fallback(padding, 0.85, 2);
+      font-weight:   700;
+      color: $n2;
+      border:0;
+      @include  border-radius();
+      //transition: all 0.15s ease-in;
+      @include  single-transition(all, 0.15s, ease-in);
+
+      &:hover, &:focus, &:active{
+        background-color: $n1;
+        color: #fff;
+        //transition: all 0.15s ease-out;
+        @include  single-transition(all, 0.15s, ease-out);
+      }
+
+      .glyphicon{
+        //font-size:   0.8em;
+        @include rem-fallback(font-size, 0.8);
+        margin-left:   5px;
+      }
+    }
+
+    .open > a.btn-principal{
+      @extend a.btn-principal:hover;
+    }
+
+    .dropdown-menu{
+      @include  border-radius();
+      background-color: $n1;
+      padding:0;
+      margin:0;
+      border: solid lighten($n5, 65%);;
+      border-width:   4px 0;
+
+      a{
+
+        @include rem-fallback(padding, 1.25, 3);
+        border-bottom:   1px solid lighten($n5, 65%);
+        //font-size: 1.125em;
+        @include rem-fallback(font-size, 1.125);
+        color: #fff;
+        //transition: background-color 0.15s ease-out;
+        @include  single-transition(background-color, 0.15s, ease-out);
+        &:hover{
+          background-color: $n2;
+          //transition: background-color 0.15s ease-in;
+          @include  single-transition(background-color, 0.15s, ease-in);
+        }
+      }
+
+      &>:last-child a{
+        border-bottom:   0px;
+      }
+    }
+
+/** Fin barra principal **/
+  }
+
+  &.navbar-secundaria{
+    /** barra de navegación secundaria **/
+    //margin:4.5em 0 0 0;
+    @include rem-fallback(margin, 4.5, 0, 0, 0);
+    @include  border-radius();
+    background-color: rgba($n1, 0.8);
+    border-width:0 0 4px 0;
+    border-color:$n2;
+    min-height: 0;
+    @include max-screen($screen-sm-max){
+      background-color: transparent;
+      border:none;
+    }
+
+    a{
+      font-weight: 400;
+      color:#fff;
+      background-color: transparent;
+      //transition: background-color 0.25s ease-out;
+      @include  single-transition(background-color, 0.15s, ease-out);
+
+
+      &:hover,&:focus,&:active{
+        background-color: $n2;
+        //transition: background-color 0.25s ease-in;
+        @include  single-transition(background-color, 0.15s, ease-in);
+      }
+    }
+
+    &.menu-smart{
+
+      /*barra secundaria para moviles*/
+      //z-index:1000;
+
+      @include max-screen($screen-xs-max){
+        margin:0;
+      }
+
+      a.btn{
+        background-color: $n1;
+        @include  border-radius();
+        border-width:0 0 4px 0;
+        border-color:$n2;
+        color:#fff;
+        //font-size: 1.125em;
+        @include rem-fallback(font-size, 1.125);
+        line-height:   1.5;
+        //padding:0.75em 1.5em;
+        @include rem-fallback(padding, 0.75, 1.5);
+        font-weight:   700;
+
+        &:hover,&:focus,&:active{
+          background-color: $n2;
+          //transition: background-color 0.25s ease-in;
+          @include  single-transition(background-color, 0.15s, ease-in);
+        }
+
+        .glyphicon{
+          //font-size:   0.8em;
+          @include rem-fallback(font-size, 0.8);
+          margin-left:   5px;
+        }
+      }
+
+      ul.dropdown-menu{
+        @include  border-radius();
+        background-color: $n2;
+        padding:0;
+        margin:0;
+        border: solid $n1;
+        border-width:   2px 0;
+
+        a{
+          //padding: 1.1em;
+          @include rem-fallback(padding, 1.1);
+          border-bottom:   1px solid $n1;
+
+          &:hover{
+            background-color: $n1;
+            //border-bottom:   1px solid $n2;
+          }
+        }
+
+        &>:last-child a{
+          border-bottom:   0px;
+        }
+      }
+
+      /*Fin barra secundaria para moviles*/
+
+    }
+
+    /*Fin barra secundaria*/
+  }
+
+  .dropdown-menu{
+    //left:auto;
+    li a{
+      //font-size:1em;
+      @include rem-fallback(font-size, 1);
+      //padding: 0.75em;
+    }
+
+
+  }
+}
+
+/** Búsqueda dropdown **/
+
+.drop-busqueda{
+  form{
+    //padding:1em;
+    @include rem-fallback(padding, 1);
+    width:300px;
+
+    input[type=checkbox]{
+      //margin-right: 1.5em;
+      @include rem-fallback(margin-right, 1.5);
+    }
+
+    input[type=text], select, select option{
+      //line-height: 3em;
+      @include rem-fallback(line-height, 3);
+      //height: 3em;
+      @include rem-fallback(height, 3);
+      @include  border-radius();
+      background-color: lighten($n5, 65%);
+      color: $n5;
+      border-width: 0 0 2px 0;
+      border-color: $n2;
+    }
+
+    label, legend{
+      color: #fff;
+    }
+
+    option{
+      //padding: 1em;
+      @include rem-fallback(padding, 1);
+      //height: 100%;
+
+      &:hover{
+        background-color: $n2;
+      }
+    }
+
+    input.btn{
+      display:block;
+      //margin-top: 1em;
+      @include rem-fallback(margin-top, 1);
+      //padding: 0.75em 3em;
+      @include rem-fallback(padding, 0.75, 3);
+      font-weight: 700;
+      @include  border-radius();
+      background-color: $n2;
+      border-width: 0 0 2px 0;
+      border-color: lighten($n5, 65%);
+      //transition: all 0.15s ease-in;
+      @include  single-transition(all, 0.15s, ease-in);
+
+      &:hover{
+        background-color: lighten($n5, 65%);
+        color: $n5;
+        //transition: all 0.15s ease-out;
+        @include  single-transition(all, 0.15s, ease-out);
+      }
+    }
+
+  }
+
+  /*Fin drop busqueda*/
+}
+
+
+/** Contenido General**/
+
+/** Breadcrumb navigation **/
+.breadcrumb{
+  background-color: lighten($n5, 85%);
+  //border-radius:0;
+  border: solid $n2;
+  border-width: 0 0 2px 0;
+  list-style: none;
+  @include rem-fallback(margin-bottom, 1.5);
+  @include rem-fallback(padding, 0.5, 1);
+
+  li{
+    display: inline-block;
+
+    &.active{
+      color:$n2;
+    }
+
+    &+li:before{
+      content:">";
+      color:$n5;
+      margin-right:0.5em;
+    }
+
+    a{
+      color:$n1;
+
+      &:hover{
+        text-decoration: none;
+        color:$n2
+      }
+    }
+  }
+}
+
+/** Page Header **/
+.page-header{
+  border-bottom: 4px solid lighten($n5, 65%);
+  margin: 0 auto;
+  @include rem-fallback(margin-bottom, 3);
+  position:relative;
+  @include rem('padding-bottom', 8px);
+
+  &:after{
+    content:" ";
+    position:absolute;
+    bottom:-8px;
+    left:0;
+    //right:0;
+    width:100%;
+    //float:none;
+    //clear:both;
+    display:block;
+    border-top: solid lighten($n5, 85%) 4px;
+  }
+
+  h1, h2{
+    color:$n1;
+  }
+}
+
+
+/** Property Overview **/
+
+
+/** Thumb Propiedad **/
+.prop_thumb{
+  max-width:430px;
+  margin:1em auto;
+  position: relative;
+  padding:0;
+  border:0;
+
+
+  .descripcion{
+    position: absolute;
+    background-color:rgba($n1,0.7);
+    bottom:0;
+    left:0;
+    padding:1em;
+    color:white;
+    //text-decoration:none;
+    overflow:hidden;
+    width:100%;
+    border: 0 solid $n2;
+    border-width:2px 0 0 0;
+
+    h3{
+      color:#fff;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    p{
+      //visibility:hidden;
+      //height:1px;
+      margin:8.5em 0 -12em 0;
+      @include  single-transition(margin, 0.4s, ease-out);
+      //transition: margin 0.4s ease-out;
+      //position:absolute;
+
+      /*@include max-screen($screen-xs-max){
+        margin:10em 0 -12em 0;
+      }*/
+
+      @include max-screen($screen-sm-max){
+        margin:0 0 1em 0;
+      }
+    }
+  }
+
+  &:hover{
+
+    text-decoration: none;
+    .descripcion{
+      p{
+        //visibility:visible;
+        //height:auto;
+        //text-decoration: none;
+        margin:0 0 1em 0;
+        //transition: margin 0.4s ease 0.1s;
+        @include  single-transition(margin, 0.4s, ease, 0.1s);
+      }
+
+
+    }
+  }
+}
+
+
+/** Tipo propiedad **/
+.tipo-propiedad{
+  position:absolute;
+  display:block;
+  top:2em;
+  right:15px;
+  padding: 0.5em 2.5em 0.5em 1.25em;
+  color:#fff;
+  z-index:100;
+  opacity:0.7;
+  @include border-radius();
+  background-color: $n3;
+  border: 0;
+  //border-width: 1px;
+  //transition: all 0.15s ease-out;
+  @include  single-transition(all, 0.15s, ease-out);
+  font-weight: 700;
+
+
+  &:before{
+    content:" ";
+    @include arrow(top-right, $n3, 1.25em);
+    position:absolute;
+    top:0;
+    left:-1.2em;
+    @include  single-transition(all, 0.15s, ease-out);
+  }
+
+  &:after{
+    content:" ";
+    @include arrow(bottom-right, $n3, 1.25em);
+    position:absolute;
+    bottom:0;
+    left:-1.2em;
+    @include  single-transition(all, 0.15s, ease-out);
+  }
+
+  &:hover{
+    opacity:1;
+    background-color: $n4;
+    border:0;
+    @include  single-transition(all, 0.15s, ease-in);
+    color:#fff;
+
+    &:before{
+      @include arrow(top-right, $n4, 1.25em);
+      @include  single-transition(all, 0.15s, ease-in);
+    }
+
+    &:after{
+      @include arrow(bottom-right, $n4, 1.25em);
+      @include  single-transition(all, 0.15s, ease-in);
+    }
+
+    /*&:after{
+     @include arrow(bottom-right, $n4, 2.5em);
+     transition: all 0.3s ease-in;
+    }*/
+  }
+
+}
+
+
+/** Bloques de propiedades **/
+.contenedor_prop{
+  @extend %grid;
+
+  .bloque_prop{
+    @extend %grid-cell;
+    float:none;
+    position:relative;
+    border:0;
+    //padding: auto 15px;
+
+    @include max-screen($screen-xs-max){
+      max-width:430px;
+      margin:0 auto;
+      display:block;
+    }
+
+    &.col-md-4{
+      width:99.9%;
+      //width: 49.9%;
+
+      @include min-screen($screen-sm){
+        width: 49.9%;
+      }
+
+      @include min-screen($screen-md){
+        width: 33.3%;
+      }
+    }
+
+    &.col-md-8{
+      width:99.9%;
+
+      @include min-screen($screen-sm){
+        width: 99.9%;
+      }
+
+      @include min-screen($screen-md){
+        width: 66.6%;
+      }
+    }
+  }
+}
+
+
+/** Propiedad destacada **/
+.prop_destacada{
+  //height:auto;
+
+  //overflow:hidden;
+
+  .prop_thumb{
+    max-width:100%;
+    //max-height:305px;
+
+    @include max-screen($screen-xs-max){
+      max-width: 430px;
+    }
+  }
+
+  .descripcion{
+    width:40%;
+    height:100%;
+    padding-top:3em;
+    left:auto;
+    right:0;
+    border-width: 0 0 0 2px;
+
+    @include max-screen($screen-xs-max){
+      display:block;
+      position:relative;
+      width:100%;
+      height:auto;
+      background-color:rgba($n1,0.9);
+      border-width: 2px 0 0 0 ;
+      padding-top:0;
+    }
+
+    p{
+      margin:1em 0 0 0;
+      text-decoration: none;
+    }
+  }
+
+  .tipo-propiedad{
+    left:15px;
+    //margin-left:-30%;
+    right:auto;
+    opacity:1;
+    padding: 0.5em 1.25em 0.5em 2.5em;
+
+    &:before{
+      @include arrow(top-left, $n3, 1.25em);
+      left:auto;
+      right:-1.25em;
+    }
+
+    &:after{
+      @include arrow(bottom-left, $n3, 1.25em);
+      left:auto;
+      right:-1.25em;
+    }
+
+    &:hover{
+      &:before{@include arrow(top-right, $n4, 1.25em);}
+      &:after{@include arrow(bottom-right, $n4, 1.25em);}
+    }
+
+  }
+
+}
+
+/** Fin Property Overview **/
+
+/** Paginación **/
+.pagination{
+  @include border-radius();
+  //left:50%;
+  margin-left:25%;
+  //margin: 3em auto;
+  //position: relative;
+  //display:block;
+
+  @include max-screen($screen-sm-max){
+    margin-left:0;
+  }
+
+  li{
+
+    &.active{
+      a, span{
+        background-color: $n2;
+        border-color: $n2;
+
+        &:hover, &:focus{
+          background-color: $n2;
+          border-color: $n2;
+        }
+      }
+    }
+    &.disabled{
+      a, span{
+        background-color: lighten($n5, 85%);
+        border-color: lighten($n5, 65%);
+        color: lighten($n5, 65%);
+
+        &:hover, &:focus{
+          background-color: lighten($n5, 85%);
+          border-color: lighten($n5, 65%);
+          color: lighten($n5, 65%);
+        }
+      }
+    }
+
+
+    a, span{
+      @include rem-fallback(padding, 0.75, 1.5);
+      background-color: lighten($n5, 85%);
+      color: $n2;
+      border: solid $n2;
+      border-width: 0 0 2px 0;
+      @include border-radius();
+      margin: 2px;
+      @include single-transition(all, 0.15s, ease-out);
+
+      @include max-screen($screen-xs-max){
+        @include rem-fallback(font-size, 0.85);
+        //font-size:0.85em;
+      };
+
+      &:hover,
+      &:focus{
+        background-color: $n2;
+        color: #fff;
+        @include single-transition(all, 0.15s, ease-in);
+        //transition: all 0.15s ease-in;
+      }
+
+      &.glyphicon{
+        font-size:0.95em;
+        padding:1.1em 1.25em;
+        margin-top:1px;
+        @include border-radius();
+        @include max-screen($screen-xs-max){
+          @include rem-fallback(font-size, 0.75);
+        };
+
+        &.glyphicon-chevron-right{
+          border-width: 0 4px 0 0;
+        }
+
+        &.glyphicon-chevron-left{
+          border-width: 0 0 0 4px;
+        }
+
+      }
+    }
+  }
+}
+
+
+
+/** Fin estilos contenido general **/
+
+
+/** Footer **/
+footer{
+  background-color: lighten($n5, 65%);
+  //background-color: $n5;
+  border-top: solid $n2 8px;
+  //border-color:lighten($n5, 65%);
+  //outline: solid $n1;
+  //outline-width: 4px;
+  @extend %grid;
+  @include rem-fallback(padding, 3, 2);
+  @include rem-fallback(margin-top, 3);
+  position:relative;
+  //@extend .clearfix;
+  overflow:hidden;
+  //font-size:10px;
+
+  &:before{
+    content:" ";
+    position:absolute;
+    top:0;
+    left:0;
+    //right:0;
+    width:100%;
+    display:block;
+    border-top: solid $n1 8px;
+    //border-color:lighten($n5, 35%);
+  }
+
+  &:after{
+    content:" ";
+    position:absolute;
+    top:8px;
+    left:0;
+    //right:0;
+    width:100%;
+    //float:none;
+    //clear:both;
+    display:block;
+    border-top: solid $n5 8px;
+  }
+
+  ul li{
+    @include rem-fallback(font-size, 1);
+    line-height: 1.5;
+  }
+
+  &>div{
+    @extend %grid-cell;
+
+    &.col-md-3{
+      width: (100%/12)*3.5;
+
+      @include max-screen($screen-md-max){
+        width: (100%/12)*6;
+        text-align:left;
+      }
+    }
+    &.col-md-2{
+      width: (100%/12)*1.7;
+
+      @include max-screen($screen-md-max){
+        width: (100%/12)*3;
+        text-align:left;
+      }
+    }
+    &.col-md-5{
+      width: (100%/12)*5;
+
+      @include max-screen($screen-md-max){
+        width: (100%/12)*10;
+        text-align:left;
+      }
+    }
+
+  }
+
+  span.glyphicon{
+    //margin-right: 0.5em;
+    @include rem-fallback(margin-right, 0.5);
+  }
+
+  .data-empresa{
+    li{
+      @include rem-fallback(margin-bottom, 0.75);
+      //margin-bottom:0.75em;
+      color: $n5;
+
+      a{
+        @include rem-fallback(font-size, 0.9);
+        //font-size:0.9em;
+        font-weight: 700;
+        color: $n5;
+
+        &:hover{
+          color: $n2;
+          text-decoration: none;
+        }
+      }
+
+      span.glyphicon{
+        color:$n2;
+      }
+
+
+    }
+  }
+
+  .propiedades{
+    text-align: left;
+
+    h3{
+      color:$n2;
+      border-bottom: solid $n1 2px;
+      @include rem-fallback(margin, 2, 0);
+    }
+
+    li{
+      @include rem-fallback(margin-bottom, 0.7);
+    }
+
+    a{
+      color:$n1;
+
+      @include rem-fallback(font-size, 0.9);
+      //@include rem-fallback(margin-left, 0.5);
+
+
+      span.glyphicon{
+        @include rem-fallback(font-size, 0.7);
+        color:$n2;
+      }
+
+      &:hover{
+        color: $n2;
+        text-decoration: none;
+      }
+    }
+
+  }
+  .data-desarrollo{
+    text-align: right;
+    @include rem-fallback(margin-top, 2.6);
+
+
+    ul{
+      border-bottom: 2px solid $n2;
+      //padding-bottom: 1em;
+      width:100%;
+      display:block;
+
+      li a{
+        @include rem-fallback(font-size, 0.9);
+        font-weight: 700;
+        color: $n1;
+
+        &:hover{
+          text-decoration: none;
+          color: $n2;
+        }
+      }
+    }
+
+    .desarrollo{
+      @include rem-fallback(margin-top, 3);
+
+    }
+  }
+}
+
+
+
+

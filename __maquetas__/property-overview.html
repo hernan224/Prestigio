@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+
+        <link rel="stylesheet" href="css/estilo.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+
+        <div class="contenedor">
+
+            <header class="cabecera--sitio row">
+
+                <div class="fondo"></div>
+
+                <div class="contenedor--logo col-md-4 col-sm-6 col-xs-12">
+                    <a href="#" class="logo grande">Prestigio Servicios Inmobiliarios</a>
+                </div> <!--Fin .contenedor--logo-->
+
+                <div class=" contenedor--nav-secundaria col-md-7 col-md-offset-1 col-sm-6 col-xs-12">
+
+                    <nav class="navbar navbar-secundaria hidden-sm hidden-xs" role="navigation">
+                        <ul class="nav nav-justified ">
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">La empresa</a></li>
+                            <li><a href="#">Servicios</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </nav><!--Fin .nav-secundaria-->
+
+                    <nav class="dropdown visible-sm visible-xs navbar-secundaria menu-smart">
+                        <a class="dropdown-toggle btn" data-toggle="dropdown" data-target="drop-menu-smart" href="#">Menu <span class="glyphicon glyphicon-chevron-down"></span></a>
+                        <ul id="drop-menu-smart" class="dropdown-menu" role="menu" aria-labelledby="drop-menu-smart">
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">La empresa</a></li>
+                            <li><a href="#">Servicios</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </nav><!--Fin .nav-secundaria .menu-smart-->
+
+                </div> <!--Fin .contenedor--nav-secundaria-->
+
+            </header> <!--Fin Header .cabecera--sitio-->
+
+
+            <nav class="navbar navbar-principal" role="navigation">
+                <ul class="nav nav-pills ">
+
+                    <li class="dropdown"> <!--Dropdown Ventas-->
+
+                        <a class="dropdown-toggle btn-principal" data-toggle="dropdown" href="drop-venta">Venta <span class="glyphicon glyphicon-chevron-down"></span></a> <!--Botón-->
+
+                        <ul id="drop-venta" class="dropdown-menu" role="menu" aria-labelledby="drop-venta">
+
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Casas</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Departamentos</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Locales</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Oficinas</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Terrenos</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Galpones</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Campos</a></li>
+
+                            <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Otros</a></li>-->
+                        </ul>
+
+                    </li> <!--Fin dropdown Ventas-->
+
+
+                    <li class="dropdown"><!--Dropdown Alquiler-->
+
+                        <a  class="dropdown-toggle btn-principal" data-toggle="dropdown" data-target="drop-alquiler" href="#">Alquiler <span class="glyphicon glyphicon-chevron-down"></span></a> <!--Botón-->
+
+                        <ul id="drop-alquiler" class="dropdown-menu drop-alquiler" role="menu" aria-labelledby="drop-alquiler">
+
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Casas</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Departamentos</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Locales</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Oficinas</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Terrenos</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Galpones</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Campos</a></li>
+
+                        </ul>
+
+                    </li> <!--Fin dropdown Alquiler-->
+
+
+                    <li class="dropdown"> <!--Dropdown Busqueda-->
+
+                        <a  class="dropdown-toggle btn-principal" data-toggle="dropdown" data-target="drop-busqueda" href="#">Buscar <span class="glyphicon glyphicon-search"></span></a> <!--Botón-->
+
+                        <div id="drop-busqueda" class="dropdown-menu drop-busqueda" aria-labelledby="drop-busqueda">
+
+                            <form action="#" role="search">
+
+                                <div class="form-group">
+
+                                    <label class="sr-only" for="busqueda">Buscar:</label>
+                                    <input class="form-control" type="text" name="busqueda" id="busqueda" placeholder="Busqueda" />
+
+                                </div> <!--Fin contenedor campo de busqueda general-->
+
+                                <legend>Avanzada</legend>
+
+                                <div class="form-group">
+
+                                    <label class="sr-only" for="select-propiedades">Select Dropdown Choice:</label>
+                                    <select class="form-control" name="select-propiedades" id="select-choice">
+
+                                        <option value="todas">Todas</option>
+                                        <option value="Casas">Casas</option>
+                                        <option value="Departamentos">Departamentos</option>
+                                        <option value="Departamentos">Locales</option>
+                                        <option value="Departamentos">Terrenos</option>
+                                        <option value="Departamentos">Campos</option>
+                                        <option value="Departamentos">Galpones</option>
+                                    </select>
+
+
+                                </div><!--Fin contenedor select de busqueda por propiedad-->
+
+                                <div class="form-goup">
+
+                                    <label  for="checkbox_alquiler">Alquiler:</label>
+                                    <input type="checkbox" name="checkbox_alquiler" id="checkbox_alquiler" />
+
+                                    <label  for="checkbox_venta">Venta:</label>
+                                    <input type="checkbox" name="checkbox_venta" id="checkbox_venta" />
+
+                                    <input class="btn btn-primary" type="submit" value="Buscar" />
+
+                                </div> <!--Fin contenedor checkboxes operación-->
+
+                            </form> <!--Fin formulario de busqueda-->
+                        </div><!--Fin contenedor formulario #drop-busqueda-->
+                    </li> <!--Fin dropdown Búsqueda-->
+
+                </ul>
+
+            </nav> <!--Fin nav navbar-principal-->
+            <!---------Fin Header y menues ------->
+
+
+            <!--------- Inicio contenido ------->
+
+            <!--Contenido principal-->
+
+            <div class="contenido-principal">
+
+
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">En Venta</a></li>
+                    <li class="active">Casas</li>
+                </ol> <!--Fin breadcrumb-->
+
+                <div class="page-header">
+                    <h1>Casas en Venta</h1>
+                </div> <!---Fin page-header--->
+
+
+                <div class="row contenedor_prop">
+
+
+                    <div class="bloque_prop prop_destacada col-md-8">
+                        <span class="tipo-propiedad label hidden-xs">Destacado</span> <!--Fin tipo propiedad label-->
+                        <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/1024/440/city/1" alt="" />
+                            <span class="descripcion">
+                              <h3>Lorem ipsum dolor sit.</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                            </span> <!--Fin descripcion-->
+                        </a> <!--Fin prop_thumb-->
+                    </div> <!--Fin bloque_prop prop_destacada-->
+
+
+                    <div class="bloque_prop col-md-4">
+                        <a class="tipo-propiedad btn hidden-xs" href="#">Casa</a> <!--Fin tipo propiedad btn-->
+                        <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/2" alt="" />
+                            <span class="descripcion">
+                              <h3>Lorem ipsum dolor sit.</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                            </span><!--Fin descripcion-->
+                        </a><!--Fin prop_thumb-->
+                    </div><!--Fin bloque_prop prop_normal-->
+
+
+                    <div class="bloque_prop col-md-4">
+                        <a class="tipo-propiedad btn hidden-xs" href="#">Casa</a> <!--Fin tipo propiedad btn-->
+                        <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/2" alt="" />
+                            <span class="descripcion">
+                              <h3>Lorem ipsum dolor sit.</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                            </span><!--Fin descripcion-->
+                        </a><!--Fin prop_thumb-->
+                    </div><!--Fin bloque_prop prop_normal-->
+
+
+                    <div class="bloque_prop col-md-4">
+                        <a class="tipo-propiedad btn hidden-xs" href="#">Casa</a> <!--Fin tipo propiedad btn-->
+                        <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/2" alt="" />
+                            <span class="descripcion">
+                              <h3>Lorem ipsum dolor sit.</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                            </span><!--Fin descripcion-->
+                        </a><!--Fin prop_thumb-->
+                    </div><!--Fin bloque_prop prop_normal-->
+
+
+                    <div class="bloque_prop col-md-4">
+                        <a class="tipo-propiedad btn hidden-xs" href="#">Casa</a> <!--Fin tipo propiedad btn-->
+                        <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/2" alt="" />
+                            <span class="descripcion">
+                              <h3>Lorem ipsum dolor sit.</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                            </span><!--Fin descripcion-->
+                        </a><!--Fin prop_thumb-->
+                    </div><!--Fin bloque_prop prop_normal-->
+
+
+                    <div class="bloque_prop col-md-4">
+                        <a class="tipo-propiedad btn hidden-xs" href="#">Casa</a> <!--Fin tipo propiedad btn-->
+                        <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/2" alt="" />
+                            <span class="descripcion">
+                              <h3>Lorem ipsum dolor sit.</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                            </span><!--Fin descripcion-->
+                        </a><!--Fin prop_thumb-->
+                    </div><!--Fin bloque_prop prop_normal-->
+
+
+                    <div class="bloque_prop col-md-4">
+                        <a class="tipo-propiedad btn hidden-xs" href="#">Casa</a> <!--Fin tipo propiedad btn-->
+                        <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/2" alt="" />
+                            <span class="descripcion">
+                              <h3>Lorem ipsum dolor sit.</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                            </span><!--Fin descripcion-->
+                        </a><!--Fin prop_thumb-->
+                    </div><!--Fin bloque_prop prop_normal-->
+
+
+                    <div class="bloque_prop col-md-4">
+                        <a class="tipo-propiedad btn hidden-xs" href="#">Casa</a> <!--Fin tipo propiedad btn-->
+                        <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/2" alt="" />
+                            <span class="descripcion">
+                              <h3>Lorem ipsum dolor sit.</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                            </span><!--Fin descripcion-->
+                        </a><!--Fin prop_thumb-->
+                    </div><!--Fin bloque_prop prop_normal-->
+
+
+                    <div class="bloque_prop col-md-4">
+                        <a class="tipo-propiedad btn hidden-xs" href="#">Casa</a> <!--Fin tipo propiedad btn-->
+                        <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/2" alt="" />
+                            <span class="descripcion">
+                              <h3>Lorem ipsum dolor sit.</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                            </span><!--Fin descripcion-->
+                        </a><!--Fin prop_thumb-->
+                    </div><!--Fin bloque_prop prop_normal-->
+
+
+                    <div class="bloque_prop col-md-4">
+                        <a class="tipo-propiedad btn hidden-xs" href="#">Casa</a> <!--Fin tipo propiedad btn-->
+                        <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/2" alt="" />
+                            <span class="descripcion">
+                              <h3>Lorem ipsum dolor sit.</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                            </span><!--Fin descripcion-->
+                        </a><!--Fin prop_thumb-->
+                    </div><!--Fin bloque_prop prop_normal-->
+
+
+                    <div class="bloque_prop col-md-4">
+                        <a class="tipo-propiedad btn hidden-xs" href="#">Casa</a> <!--Fin tipo propiedad btn-->
+                        <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/2" alt="" />
+                            <span class="descripcion">
+                              <h3>Lorem ipsum dolor sit.</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                            </span><!--Fin descripcion-->
+                        </a><!--Fin prop_thumb-->
+                    </div><!--Fin bloque_prop prop_normal-->
+
+                </div> <!--Fin contenedor propiedades-->
+
+
+                <!--Paginación-->
+                <div class="col-md-12 pag-contenedor">
+                    <ul class="pagination pagination-lg">
+                        <li class="disabled"><a class="glyphicon glyphicon-chevron-left" href="#"></a></li>
+                        <li class="active"><a  href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a class="glyphicon glyphicon-chevron-right" href="#"></a></li>
+                    </ul>
+                </div><!--Fin paginacion-->
+
+
+
+            </div> <!--Fin contenido principal-->
+
+
+            <footer class="row">
+
+                <div class="col-md-3  data-empresa">
+                    <ul class="list-unstyled">
+                        <li><a class="logo chico" href="#">Prestigio Negocios inmobiliarios</a></li>
+                        <li><span class="glyphicon glyphicon-map-marker"></span> Rodriguez 315 - Bahía Blanca </li>
+                        <li><span class="glyphicon glyphicon-phone-alt"></span>(0291) 454-8845 / 452-5289</li>
+                        <li><span class="glyphicon glyphicon-envelope"></span><a href="#">info@prestigio.com.ar</a></li>
+                        <!--<li>Redes sociales</li>-->
+                        <li><span class="glyphicon glyphicon-qrcode"></span><a href="#">Data Fiscal</a></li>
+                    </ul>
+                </div> <!--Fin data-empresa-->
+
+                <div class="col-md-2  hidden-xs propiedades venta">
+                    <h3>Venta</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Casas</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Departamentos</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Locales</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Oficinas</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Terrenos</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Galpones</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Campos</a></li>
+                    </ul>
+                </div> <!--Fin propiedades venta-->
+
+                <div class="col-md-2  hidden-xs propiedades alquiler">
+                    <h3>Alquiler</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Casas</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Departamentos</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Locales</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Oficinas</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Terrenos</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Galpones</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Campos</a></li>
+                    </ul>
+                </div><!--Fin propiedades alquiler-->
+
+                <div class="col-md-5  data-desarrollo">
+                    <ul class="list-inline">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">La empresa</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Tasación</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                    <p class="desarrollo">Desarrollado por <a href="#">Imotion Consulting</a></p>
+                    <p class="copyright">2013 todos los derechos resevados</p>
+                </div><!--Fin data-desarrollo-->
+
+            </footer> <!--Fin footer-->
+
+        </div> <!--Fin contenedor general-->
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/script.js"></script>
+
+    </body>
+</html>
