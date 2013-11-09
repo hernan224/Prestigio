@@ -9,8 +9,14 @@
 
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
 
-
+        <!--Hoja de estilo principal-->
         <link rel="stylesheet" href="css/estilo.css">
+
+        <!--Hojas de estilo para el slider-->
+        <link rel="stylesheet" href="js/owl-carousel/owl.carousel.css"/>
+        <link rel="stylesheet" href="js/owl-carousel/owl.theme.css"/>
+
+
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -155,16 +161,223 @@
 
             <div class="contenido-principal">
 
-
-                <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">En Venta</a></li>
-                    <li class="active">Casas</li>
-                </ol> <!--Fin breadcrumb-->
-
+                <br/>
                 <div class="page-header">
-                    <h1>Casas en Venta</h1>
+                    <h1>Bienvenido a Prestigio Negocios Inmobiliarios</h1>
                 </div> <!---Fin page-header--->
+
+
+                <!--Slider principal propiedades destacada-->
+
+                <h2>Propiedades destacadas</h2>
+
+                <div id="carousel-propiedades-destacadas" class="owl-carousel owl-theme">
+
+                    <div class="item active">
+                        <a class="tipo-propiedad btn hidden-xs" href="#">Casa en Venta</a>
+                        <img src="http://lorempixel.com/1200/470/city/9" alt="Propiedad 1">
+                        <div class="carousel-caption">
+                            <a href="#"><h3>Lorem ipsum dolor sit amet.</h3></a>
+                        </div>
+                    </div><!--Fin Item slider-->
+
+                    <div class="item"><a href="#">
+                        <a class="tipo-propiedad btn hidden-xs" href="#">Casa en Alquiler</a>
+                        <img src="http://lorempixel.com/1200/470/city/2" alt="Propiedad 1">
+                        <div class="carousel-caption">
+                            <a href="#"><h3>Lorem ipsum dolor sit amet.</h3></a>
+                        </div>
+                    </a></div><!--Fin Item slider-->
+
+                    <div class="item"><a href="#">
+                        <a class="tipo-propiedad hidden-xs" href="#">Departamento en Venta</a>
+                        <img src="http://lorempixel.com/1200/470/city/3" alt="Propiedad 1">
+                        <div class="carousel-caption">
+                            <a href="#"><h3>Lorem ipsum dolor sit amet.</h3></a>
+                        </div>
+                    </a></div><!--Fin Item slider-->
+
+                    <div class="item"><a href="#">
+                        <a class="tipo-propiedad hidden-xs" href="#">Departamento en Alquiler</a>
+                        <img src="http://lorempixel.com/1200/470/city/4" alt="Propiedad 1">
+                        <div class="carousel-caption">
+                            <a href="#"><h3>Lorem ipsum dolor sit amet.</h3></a>
+                        </div>
+                    </a></div><!--Fin Item slider-->
+
+                    <div class="item"><a href="#">
+                        <a class="tipo-propiedad hidden-xs" href="#">Local en Venta</a>
+                        <img src="http://lorempixel.com/1200/470/city/5" alt="Propiedad 1">
+                        <div class="carousel-caption">
+                            <a href="#"><h3>Lorem ipsum dolor sit amet.</h3></a>
+                        </div>
+                    </a></div> <!--Fin Item slider-->
+
+               </div><!--Fin Slider principal propiedades destacada-->
+
+                <!--Carrusel propiedades en venta-->
+                <br />
+
+                <div class="bloque-propiedades venta row">
+
+                    <header class="bloque clearfix">
+                        <span class="control">
+                            <a href="#" class="glyphicon glyphicon-chevron-left venta-prev"></a>
+                            <a href="#" class="glyphicon glyphicon-chevron-right venta-next"></a>
+                        </span>
+                        <h2><a href="#">Propiedades en Venta</a></h2>
+                    </header>
+
+                    <div id="carrusel-venta" class="well carrusel_home">
+                        <div class="item prop-rec">
+                            <a class="tipo-propiedad btn" href="#">Casa<span class="ribon-up"></span><span class="ribon-down"></span></a>
+                            <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/2" alt="" />
+                                <span class="descripcion">
+                                  <h3>Lorem ipsum dolor sit.</h3>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                </span>
+                            </a>
+                        </div> <!--Fin item carrusel venta-->
+
+                        <div class="item prop-rec">
+                            <a class="tipo-propiedad btn" href="#">Casa <span class="ribon-up"></span><span class="ribon-down"></span></a>
+                            <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/3" alt="" />
+                                <span class="descripcion">
+                                  <h3>Lorem ipsum dolor sit.</h3>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                </span>
+                            </a>
+                        </div> <!--Fin item carrusel venta-->
+
+                        <div class="item prop-rec">
+                            <a class="tipo-propiedad btn" href="#">Casa<span class="ribon-up"></span><span class="ribon-down"></span></a>
+                            <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/4" alt="" />
+                                <span class="descripcion">
+                                  <h3>Lorem ipsum dolor sit.</h3>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                </span>
+                            </a>
+                        </div> <!--Fin item carrusel venta-->
+
+                        <div class="item prop-rec">
+                            <a class="tipo-propiedad btn" href="#">Casa<span class="ribon-up"></span><span class="ribon-down"></span></a>
+                            <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/4" alt="" />
+                                <span class="descripcion">
+                                  <h3>Lorem ipsum dolor sit.</h3>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                </span>
+                            </a>
+                        </div> <!--Fin item carrusel venta-->
+
+                        <div class="item prop-rec">
+                            <a class="tipo-propiedad btn" href="#">Casa<span class="ribon-up"></span><span class="ribon-down"></span></a>
+                            <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/4" alt="" />
+                                <span class="descripcion">
+                                  <h3>Lorem ipsum dolor sit.</h3>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                </span>
+                            </a>
+                        </div> <!--Fin item carrusel venta-->
+
+                    </div><!--- Fin carrusel ventas --->
+
+                </div>  <!--Fin Bloque carrusel venta-->
+
+
+                <br />
+
+                <div class="bloque-propiedades alquiler row">
+
+                    <header class="bloque clearfix">
+                        <span class="control pull-right"><a href="#" class="glyphicon glyphicon-chevron-left alquiler-prev"></a><a href="#" class="glyphicon glyphicon-chevron-right alquiler-next"></a></span>
+                        <h2><a href="#">Propiedades en Alquiler</a></h2>
+                    </header>
+
+                    <div id="carrusel-alquiler" class="well carrusel_home">
+
+                        <div class="item prop-rec">
+                            <a class="tipo-propiedad btn" href="#">Casa<span class="ribon-up"></span><span class="ribon-down"></span></a>
+                            <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/2" alt="" />
+                                <span class="descripcion">
+                                  <h3>Lorem ipsum dolor sit.</h3>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                </span>
+                            </a>
+                        </div> <!--Fin item carrusel alquiler-->
+
+                        <div class="item prop-rec">
+                            <a class="tipo-propiedad btn" href="#">Casa <span class="ribon-up"></span><span class="ribon-down"></span></a>
+                            <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/3" alt="" />
+                                <span class="descripcion">
+                                  <h3>Lorem ipsum dolor sit.</h3>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                </span>
+                            </a>
+                        </div> <!--Fin item carrusel alquiler-->
+
+                        <div class="item prop-rec">
+                            <a class="tipo-propiedad btn" href="#">Casa<span class="ribon-up"></span><span class="ribon-down"></span></a>
+                            <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/4" alt="" />
+                                <span class="descripcion">
+                                  <h3>Lorem ipsum dolor sit.</h3>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                </span>
+                            </a>
+                        </div> <!--Fin item carrusel alquiler-->
+
+                        <div class="item prop-rec">
+                            <a class="tipo-propiedad btn" href="#">Casa<span class="ribon-up"></span><span class="ribon-down"></span></a>
+                            <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/4" alt="" />
+                                <span class="descripcion">
+                                  <h3>Lorem ipsum dolor sit.</h3>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                </span>
+                            </a>
+                        </div> <!--Fin item carrusel alquiler-->
+
+                        <div class="item prop-rec">
+                            <a class="tipo-propiedad btn" href="#">Casa<span class="ribon-up"></span><span class="ribon-down"></span></a>
+                            <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/4" alt="" />
+                                <span class="descripcion">
+                                  <h3>Lorem ipsum dolor sit.</h3>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                </span>
+                            </a>
+                        </div> <!--Fin item carrusel alquiler-->
+
+                    </div><!--- Fin carrusel alquiler --->
+
+                </div>  <!--Fin Bloque carrusel alquiler-->
+
+
+                <!--Botones Secciones-->
+                <div class="row btn-secciones">
+
+                    <a href="#" class="btn-seccion col-md-3">
+                        <header>
+                            <h2>La empresa</h2>
+                            <div class="fondo bg-1"></div>
+                        </header>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis unde totam possimus.</p>
+                    </a>
+
+                    <a href="#" class="btn-seccion col-md-3">
+                        <header>
+                            <h2>Servicios</h2>
+                            <div class="fondo bg-2"></div>
+                        </header>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis unde totam possimus.</p>
+                    </a>
+
+                    <a href="#" class="btn-seccion col-md-3">
+                        <header>
+                            <h2>Contacto</h2>
+                            <div class="fondo bg-3"></div>
+                        </header>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis unde totam possimus.</p>
+                    </a>
+
+                </div> <!--Fin botones secciones-->
 
 
 
@@ -229,8 +442,12 @@
 
 
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+        <!--JS para el carrusel-->
+        <script src="js/owl-carousel/owl.carousel.min.js"></script>
+
         <script src="js/plugins.js"></script>
         <script src="js/script.js"></script>
 

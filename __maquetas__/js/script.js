@@ -1,5 +1,71 @@
 jQuery(document).ready(function() {
 
+/** Scripts Home **/
+  /** Slider propiedades detacadas **/
+
+    jQuery("#carousel-propiedades-destacadas").owlCarousel({
+        autoPlay: 3500,
+        navigation : false, // Show next and prev buttons
+        slideSpeed : 900,
+        paginationSpeed : 650,
+        stopOnHover:true,
+        singleItem:true
+
+    });
+
+
+  /** Carrusel propiedades en venta **/
+    var $carrusel_venta = jQuery("#carrusel-venta");
+    $carrusel_venta.owlCarousel({
+
+        autoPlay: false, //Set AutoPlay to 3 seconds
+
+        items : 3,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,2],
+        itemsTablet: [767,1], //2 items between 600 and 0
+        itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
+
+    });
+    /** Botones **/
+    jQuery(".venta-next").click(function(event){
+        event.preventDefault();
+        $carrusel_venta.trigger('owl.next');
+    })
+    jQuery(".venta-prev").click(function(event){
+        event.preventDefault();
+        $carrusel_venta.trigger('owl.prev');
+    })
+
+
+  /** Carrusel propiedades en venta **/
+    var $carrusel_alquiler = jQuery("#carrusel-alquiler");
+    $carrusel_alquiler.owlCarousel({
+
+        autoPlay: false, //Set AutoPlay to 3 seconds
+
+        items : 3,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [990,2],
+        itemsTablet: [768,1], //2 items between 600 and 0
+        itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
+
+    });
+    /** Botones **/
+    jQuery(".alquiler-next").click(function(event){
+        event.preventDefault();
+        $carrusel_alquiler.trigger('owl.next');
+    })
+    jQuery(".alquiler-prev").click(function(event){
+        event.preventDefault();
+        $carrusel_alquiler.trigger('owl.prev');
+    })
+
+
+
+
+
+    /** Scrips propiedad individual **/
     /** Silder galería propiedad individual **/
     jQuery("#galeria-propiedad").owlCarousel({
         singleItem : true,

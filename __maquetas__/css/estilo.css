@@ -3275,6 +3275,25 @@ button.close {
   border: 0;
   -webkit-appearance: none; }
 
+.carousel-caption {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
+  .carousel-caption .btn {
+    text-shadow: none; }
+
+@media screen and (min-width: 768px) {
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px; } }
 .clearfix:before, .clearfix:after {
   content: " ";
   /* 1 */
@@ -3748,19 +3767,19 @@ td.visible-print {
   th.hidden-print,
   td.hidden-print {
     display: none !important; } }
-nav.navbar-principal > ul, .contenedor_prop, footer {
+nav.navbar-principal > ul, .contenedor_prop, .btn-secciones, footer {
   text-align: justify !important;
   text-justify: distribute-all-lines;
   font-size: 0 !important; }
-  nav.navbar-principal > ul > *, .contenedor_prop > *, footer > * {
+  nav.navbar-principal > ul > *, .contenedor_prop > *, .btn-secciones > *, footer > * {
     text-align: left;
     font-size: medium; }
-  nav.navbar-principal > ul:after, .contenedor_prop:after, footer:after {
+  nav.navbar-principal > ul:after, .contenedor_prop:after, .btn-secciones:after, footer:after {
     content: '';
     display: inline-block;
     width: 100%; }
 
-nav.navbar-principal > ul > li, .contenedor_prop .bloque_prop, footer > div {
+nav.navbar-principal > ul > li, .contenedor_prop .bloque_prop, .btn-secciones .btn-seccion, footer > div {
   vertical-align: top;
   display: inline-block;
   width: 100%; }
@@ -4294,7 +4313,7 @@ nav .dropdown-menu li a {
   position: absolute;
   display: block;
   top: 2em;
-  right: 15px;
+  right: 0;
   padding: 0.5em 2.5em 0.5em 1.25em;
   color: #fff;
   z-index: 100;
@@ -4310,6 +4329,7 @@ nav .dropdown-menu li a {
   -moz-transition: all 0.15s ease-out;
   -o-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
+  font-size: 12px;
   font-weight: 700; }
   .tipo-propiedad:before {
     content: " ";
@@ -4374,91 +4394,93 @@ nav .dropdown-menu li a {
       transition: all 0.15s ease-in; }
 
 /** Bloques de propiedades **/
-.contenedor_prop .bloque_prop {
-  float: none;
-  position: relative;
-  border: 0; }
-  @media screen and (max-width: 767px) {
-    .contenedor_prop .bloque_prop {
-      max-width: 430px;
-      margin: 0 auto;
-      display: block; } }
-  .contenedor_prop .bloque_prop.col-md-4 {
-    width: 99.9%; }
-    @media screen and (min-width: 768px) {
-      .contenedor_prop .bloque_prop.col-md-4 {
-        width: 49.9%; } }
-    @media screen and (min-width: 992px) {
-      .contenedor_prop .bloque_prop.col-md-4 {
-        width: 33.3%; } }
-  .contenedor_prop .bloque_prop.col-md-8 {
-    width: 99.9%; }
-    @media screen and (min-width: 768px) {
-      .contenedor_prop .bloque_prop.col-md-8 {
-        width: 99.9%; } }
-    @media screen and (min-width: 992px) {
-      .contenedor_prop .bloque_prop.col-md-8 {
-        width: 66.6%; } }
-
-/** Propiedad destacada **/
-.prop_destacada .prop_thumb {
-  max-width: 100%; }
-  @media screen and (max-width: 767px) {
-    .prop_destacada .prop_thumb {
-      max-width: 430px; } }
-.prop_destacada .descripcion {
-  width: 40%;
-  height: 100%;
-  padding-top: 3em;
-  left: auto;
-  right: 0;
-  border-width: 0 0 0 2px; }
-  @media screen and (max-width: 767px) {
-    .prop_destacada .descripcion {
+.contenedor_prop {
+  /** Propiedad destacada **/ }
+  .contenedor_prop .bloque_prop {
+    float: none;
+    position: relative;
+    border: 0; }
+    @media screen and (max-width: 767px) {
+      .contenedor_prop .bloque_prop {
+        max-width: 430px;
+        margin: 0 auto;
+        display: block; } }
+    .contenedor_prop .bloque_prop.col-md-4 {
+      width: 99.9%; }
+      @media screen and (min-width: 768px) {
+        .contenedor_prop .bloque_prop.col-md-4 {
+          width: 49.9%; } }
+      @media screen and (min-width: 992px) {
+        .contenedor_prop .bloque_prop.col-md-4 {
+          width: 33.3%; } }
+    .contenedor_prop .bloque_prop.col-md-8 {
+      width: 99.9%; }
+      @media screen and (min-width: 768px) {
+        .contenedor_prop .bloque_prop.col-md-8 {
+          width: 99.9%; } }
+      @media screen and (min-width: 992px) {
+        .contenedor_prop .bloque_prop.col-md-8 {
+          width: 66.6%; } }
+    .contenedor_prop .bloque_prop .tipo-propiedad {
+      right: 15px;
+      top: 3em; }
+  .contenedor_prop .prop_destacada .prop_thumb {
+    max-width: 100%; }
+    @media screen and (max-width: 767px) {
+      .contenedor_prop .prop_destacada .prop_thumb {
+        max-width: 430px; } }
+  .contenedor_prop .prop_destacada .descripcion {
+    width: 40%;
+    height: 100%;
+    padding-top: 3em;
+    left: auto;
+    right: 0;
+    border-width: 0 0 0 2px; }
+    @media screen and (max-width: 767px) {
+      .contenedor_prop .prop_destacada .descripcion {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: auto;
+        background-color: rgba(25, 76, 37, 0.9);
+        border-width: 2px 0 0 0;
+        padding-top: 0; } }
+    .contenedor_prop .prop_destacada .descripcion p {
+      margin: 1em 0 0 0;
+      text-decoration: none; }
+  .contenedor_prop .prop_destacada .tipo-propiedad {
+    left: 15px;
+    right: auto;
+    opacity: 1;
+    padding: 0.5em 1.25em 0.5em 2.5em; }
+    .contenedor_prop .prop_destacada .tipo-propiedad:before {
       display: block;
-      position: relative;
-      width: 100%;
-      height: auto;
-      background-color: rgba(25, 76, 37, 0.9);
-      border-width: 2px 0 0 0;
-      padding-top: 0; } }
-  .prop_destacada .descripcion p {
-    margin: 1em 0 0 0;
-    text-decoration: none; }
-.prop_destacada .tipo-propiedad {
-  left: 15px;
-  right: auto;
-  opacity: 1;
-  padding: 0.5em 1.25em 0.5em 2.5em;
-  font-size: 12px; }
-  .prop_destacada .tipo-propiedad:before {
-    display: block;
-    height: 0;
-    width: 0;
-    border-top: 1.25em solid #5652a3;
-    border-right: 1.25em solid transparent;
-    left: auto;
-    right: -1.25em; }
-  .prop_destacada .tipo-propiedad:after {
-    display: block;
-    height: 0;
-    width: 0;
-    border-bottom: 1.25em solid #5652a3;
-    border-right: 1.25em solid transparent;
-    left: auto;
-    right: -1.25em; }
-  .prop_destacada .tipo-propiedad:hover:before {
-    display: block;
-    height: 0;
-    width: 0;
-    border-top: 1.25em solid #7b75e8;
-    border-left: 1.25em solid transparent; }
-  .prop_destacada .tipo-propiedad:hover:after {
-    display: block;
-    height: 0;
-    width: 0;
-    border-bottom: 1.25em solid #7b75e8;
-    border-left: 1.25em solid transparent; }
+      height: 0;
+      width: 0;
+      border-top: 1.25em solid #5652a3;
+      border-right: 1.25em solid transparent;
+      left: auto;
+      right: -1.25em; }
+    .contenedor_prop .prop_destacada .tipo-propiedad:after {
+      display: block;
+      height: 0;
+      width: 0;
+      border-bottom: 1.25em solid #5652a3;
+      border-right: 1.25em solid transparent;
+      left: auto;
+      right: -1.25em; }
+    .contenedor_prop .prop_destacada .tipo-propiedad:hover:before {
+      display: block;
+      height: 0;
+      width: 0;
+      border-top: 1.25em solid #7b75e8;
+      border-left: 1.25em solid transparent; }
+    .contenedor_prop .prop_destacada .tipo-propiedad:hover:after {
+      display: block;
+      height: 0;
+      width: 0;
+      border-bottom: 1.25em solid #7b75e8;
+      border-left: 1.25em solid transparent; }
 
 /** Paginación **/
 .pagination {
@@ -4532,6 +4554,163 @@ nav .dropdown-menu li a {
         border-width: 0 0 0 4px; }
 
 /** Fin Property Overview **/
+/** Home page **/
+/* Slider propopiedades destacadas */
+.carousel-caption a h3 {
+  color: #fff;
+  background-color: rgba(25, 76, 37, 0.7);
+  border: solid #309147;
+  border-width: 0 0 2px;
+  -webkit-transition: background-color 0.15s ease-out;
+  -moz-transition: background-color 0.15s ease-out;
+  -o-transition: background-color 0.15s ease-out;
+  transition: background-color 0.15s ease-out; }
+.carousel-caption a:hover {
+  text-decoration: none; }
+  .carousel-caption a:hover h3 {
+    background-color: #309147;
+    -webkit-transition: background-color 0.15s ease-in;
+    -moz-transition: background-color 0.15s ease-in;
+    -o-transition: background-color 0.15s ease-in;
+    transition: background-color 0.15s ease-in; }
+
+/* Fin Slider */
+/* Carruseles */
+.prop-rec {
+  max-width: 420px;
+  position: relative;
+  border: 0;
+  display: block;
+  margin: 1.5 auto; }
+  @media screen and (max-width: 767px) {
+    .prop-rec {
+      margin: 1em auto !important; } }
+
+.well {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  background-color: #f0f2f0;
+  border-color: #194c25;
+  border-width: 4px 0; }
+
+.bloque-propiedades {
+  margin: 24px auto;
+  margin: 1.5rem auto; }
+  .bloque-propiedades header {
+    background-color: #b8c3bb; }
+    .bloque-propiedades header a {
+      color: #309147;
+      text-decoration: none;
+      -webkit-transition: all 0.15s ease-out;
+      -moz-transition: all 0.15s ease-out;
+      -o-transition: all 0.15s ease-out;
+      transition: all 0.15s ease-out; }
+      .bloque-propiedades header a:hover {
+        color: #194c25;
+        -webkit-transition: all 0.15s ease-in;
+        -moz-transition: all 0.15s ease-in;
+        -o-transition: all 0.15s ease-in;
+        transition: all 0.15s ease-in; }
+    .bloque-propiedades header .control {
+      display: inline-block;
+      float: right; }
+      .bloque-propiedades header .control a {
+        padding: 16px;
+        padding: 1rem;
+        background-color: #f0f2f0;
+        color: #309147;
+        margin: 16px;
+        margin: 1rem;
+        border: solid #309147; }
+        .bloque-propiedades header .control a.glyphicon-chevron-left {
+          border-width: 0 0 0 4px; }
+        .bloque-propiedades header .control a.glyphicon-chevron-right {
+          border-width: 0 4px 0 0; }
+        .bloque-propiedades header .control a:hover {
+          background-color: #309147;
+          color: #fff; }
+
+.carrusel_home {
+  padding: 24px;
+  padding: 1.5rem; }
+  .carrusel_home .item {
+    margin: 12px;
+    margin: 0.75rem; }
+
+/* Fin carruseles*/
+/*Botones secciones*/
+.btn-secciones {
+  margin: 48px auto;
+  margin: 3rem auto; }
+  .btn-secciones .btn-seccion {
+    position: relative;
+    width: 30.3%;
+    padding: 16px;
+    padding: 1rem;
+    margin: 1em 1.5%;
+    background-color: #39433c;
+    text-decoration: none;
+    color: #fff;
+    border: solid #309147;
+    border-width: 4px 0;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out; }
+    .btn-secciones .btn-seccion:hover {
+      text-decoration: none;
+      background-color: #2d362f;
+      -webkit-transition: all 0.15s ease-in;
+      -moz-transition: all 0.15s ease-in;
+      -o-transition: all 0.15s ease-in;
+      transition: all 0.15s ease-in; }
+      .btn-secciones .btn-seccion:hover h2 {
+        background-color: #309147;
+        -webkit-transition: all 0.25s ease-in;
+        -moz-transition: all 0.25s ease-in;
+        -o-transition: all 0.25s ease-in;
+        transition: all 0.25s ease-in; }
+    @media screen and (max-width: 767px) {
+      .btn-secciones .btn-seccion {
+        width: 95%;
+        max-width: 380px;
+        margin: 1em auto;
+        display: block; } }
+    .btn-secciones .btn-seccion header {
+      margin-bottom: 32px;
+      margin-bottom: 2rem;
+      display: block;
+      position: relative; }
+      .btn-secciones .btn-seccion header .fondo {
+        background: transparent no-repeat top center;
+        margin: -16px;
+        margin: -1rem;
+        z-index: 0; }
+        .btn-secciones .btn-seccion header .fondo.bg-1 {
+          background-image: url(http://hernanzubiri.com.ar/tecnophos/prestigio/banner-home-bg-1.jpg); }
+        .btn-secciones .btn-seccion header .fondo.bg-2 {
+          background-image: url(http://hernanzubiri.com.ar/tecnophos/prestigio/banner-home-bg-3.jpg); }
+        .btn-secciones .btn-seccion header .fondo.bg-3 {
+          background-image: url(http://hernanzubiri.com.ar/tecnophos/prestigio/banner-home-bg-4.jpg); }
+      .btn-secciones .btn-seccion header h2 {
+        color: #fff;
+        position: relative;
+        z-index: 100;
+        margin: auto -1.40em;
+        padding-left: 16px;
+        padding-left: 1rem;
+        background-color: rgba(25, 76, 37, 0.75);
+        border-bottom: 2px solid #309147;
+        -webkit-transition: all 0.15s ease-out;
+        -moz-transition: all 0.15s ease-out;
+        -o-transition: all 0.15s ease-out;
+        transition: all 0.15s ease-out; }
+
+/* Fin botones secciones*/
+/** Fin Home page **/
 /** Propiedad Single **/
 /*Slier*/
 /* Pagination a la izquierda */
@@ -4551,16 +4730,6 @@ nav .dropdown-menu li a {
 
 /* Fin slider*/
 /* Descripción de la propiedad */
-.well {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
-  background-color: #f0f2f0;
-  border-color: #194c25;
-  border-width: 4px 0; }
-
 .descripcion_individual {
   margin: 1em 0; }
 
@@ -4634,18 +4803,6 @@ aside.panel {
     padding: 1rem;
     border-bottom: 4px solid #194c25;
     background-color: #f0f2f0; }
-
-.prop-rec {
-  max-width: 420px;
-  position: relative;
-  border: 0;
-  display: block;
-  margin: 1.5 auto; }
-  @media screen and (max-width: 767px) {
-    .prop-rec {
-      margin: 1em auto !important; } }
-  .prop-rec .tipo-propiedad {
-    right: 0; }
 
 /* Fin barra lateral */
 /** Fin propiedad single **/
