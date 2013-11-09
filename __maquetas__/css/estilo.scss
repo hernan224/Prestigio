@@ -28,6 +28,9 @@ $n10:#DAE6DD;
 //
 
 $default-border-radius: 0;
+
+$default-box-shadow-color: transparent;
+$default-box-shadow-blur: 0;
 //---------------------------------
 
 
@@ -35,11 +38,9 @@ $default-border-radius: 0;
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,700italic,400,700|Roboto:400,700,400italic,700italic|Open+Sans:400italic,700italic,400,700);
 
 
-/***********************
- ***********************
- ******  ESTILOS  ******
- ***********************
- *************************/
+/************************************************
+*******************  ESTILOS  *******************
+************************************************/
 
 /** Generales **/
 
@@ -127,6 +128,11 @@ p a{
   }
 }
 
+img{
+  max-width: 100%;
+  height: auto;
+}
+
 
 .contenedor{
   background-color: #fff;
@@ -136,6 +142,73 @@ p a{
 
   @extend .container;
 }
+
+
+/** Formulario de contacto **/
+
+form{
+  margin:1.5em 0;
+
+  legend{
+    font-family: 'Roboto', sans-serif;
+    @include rem-fallback(font-size, 1.3125);
+    color: $n1;
+    border: solid $n2;
+    border-width: 0 0 4px 0;
+    @include rem-fallback(padding, 0.75, 0);
+    @include rem-fallback(margin-bottom, 1.5);
+  }
+
+  input{
+
+    @include rem-fallback(line-height, 3);
+    @include rem-fallback(height, 3);
+    @include border-radius();
+    background-color: lighten($n5, 65%);
+    color: $n5;
+    border: solid $n1;
+    border-width: 0 0 2px 0;
+
+
+    &.btn{
+      display:block;
+      @include rem-fallback(margin-top, 1);
+      @include rem-fallback(padding, 0.75, 3);
+      font-weight: 700;
+      border-radius:0 ;
+      background-color: $n2;
+      border: solid lighten($n5, 65%);
+      border-width: 0 0 2px 0;
+      @include single-transition(all, 0.15s, ease-in);
+      color:#fff;
+      &:hover{
+        background-color: lighten($n5, 65%);
+        color: $n5;
+        @include single-transition(all, 0.15s, ease-out);
+      }
+    }
+  }
+
+  textarea{
+    @include border-radius();
+    background-color: lighten($n5, 65%);
+    color: $n5;
+    border: solid $n1;
+    border-width: 0 0 2px 0;
+    @include rem-fallback(padding, 1.5);
+    @include rem-fallback(line-height, 1.5);
+
+  }
+
+  label{
+    color:$n1;
+  }
+
+  .form-group{
+    @include rem-fallback(margin, 1.5, 1);
+  }
+}
+
 
 /** Logos del header y el footer **/
 a.logo{
@@ -411,14 +484,26 @@ nav{
 /** Búsqueda dropdown **/
 
 .drop-busqueda{
+
+  @include min-screen($screen-sm){
+    left:auto;
+    right:0;
+  }
+
   form{
     //padding:1em;
     @include rem-fallback(padding, 1);
     width:300px;
+    margin: 0;
+
+    .form-group{
+      @include rem-fallback(margin, 0, 0, 0.75, 0);
+    }
 
     input[type=checkbox]{
       //margin-right: 1.5em;
       @include rem-fallback(margin-right, 1.5);
+      height: auto;
     }
 
     input[type=text], select, select option{
@@ -563,7 +648,7 @@ nav{
     border: 0 solid $n2;
     border-width:2px 0 0 0;
 
-    h3{
+    h3, h4{
       color:#fff;
       margin-top: 0;
       padding-top: 0;
@@ -759,6 +844,7 @@ nav{
     right:auto;
     opacity:1;
     padding: 0.5em 1.25em 0.5em 2.5em;
+    font-size: 12px;
 
     &:before{
       @include arrow(top-left, $n3, 1.25em);
@@ -780,8 +866,6 @@ nav{
   }
 
 }
-
-/** Fin Property Overview **/
 
 /** Paginación **/
 .pagination{
@@ -869,6 +953,151 @@ nav{
   }
 }
 
+/** Fin Property Overview **/
+
+
+/** Propiedad Single **/
+
+/*Slier*/
+/* Pagination a la izquierda */
+.owl-theme-propiedad .owl-controls{
+  overflow: hidden;
+
+  .owl-pagination{
+    float: left;
+
+    @include max-screen($screen-xs-max){
+      display: none;
+    }
+  }
+
+/* Botones a la derecha */
+  .owl-buttons{
+    float: right;
+
+    @include max-screen($screen-xs-max){
+      float: left;
+    }
+  }
+
+}
+/* Fin slider*/
+
+
+/* Descripción de la propiedad */
+
+.well{
+  @include border-radius();
+  background-color: lighten($n5, 85%);
+  border-color:$n1;
+  border-width:  4px 0;
+  //border-top-color: $n2;
+  //border-bottom-color: $n1;
+}
+
+.descripcion_individual{
+  margin: 1em 0;
+}
+
+.botones{
+
+  li{
+    margin-bottom: 1rem;
+
+    a{
+      padding:1em;
+      background-color: lighten($n5, 85%);
+      color: $n2;
+      border: solid $n2;
+      border-width: 0 4px 0 0;
+      @include border-radius();
+      @include single-transition(all, 0.15s, ease-out);
+
+      &:hover{
+        background-color: $n2;
+        color: #fff;
+        @include single-transition(all, 0.15s, ease-in);
+        border-color:$n2;
+      }
+    }
+  }
+
+  .hidden-xs>li{
+    @include rem-fallback(margin, 1, 0);
+  }
+}
+.data-propiedad{
+  border-bottom:2px solid lighten($n5, 65%);
+  @include rem-fallback(padding-bottom, 0.5);
+  @include rem-fallback(margin-bottom, 1.5);
+
+  dl{
+    dt{
+      width:auto;
+      text-align:left;
+      color:$n2;
+    }
+
+    dd{
+      //margin-left: 110px;
+      @include rem-fallback(margin, 0, 0, 0.5, 1);
+
+      //@include max-screen($screen-xs-max){
+
+      //  @include rem-fallback(margin, 0, 0, 1, 1);
+
+      //};
+    }
+  }
+}
+/* Fin descripción propiedad */
+
+
+/* Barra lateral */
+
+aside.panel{
+  border:0;
+  @include border-radius();
+  @include single-box-shadow();
+
+  .panel-heading{
+    @include border-radius();
+    background-color: lighten($n5, 65%);
+    border-bottom:4px solid $n1;
+
+    h3{
+      color: $n2;
+    }
+  }
+
+  .panel-body{
+    @include rem-fallback(padding, 1);
+    border-bottom:4px solid $n1;
+    background-color: lighten($n5, 85%);
+  }
+}
+
+.prop-rec{
+  max-width:420px ;
+  position:relative;
+  border:0;
+  display: block;
+  margin: 1.5 auto;
+
+  @include max-screen($screen-xs-max){
+    margin:1em auto !important;
+  }
+
+  .tipo-propiedad{
+    right: 0;
+
+  }
+}
+
+/* Fin barra lateral */
+
+
+/** Fin propiedad single **/
 
 
 /** Fin estilos contenido general **/

@@ -9,8 +9,16 @@
 
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
 
-
+        <!--Hoja de estilo principal-->
         <link rel="stylesheet" href="css/estilo.css">
+
+        <!--Hojas de estilo para el slider-->
+        <link rel="stylesheet" href="js/owl-carousel/owl.carousel.css"/>
+        <link rel="stylesheet" href="js/owl-carousel/owl.theme.css"/>
+
+        <!--Hoja de estilo Fancybox-->
+        <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css"/>
+
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -159,13 +167,186 @@
                 <ol class="breadcrumb">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">En Venta</a></li>
-                    <li class="active">Casas</li>
+                    <li><a href="#">Casas</a></li>
+                    <li class="active">Lorem ipsum dolor sit amet.</li>
                 </ol> <!--Fin breadcrumb-->
 
-                <div class="page-header">
-                    <h1>Casas en Venta</h1>
-                </div> <!---Fin page-header--->
+                <div class="row">
+                    <section class="col-md-8 col-sm-12 col-xs-12">
 
+                        <div class="page-header">
+                            <h2>Lorem ipsum dolor sit amet.</h2>
+                        </div><!-- Fin page header -->
+
+                        <div id="galeria-propiedad" class="owl-carousel owl-theme owl-theme-propiedad">
+
+                            <a class="fancy-gal" rel="galeria_propiedad" href="img/slider/1.jpg">
+                                <img src="http://lorempixel.com/1200/470/city/10" alt="Propiedad 1">
+                            </a>
+
+                            <a class="fancy-gal" rel="galeria_propiedad" href="img/slider/2.jpg">
+                                <img src="http://lorempixel.com/1200/470/city/2" alt="Propiedad 1">
+                            </a>
+
+                            <a class="fancy-gal" rel="galeria_propiedad" href="img/slider/3.jpg">
+                                <img src="http://lorempixel.com/1200/470/city/3" alt="Propiedad 1">
+                            </a>
+
+                            <a class="fancy-gal" rel="galeria_propiedad" href="img/slider/4.jpg">
+                                <img src="http://lorempixel.com/1200/470/city/4" alt="Propiedad 1">
+                            </a>
+
+                            <a class="fancy-gal" rel="galeria_propiedad" href="img/slider/5.jpg">
+                                <img src="http://lorempixel.com/1200/470/city/5" alt="Propiedad 1">
+                            </a>
+
+                        </div> <!--Slider con las fotos de la galería + foto destacada ++ lightbox con verción mayor-->
+
+
+                        <div class="row descripcion_individual">
+                            <ul class="list-unstyled col-md-3 col-sm-3 hidden-xs botones">
+                                <li><a href="https://maps.google.com/maps?q=Terrada+966,+Bah%C3%ADa+Blanca,+Buenos+Aires,+Argentina&amp;hl=es-419&amp;ie=UTF8&amp;sll=37.0625,-95.677068&amp;sspn=85.736132,105.46875&amp;oq=Terrada+966,+bahi&amp;hnear=Terrada+966,+Bah%C3%ADa+Blanca,+Buenos+Aires,+Argentina&amp;t=h&amp;hq=&amp;ll=-38.71433,-62.28349&amp;spn=0.00293,0.009645&amp;z=17&amp;iwloc=A&amp;output=embed"
+                                       class="btn fancy-map fancybox.iframe"> <span class="glyphicon glyphicon-globe"></span> Ver Mapa</a></li>
+                                <li><a href="#" class="btn fancy-gal_btn"> <span class="glyphicon glyphicon-picture"></span> Ver Galería</a></li>
+                                <li><a href="#" class="btn"><span class="glyphicon glyphicon-link"></span> Compartir</a></li>
+                            </ul>
+                            <ul class="list-inline visible-xs botones">
+                                <li><a  href="https://maps.google.com/maps?q=Terrada+966,+Bah%C3%ADa+Blanca,+Buenos+Aires,+Argentina&amp;hl=es-419&amp;ie=UTF8&amp;sll=37.0625,-95.677068&amp;sspn=85.736132,105.46875&amp;oq=Terrada+966,+bahi&amp;hnear=Terrada+966,+Bah%C3%ADa+Blanca,+Buenos+Aires,+Argentina&amp;t=h&amp;hq=&amp;ll=-38.71433,-62.28349&amp;spn=0.00293,0.009645&amp;z=17&amp;iwloc=A&amp;output=embed"
+                                        class="btn fancy-map fancybox.iframe"> <span class="glyphicon glyphicon-globe"></span> Ver Mapa</a></li>
+
+                                <li><a href="img/slider/1.jpg" class="btn fancy-gal_btn" rel="galeria_propiedad"> <span class="glyphicon glyphicon-picture"></span> Ver Galería</a></li>
+                                <li><a href="#" class="btn"> <span class="glyphicon glyphicon-link"></span> Compartir</a></li>
+                            </ul>
+
+                            <div class="col-md-9 col-sm-9 text_desc well">
+                                <div class="row data-propiedad">
+                                    <dl class="info-basica col-md-6 col-sm-6">
+                                        <dt>Propiedad:</dt>
+                                        <dd>Casa</dd>
+
+                                        <dt>Operación:</dt>
+                                        <dd>Venta / Alquiler</dd>
+
+                                        <dt>Ubicación:</dt>
+                                        <dd>Barrio Pacífico</dd>
+
+                                        <dt>Dirección:</dt>
+                                        <dd>Terrada 966</dd>
+                                    </dl>
+
+                                    <dl class="info-secundaria col-md-6 col-sm-6">
+                                        <dt>Superficie total:</dt>
+                                        <dd>125 m<sup>2</sup></dd>
+
+                                        <dt>Superficie cubierta:</dt>
+                                        <dd>230 m<sup>2</sup></dd>
+
+                                        <dt>Ambientes:</dt>
+                                        <dd>5</dd>
+
+                                        <dt>Código:</dt>
+                                        <dd>034-211095</dd>
+
+                                    </dl>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum sed nobis id sunt architecto placeat ducimus ad non quos nemo! Natus quia culpa eligendi quas.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum sed nobis id sunt architecto placeat ducimus ad non quos nemo! Natus quia culpa eligendi quas.</p>
+                            </div>
+                        </div> <!--Fin lista descripción individual-->
+
+
+                        <form action="#" class="consulta">
+                            <legend>Consultar por esta propiedad</legend>
+                            <div class="row form-group">
+                                <label for="name" class="col-md-3 col-sm-3 col-xs-12">Nombre:</label>
+                                <input class="col-md-7 col-sm-9 col-xs-12" type="text" name="name" id="name" placeholder="John Smith" />
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="email" class="col-md-3 col-sm-3 col-xs-12">E-mail:</label>
+                                <input class="col-md-7 col-sm-9 col-xs-12" type="email" name="email" id="email" placeholder="tuemail@tudominio.com.ar" />
+                            </div>
+
+                            <div class="row form-group">
+                                <label for="asunto" class="col-md-3 col-sm-3 col-xs-12">Asunto:</label>
+                                <input class="col-md-7 col-sm-9 col-xs-12" type="text" name="asunto" id="asunto" placeholder="Asunto" />
+                            </div>
+
+                            <div class="row form-group">
+                                <label class="col-md-3 col-sm-3 col-xs-12" for="textarea">Consulta:</label>
+                                <textarea class="col-md-9 col-sm-9 col-xs-12" cols="25" rows="5" name="textarea" id="textarea"></textarea>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <input class="btn" type="submit" value="Enviar" />
+                            </div>
+                        </form> <!--Fin formulario de consulta-->
+
+
+                    </section> <!--Fin sección contenido principal de la propiedad-->
+
+
+                    <aside class="col-md-4 hidden-sm hidden-xs panel panel-default">
+
+                        <div class="panel-heading"><h3>Propiedades recomendadas</h3></div>
+
+                        <div class="panel-body">
+
+                            <div class="prop-rec">
+                                <a class="tipo-propiedad btn" href="#">Local en Venta</a>
+                                <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/1" alt="" />
+
+                                    <span class="descripcion">
+
+                                      <h4>Lorem ipsum dolor sit.</h4>
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                    </span>
+                                </a>
+                            </div><!--Fin prop-rec-->
+
+                            <div class="prop-rec">
+                                <a class="tipo-propiedad btn" href="#">Departamento en Venta</a>
+                                <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/4" alt="" />
+
+                                    <span class="descripcion">
+
+                                      <h4>Lorem ipsum dolor sit.</h4>
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                    </span>
+                                </a>
+                            </div><!--Fin prop-rec-->
+
+                            <div class="prop-rec">
+                                <a class="tipo-propiedad btn" href="#">Casa en Alquiler</a>
+                                <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/7" alt="" />
+
+                                    <span class="descripcion">
+
+                                      <h4>Lorem ipsum dolor sit.</h4>
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                    </span>
+                                </a>
+                            </div><!--Fin prop-rec-->
+
+                            <div class="prop-rec">
+                                <a class="tipo-propiedad btn" href="#">Departamento en Venta</a>
+                                <a href="#" class="thumbnail prop_thumb"><img src="http://lorempixel.com/426/384/city/4" alt="" />
+
+                                    <span class="descripcion">
+
+                                      <h4>Lorem ipsum dolor sit.</h4>
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis placeat.</p>
+                                    </span>
+                                </a>
+                            </div> <!--Fin prop-rec-->
+
+                        </div> <!--Fin Panel body-->
+
+                    </aside> <!--Fin Barra lateral-->
+
+
+
+                </div> <!--Fin .row-->
 
 
             </div> <!--Fin contenido principal-->
@@ -231,6 +412,13 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+        <!--JS para el carrusel-->
+        <script src="js/owl-carousel/owl.carousel.min.js"></script>
+
+        <!--JS Fancybox-->
+        <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+
         <script src="js/plugins.js"></script>
         <script src="js/script.js"></script>
 

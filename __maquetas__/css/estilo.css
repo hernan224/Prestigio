@@ -3765,11 +3765,9 @@ nav.navbar-principal > ul > li, .contenedor_prop .bloque_prop, footer > div {
   display: inline-block;
   width: 100%; }
 
-/***********************
- ***********************
- ******  ESTILOS  ******
- ***********************
- *************************/
+/************************************************
+*******************  ESTILOS  *******************
+************************************************/
 /** Generales **/
 html {
   font-size: 16px; }
@@ -3840,10 +3838,85 @@ p a {
     color: #7b75e8;
     text-decoration: none; }
 
+img {
+  max-width: 100%;
+  height: auto; }
+
 .contenedor {
   background-color: #fff;
   border: solid #c6cfc8;
   border-width: 0 2px; }
+
+/** Formulario de contacto **/
+form {
+  margin: 1.5em 0; }
+  form legend {
+    font-family: 'Roboto', sans-serif;
+    font-size: 21px;
+    font-size: 1.3125rem;
+    color: #194c25;
+    border: solid #309147;
+    border-width: 0 0 4px 0;
+    padding: 12px 0px;
+    padding: 0.75rem 0rem;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem; }
+  form input {
+    line-height: 48px;
+    line-height: 3rem;
+    height: 48px;
+    height: 3rem;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    background-color: #b8c3bb;
+    color: #161a17;
+    border: solid #194c25;
+    border-width: 0 0 2px 0; }
+    form input.btn {
+      display: block;
+      margin-top: 16px;
+      margin-top: 1rem;
+      padding: 12px 48px;
+      padding: 0.75rem 3rem;
+      font-weight: 700;
+      border-radius: 0;
+      background-color: #309147;
+      border: solid #b8c3bb;
+      border-width: 0 0 2px 0;
+      -webkit-transition: all 0.15s ease-in;
+      -moz-transition: all 0.15s ease-in;
+      -o-transition: all 0.15s ease-in;
+      transition: all 0.15s ease-in;
+      color: #fff; }
+      form input.btn:hover {
+        background-color: #b8c3bb;
+        color: #161a17;
+        -webkit-transition: all 0.15s ease-out;
+        -moz-transition: all 0.15s ease-out;
+        -o-transition: all 0.15s ease-out;
+        transition: all 0.15s ease-out; }
+  form textarea {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    background-color: #b8c3bb;
+    color: #161a17;
+    border: solid #194c25;
+    border-width: 0 0 2px 0;
+    padding: 24px;
+    padding: 1.5rem;
+    line-height: 24px;
+    line-height: 1.5rem; }
+  form label {
+    color: #194c25; }
+  form .form-group {
+    margin: 24px 16px;
+    margin: 1.5rem 1rem; }
 
 /** Logos del header y el footer **/
 a.logo {
@@ -4062,13 +4135,22 @@ nav .dropdown-menu li a {
 /** Búsqueda dropdown **/
 .drop-busqueda {
   /*Fin drop busqueda*/ }
+  @media screen and (min-width: 768px) {
+    .drop-busqueda {
+      left: auto;
+      right: 0; } }
   .drop-busqueda form {
     padding: 16px;
     padding: 1rem;
-    width: 300px; }
+    width: 300px;
+    margin: 0; }
+    .drop-busqueda form .form-group {
+      margin: 0px 0px 12px 0px;
+      margin: 0rem 0rem 0.75rem 0rem; }
     .drop-busqueda form input[type=checkbox] {
       margin-right: 24px;
-      margin-right: 1.5rem; }
+      margin-right: 1.5rem;
+      height: auto; }
     .drop-busqueda form input[type=text], .drop-busqueda form select, .drop-busqueda form select option {
       line-height: 48px;
       line-height: 3rem;
@@ -4181,7 +4263,7 @@ nav .dropdown-menu li a {
     width: 100%;
     border: 0 solid #309147;
     border-width: 2px 0 0 0; }
-    .prop_thumb .descripcion h3 {
+    .prop_thumb .descripcion h3, .prop_thumb .descripcion h4 {
       color: #fff;
       margin-top: 0;
       padding-top: 0; }
@@ -4347,7 +4429,8 @@ nav .dropdown-menu li a {
   left: 15px;
   right: auto;
   opacity: 1;
-  padding: 0.5em 1.25em 0.5em 2.5em; }
+  padding: 0.5em 1.25em 0.5em 2.5em;
+  font-size: 12px; }
   .prop_destacada .tipo-propiedad:before {
     display: block;
     height: 0;
@@ -4377,7 +4460,6 @@ nav .dropdown-menu li a {
     border-bottom: 1.25em solid #7b75e8;
     border-left: 1.25em solid transparent; }
 
-/** Fin Property Overview **/
 /** Paginación **/
 .pagination {
   -webkit-border-radius: 0;
@@ -4449,6 +4531,124 @@ nav .dropdown-menu li a {
       .pagination li a.glyphicon.glyphicon-chevron-left, .pagination li span.glyphicon.glyphicon-chevron-left {
         border-width: 0 0 0 4px; }
 
+/** Fin Property Overview **/
+/** Propiedad Single **/
+/*Slier*/
+/* Pagination a la izquierda */
+.owl-theme-propiedad .owl-controls {
+  overflow: hidden;
+  /* Botones a la derecha */ }
+  .owl-theme-propiedad .owl-controls .owl-pagination {
+    float: left; }
+    @media screen and (max-width: 767px) {
+      .owl-theme-propiedad .owl-controls .owl-pagination {
+        display: none; } }
+  .owl-theme-propiedad .owl-controls .owl-buttons {
+    float: right; }
+    @media screen and (max-width: 767px) {
+      .owl-theme-propiedad .owl-controls .owl-buttons {
+        float: left; } }
+
+/* Fin slider*/
+/* Descripción de la propiedad */
+.well {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  background-color: #f0f2f0;
+  border-color: #194c25;
+  border-width: 4px 0; }
+
+.descripcion_individual {
+  margin: 1em 0; }
+
+.botones li {
+  margin-bottom: 1rem; }
+  .botones li a {
+    padding: 1em;
+    background-color: #f0f2f0;
+    color: #309147;
+    border: solid #309147;
+    border-width: 0 4px 0 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out; }
+    .botones li a:hover {
+      background-color: #309147;
+      color: #fff;
+      -webkit-transition: all 0.15s ease-in;
+      -moz-transition: all 0.15s ease-in;
+      -o-transition: all 0.15s ease-in;
+      transition: all 0.15s ease-in;
+      border-color: #309147; }
+.botones .hidden-xs > li {
+  margin: 16px 0px;
+  margin: 1rem 0rem; }
+
+.data-propiedad {
+  border-bottom: 2px solid #b8c3bb;
+  padding-bottom: 8px;
+  padding-bottom: 0.5rem;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem; }
+  .data-propiedad dl dt {
+    width: auto;
+    text-align: left;
+    color: #309147; }
+  .data-propiedad dl dd {
+    margin: 0px 0px 8px 16px;
+    margin: 0rem 0rem 0.5rem 1rem; }
+
+/* Fin descripción propiedad */
+/* Barra lateral */
+aside.panel {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: 0px 0px 0 transparent;
+  -moz-box-shadow: 0px 0px 0 transparent;
+  box-shadow: 0px 0px 0 transparent; }
+  aside.panel .panel-heading {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    background-color: #b8c3bb;
+    border-bottom: 4px solid #194c25; }
+    aside.panel .panel-heading h3 {
+      color: #309147; }
+  aside.panel .panel-body {
+    padding: 16px;
+    padding: 1rem;
+    border-bottom: 4px solid #194c25;
+    background-color: #f0f2f0; }
+
+.prop-rec {
+  max-width: 420px;
+  position: relative;
+  border: 0;
+  display: block;
+  margin: 1.5 auto; }
+  @media screen and (max-width: 767px) {
+    .prop-rec {
+      margin: 1em auto !important; } }
+  .prop-rec .tipo-propiedad {
+    right: 0; }
+
+/* Fin barra lateral */
+/** Fin propiedad single **/
 /** Fin estilos contenido general **/
 /** Footer **/
 footer {
