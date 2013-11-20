@@ -1,8 +1,8 @@
 <?php
 /**
- * Prestigio Theme Customizer
+ * Spinelli Prestigio Theme Customizer
  *
- * @package Prestigio
+ * @package Spinelli Prestigio
  */
 
 /**

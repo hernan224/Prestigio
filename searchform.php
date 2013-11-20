@@ -1,8 +1,8 @@
 <?php
 /**
- * The template for displaying search forms in Prestigio
+ * The template for displaying search forms in Spinelli Prestigio
  *
- * @package Prestigio
+ * @package Spinelli Prestigio
  */
 ?>
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">

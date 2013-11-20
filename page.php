@@ -7,7 +7,7 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package Prestigio
+ * @package Spinelli Prestigio
  */
 
 get_header(); ?>

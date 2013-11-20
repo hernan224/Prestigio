@@ -1,9 +1,9 @@
 /*
-Theme Name: Prestigio
+Theme Name: Spinelli Prestigio
 Theme URI: http://underscores.me/
 Author: IMotion Consulting
 Author URI: http://imotionconsulting.com.ar
-Description: Theme oficial de Spinelli Prestigio.
+Description: Theme oficial para Spinelli Prestigio Servicios Inmobiliarios.
 Version: 1.0
 License: GNU General Public License
 License URI: license.txt
@@ -14,7 +14,7 @@ Tags:
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
- Prestigio is based on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
+ Spinelli Prestigio is based on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
 
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
@@ -412,12 +412,13 @@ a:active {
 /* -- WRAPPER -- */
 
 body {
-	background: url(images/site-background-brickwall.png) #fff repeat;
+	background: #fff;
 }
 
 #page {
 	background: #fff;
-	width: 940px;
+	width: 96%;
+	max-width: 940px;
 	margin: 0 auto;
 	box-shadow: 0 0 8px #d3d3d3;
 	overflow: hidden;
@@ -638,11 +639,16 @@ body {
 	clear: both;
 	float: left;
 	padding: 20px;
+	position: relative;
+	width: 100%;
+	max-width: 900px;
 }
 
-
-/* =Content
------------------------------------------------ */
+.content-area {
+	float: left;
+	width: 70%;
+	max-width: 620px;
+}
 
 .sticky {
 }
@@ -667,6 +673,58 @@ body {
 	margin: 0 0 1.5em;
 }
 
+.entry-header {
+	border-bottom: 2px solid #309147;
+	padding-bottom: 10px;
+	width: 100%;
+}
+
+	.entry-title {
+		font-size: 28px;
+		font-weight: bold;
+	}
+
+.property-details {
+	border: 1px solid #dedede;
+	display: block;
+	overflow: hidden;
+	margin: 20px auto;
+	padding-bottom: 5px; 
+}
+
+.property-details-title {
+	background: #efefef;
+	border-bottom: 1px solid #dedede;
+	margin-bottom: 15px;
+	padding: 10px;
+	font-size: 21px;
+	font-weight: bold;
+}
+
+.property-details-list {
+	float: left;
+	list-style: none;
+	margin: 0 2% 0 0;
+	padding: 0;
+	width: 49%;
+}
+
+	.property-details-list:last-child {
+		margin: 0;
+	}
+
+	.property-details-list li {
+		border-bottom: 1px solid #efefef;
+		padding: 10px 15px;
+	}
+
+		.property-details-list li:last-child {
+			border: none;
+		}
+
+.property-details span {
+	font-weight: bold;
+}
 
 /* =Asides
 ----------------------------------------------- */
@@ -747,6 +805,15 @@ object {
 	width: 50%;
 }
 
+/* Sidebar */
+
+.widget-area {
+	float: right;
+	width: 30%;
+	max-width: 250px;
+	padding-left: 20px;
+}
+
 
 /* =Widgets
 ----------------------------------------------- */
@@ -777,6 +844,7 @@ object {
 	font-size: 14px;
 	padding: 20px;
 	width: 100%;
+	max-width: 940px;
 }
 
 .site-footer a {
@@ -792,7 +860,8 @@ object {
 
 .site-info-logo, .site-info-contact, .footer-navigation {
 	float: left;
-	width: 300px;
+	width: 30%;
+	max-width: 300px;
 	margin-right: 20px;
 }
 
@@ -815,11 +884,44 @@ object {
 	float: left;
 	margin-top: 30px;
 	padding-top: 10px;
-	position: relative;
-	width: 900px;
+	width: 100%;
+	max-width: 900px;
 }
 
 	.site-info-copyright p {
 		font-size: 12px;
 		text-align: center;
 	}
+
+/* =Media Queries
+----------------------------------------------- */
+
+/* --- Smartphones --- */
+ @media screen and (max-width: 480px) {
+
+ 	/* Header */
+
+ 	/* Main */
+
+ 	/* Footer */
+ 	.site-info-logo, .site-info-contact {
+ 		clear: both;
+ 		float: none;
+ 		display: block;
+ 		margin: 0 auto;
+ 		text-align: center;
+ 	}
+
+ 	.footer-navigation {
+ 		display: none;
+ 	}
+ 
+ /* --- Tablets --- */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+	/* Header */
+
+ 	/* Main */
+
+ 	/* Footer */
+}

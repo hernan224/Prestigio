@@ -2,7 +2,7 @@
 /**
  * The template for displaying Search Results pages.
  *
- * @package Prestigio
+ * @package Spinelli Prestigio
  */
 
 get_header(); ?>

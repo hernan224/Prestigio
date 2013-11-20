@@ -4,7 +4,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Prestigio
+ * @package Spinelli Prestigio
  */
 
 get_header(); ?>

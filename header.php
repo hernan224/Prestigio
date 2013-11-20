@@ -32,10 +32,6 @@
 
 		<nav id="property-navigation" class="secondary-navigation" role="navigation">
 			<?php wp_nav_menu( array('theme_location' => 'secondary' ) ); ?>
-
-			<div class="property-search">
-				<?php get_sidebar( 'propertysearch' ); ?>
-			</div>
 		</nav><!-- #property-navigation -->
 	</header><!-- #masthead -->
 

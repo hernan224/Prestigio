@@ -12,7 +12,7 @@
 	<?php endif; // End header image check. ?>
 
  *
- * @package Prestigio
+ * @package Spinelli Prestigio
  */
 
 /**
@@ -22,7 +22,7 @@
  * @uses prestigio_admin_header_style()
  * @uses prestigio_admin_header_image()
  *
- * @package Prestigio
+ * @package Spinelli Prestigio
  */
 function prestigio_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'prestigio_custom_header_args', array(

@@ -4,7 +4,7 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package Prestigio
+ * @package Spinelli Prestigio
  */
 ?>
 
@@ -23,7 +23,6 @@
 			    <ul>
 			        <li>Rodriguez 315 - Bahía Blanca</li>
 			        <li>(0291) 454-8845 / 452-5289</li>
-			        <li><a href="<?php bloginfo( 'url' ); ?>/contacto">Contacto</a></li>
 			        <li><a href="#">Data Fiscal</a></li>
 			    </ul>
 			</div>

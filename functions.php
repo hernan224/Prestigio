@@ -1,64 +1,64 @@
 <?php
 /**
- * Prestigio functions and definitions
+ * Spinelli Prestigio functions and definitions
  *
- * @package Prestigio
+ * @package Spinelli Prestigio
  */
 
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) )
-	$content_width = 640; /* pixels */
+	$content_width = 620; /* pixels */
 
 if ( ! function_exists( 'prestigio_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
- * Note that this function is hooked into the after_setup_theme hook, which runs
- * before the init hook. The init hook is too late for some features, such as indicating
- * support post thumbnails.
+ * Note that this function is hooked into the after_setup_theme hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support for post thumbnails.
  */
 function prestigio_setup() {
 
-	/**
-	 * Make theme available for translation
-	 * Translations can be filed in the /languages/ directory
-	 * If you're building a theme based on Prestigio, use a find and replace
+	/*
+	 * Make theme available for translation.
+	 * Translations can be filed in the /languages/ directory.
+	 * If you're building a theme based on Spinelli Prestigio, use a find and replace
 	 * to change 'prestigio' to the name of your theme in all the template files
 	 */
 	load_theme_textdomain( 'prestigio', get_template_directory() . '/languages' );
 
-	/**
-	 * Add default posts and comments RSS feed links to head
-	 */
+	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-	/**
-	 * Enable support for Post Thumbnails on posts and pages
+	/*
+	 * Enable support for Post Thumbnails on posts and pages.
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	/**
-	 * Register menus
-	 */
+	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'prestigio' ),
 		'secondary' => __( 'Secondary Menu', 'prestigio' ),
 	) );
 
-	/**
-	 * Enable support for Post Formats
-	 */
+	// Enable support for Post Formats.
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+
+	// Setup the WordPress core custom background feature.
+	add_theme_support( 'custom-background', apply_filters( 'prestigio_custom_background_args', array(
+		'default-color' => 'ffffff',
+		'default-image' => '',
+	) ) );
 }
 endif; // prestigio_setup
 add_action( 'after_setup_theme', 'prestigio_setup' );
 
 /**
- * Register widgetized area and update sidebar with default widgets
+ * Register widgetized area and update sidebar with default widgets.
  */
 function prestigio_widgets_init() {
 	register_sidebar( array(
@@ -73,36 +73,27 @@ function prestigio_widgets_init() {
 add_action( 'widgets_init', 'prestigio_widgets_init' );
 
 /**
-* Register property search widget area
-*/
-// Register Sidebar
-function prestigio_property_search()  {
-
-	$args = array(
-		'id'            => 'property-search',
-		'name'          => __( 'Buscador de propiedades', 'prestigio' ),
-		'description'   => __( 'Área para la ubicación del buscador del sitio', 'prestigio' ),
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-		'before_widget' => '<li id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</li>',
-	);
-	register_sidebar( $args );
-
-}
-add_action( 'widgets_init', 'prestigio_property_search' );
-
-/**
- * Enqueue scripts and styles
+ * Enqueue scripts and styles.
  */
 function prestigio_scripts() {
 	wp_enqueue_style( 'prestigio-style', get_stylesheet_uri() );
 
+	wp_enqueue_script( 'prestigio-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+
+	wp_enqueue_script( 'prestigio-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+		wp_enqueue_script( 'comment-reply' );
+
 	wp_register_style('prestigio-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,700');
 	wp_enqueue_style( 'prestigio-fonts');
-
 }
 add_action( 'wp_enqueue_scripts', 'prestigio_scripts' );
+
+/**
+ * Implement the Custom Header feature.
+ */
+//require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -123,3 +114,113 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Register Propiedades Custom Post Type
+ */
+function prestigio_propiedades() {
+
+	$labels = array(
+		'name'                => 'Propiedades',
+		'singular_name'       => 'Propiedad',
+		'menu_name'           => 'Propiedades',
+		'parent_item_colon'   => 'Propiedad padre',
+		'all_items'           => 'Todas las propiedades',
+		'view_item'           => 'Ver propiedad',
+		'add_new_item'        => 'Agregar nueva propiedad',
+		'add_new'             => 'Nueva propiedad',
+		'edit_item'           => 'Editar propiedad',
+		'update_item'         => 'Actualizar propiedad',
+		'search_items'        => 'Buscar propiedades',
+		'not_found'           => 'No hay propiedades',
+		'not_found_in_trash'  => 'No hay propiedades en la Papelera',
+	);
+	$args = array(
+		'label'               => 'propiedad',
+		'description'         => 'Información de propiedades',
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes', ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 20,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+	);
+	register_post_type( 'propiedad', $args );
+}
+add_action( 'init', 'prestigio_propiedades', 0 );
+
+/*
+ * Register Operación Custom Taxonomy for Propiedades Custom Post Type
+ */
+function prestigio_propiedades_taxonomies()  {
+
+	// Add new taxonomy for Operation
+
+	$labels = array(
+		'name'                       => _x( 'Operaciones', 'Taxonomy General Name', 'prestigio' ),
+		'singular_name'              => _x( 'Operación', 'Taxonomy Singular Name', 'prestigio' ),
+		'menu_name'                  => __( 'Operación', 'prestigio' ),
+		'all_items'                  => __( 'Todas las operaciones', 'prestigio' ),
+		'parent_item'                => __( 'Operación padre', 'prestigio' ),
+		'parent_item_colon'          => __( 'Operación padre:', 'prestigio' ),
+		'new_item_name'              => __( 'Nueva operación', 'prestigio' ),
+		'add_new_item'               => __( 'Agregar operación', 'prestigio' ),
+		'edit_item'                  => __( 'Editar operación', 'prestigio' ),
+		'update_item'                => __( 'Actualizar operación', 'prestigio' ),
+		'separate_items_with_commas' => __( 'Separar operaciones con comas', 'prestigio' ),
+		'search_items'               => __( 'Buscar operaciones', 'prestigio' ),
+		'add_or_remove_items'        => __( 'Agregar o remover operaciones', 'prestigio' ),
+		'choose_from_most_used'      => __( 'Elegir entre las más usadas', 'prestigio' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'operacion', 'propiedad', $args );
+
+	// Add new taxonomy for Property Type
+
+	$labels = array(
+		'name'                       => _x( 'Tipos', 'Taxonomy General Name', 'prestigio' ),
+		'singular_name'              => _x( 'Tipo', 'Taxonomy Singular Name', 'prestigio' ),
+		'menu_name'                  => __( 'Tipo', 'prestigio' ),
+		'all_items'                  => __( 'Todos los tipos', 'prestigio' ),
+		'parent_item'                => __( 'Tipo padre', 'prestigio' ),
+		'parent_item_colon'          => __( 'Tipo padre:', 'prestigio' ),
+		'new_item_name'              => __( 'Nuevo tipo', 'prestigio' ),
+		'add_new_item'               => __( 'Agregar nuevo tipo', 'prestigio' ),
+		'edit_item'                  => __( 'Editar tipo', 'prestigio' ),
+		'update_item'                => __( 'Actualizar tipo', 'prestigio' ),
+		'separate_items_with_commas' => __( 'Separar tipos con comas', 'prestigio' ),
+		'search_items'               => __( 'Buscar tipos', 'prestigio' ),
+		'add_or_remove_items'        => __( 'Agregar o remover tipos', 'prestigio' ),
+		'choose_from_most_used'      => __( 'Elegir entre los más usados', 'prestigio' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'tipo', 'propiedad', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'prestigio_propiedades_taxonomies', 0 );

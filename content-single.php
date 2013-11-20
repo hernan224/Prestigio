@@ -1,62 +1,34 @@
 <?php
 /**
- * @package Prestigio
+ * @package Spinelli Prestigio
  */
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
-
-		<div class="entry-meta">
-			<?php prestigio_posted_on(); ?>
-		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'prestigio' ),
-				'after'  => '</div>',
-			) );
-		?>
+
+		<div class="property-details">
+
+			<h2 class="property-details-title">Detalles de la propiedad</h2>
+			<ul class="property-details-list">
+				<li><?php the_terms( $post->ID, 'tipo', '<span>Tipo de propiedad: </span>', ', ', ' ' ); ?></li>
+				<li><span>Dirección: </span><?php the_field( 'direccion' ); ?></li>
+				<li><span>Localidad: </span><?php the_field( 'localidad' ); ?></li>
+				<li><span>Zona: </span><?php the_field( 'zona' ); ?></li>
+			</ul>
+
+			<ul class="property-details-list">
+				<li><span>Superficie del lote: </span><?php the_field( 'superficie_lote' ); ?></li>
+				<li><span>Superficie cubierta: </span><?php the_field( 'superficie_cubierta' ); ?></li>
+				<li><span>Ambientes: </span><?php the_field( 'ambientes' ); ?></li>
+				<li><span>Código de propiedad: </span><?php the_field( 'codigo_propiedad' ); ?></li>
+			</ul>
+			
+		</div><!-- .property-details -->
 	</div><!-- .entry-content -->
-
-	<footer class="entry-meta">
-		<?php
-			/* translators: used between list items, there is a space after the comma */
-			$category_list = get_the_category_list( __( ', ', 'prestigio' ) );
-
-			/* translators: used between list items, there is a space after the comma */
-			$tag_list = get_the_tag_list( '', __( ', ', 'prestigio' ) );
-
-			if ( ! prestigio_categorized_blog() ) {
-				// This blog only has 1 category so we just need to worry about tags in the meta text
-				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'prestigio' );
-				} else {
-					$meta_text = __( 'Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'prestigio' );
-				}
-
-			} else {
-				// But this blog has loads of categories so we should probably display them here
-				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'prestigio' );
-				} else {
-					$meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'prestigio' );
-				}
-
-			} // end check for categories on this blog
-
-			printf(
-				$meta_text,
-				$category_list,
-				$tag_list,
-				get_permalink()
-			);
-		?>
-
-		<?php edit_post_link( __( 'Edit', 'prestigio' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-meta -->
 </article><!-- #post-## -->

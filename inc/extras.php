@@ -4,11 +4,14 @@
  *
  * Eventually, some of the functionality here could be replaced by core features
  *
- * @package Prestigio
+ * @package Spinelli Prestigio
  */
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
+ *
+ * @param array $args Configuration arguments.
+ * @return array
  */
 function prestigio_page_menu_args( $args ) {
 	$args['show_home'] = true;
@@ -18,34 +21,25 @@ add_filter( 'wp_page_menu_args', 'prestigio_page_menu_args' );
 
 /**
  * Adds custom classes to the array of body classes.
+ *
+ * @param array $classes Classes for the body element.
+ * @return array
  */
 function prestigio_body_classes( $classes ) {
-	// Adds a class of group-blog to blogs with more than 1 published author
-	if ( is_multi_author() ) {
+	// Adds a class of group-blog to blogs with more than 1 published author.
+	if ( is_multi_author() )
 		$classes[] = 'group-blog';
-	}
 
 	return $classes;
 }
 add_filter( 'body_class', 'prestigio_body_classes' );
 
 /**
- * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
- */
-function prestigio_enhanced_image_navigation( $url, $id ) {
-	if ( ! is_attachment() && ! wp_attachment_is_image( $id ) )
-		return $url;
-
-	$image = get_post( $id );
-	if ( ! empty( $image->post_parent ) && $image->post_parent != $id )
-		$url .= '#main';
-
-	return $url;
-}
-add_filter( 'attachment_link', 'prestigio_enhanced_image_navigation', 10, 2 );
-
-/**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
+ *
+ * @param string $title Default title text for current view.
+ * @param string $sep Optional separator.
+ * @return string The filtered title.
  */
 function prestigio_wp_title( $title, $sep ) {
 	global $page, $paged;
