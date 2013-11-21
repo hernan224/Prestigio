@@ -98,7 +98,8 @@ a img {
 
 Colores
 	Verde oscuro:	#194C25;
-	Verde claro:	#309147;
+	Verde medio:	#309147;
+	Verde claro:	#42A056;
 	Violeta oscuro:	#5652A3;
 	Violeta claro:	#7B75E8;
 
@@ -117,9 +118,9 @@ input,
 select,
 textarea {
 	color: #333333;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 16px;
-	font-size: 1.6rem;
+	font-family: 'Open Sans', Arial, sans-serif;
+	font-size: 14px;
+	font-size: 1.4rem;
 	line-height: 1.5;
 }
 
@@ -329,6 +330,7 @@ textarea {
 /* Links */
 a {
 	color: #309147;
+	text-decoration: none;
 }
 a:visited {
 	color: #309147;
@@ -337,6 +339,7 @@ a:hover,
 a:focus,
 a:active {
 	color: #309147;
+	text-decoration: underline;
 }
 
 /* Alignment */
@@ -412,15 +415,16 @@ a:active {
 /* -- WRAPPER -- */
 
 body {
-	background: #fff;
+	background: url(images/site-background-satinweave.png) repeat #f0f0f0;
 }
 
 #page {
 	background: #fff;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
 	width: 96%;
-	max-width: 940px;
+	max-width: 1040px;
 	margin: 0 auto;
-	box-shadow: 0 0 8px #d3d3d3;
 	overflow: hidden;
 }
 
@@ -467,7 +471,6 @@ body {
 	font-weight: bold;
 	padding: 10px 20px;
 	text-decoration: none;
-	transition: all 0.25s ease;
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -489,7 +492,7 @@ body {
 }
 .main-navigation li:hover > a {
 	background: #309147;
-	box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+	box-shadow: 0 2px 0 #42A056;
 }
 .main-navigation ul ul :hover > a {
 }
@@ -504,13 +507,15 @@ body {
 
 .secondary-navigation {
 	background: #309147;
-	border-bottom: 1px solid #ccc;
+	border-top: 1px solid rgba(255,255,255,0.2);
+	box-shadow: 0 -4px 24px rgba(0,0,0,0.2);
 	clear: both;
 	float: left;
 	position: relative;
 	left: -30px;
 	bottom: -30px;
-	width: 940px;
+	width: 1040px;
+	
 }
 
 .secondary-navigation ul {
@@ -522,15 +527,18 @@ body {
 	float: left;
 	position: relative;
 }
+
+	.secondary-navigation li:hover {
+		background: #42A056;
+	}
+
 .secondary-navigation a {
-	border-radius: 4px;
 	border-right: 1px solid rgba(255,255,255,0.1);
 	color: #eee;
 	display: block;
 	font-weight: bold;
 	padding: 20px 40px;
 	text-decoration: none;
-	transition: background 0.25s ease;
 }
 
 .secondary-navigation ul ul {
@@ -539,7 +547,7 @@ body {
 	float: left;
 	left: 0;
 	position: absolute;
-	top: 64px;
+	top: 60px;
 	z-index: 99999;
 }
 
@@ -554,10 +562,6 @@ body {
 
 .secondary-navigation ul li:hover > ul {
 	display: block;
-}
-
-.secondary-navigation ul li ul a:hover {
-	background: #194C25;
 }
 
 /* Property search form */
@@ -638,22 +642,22 @@ body {
 .site-content {
 	clear: both;
 	float: left;
-	padding: 20px;
+	padding: 30px;
 	position: relative;
 	width: 100%;
-	max-width: 900px;
+	max-width: 980px;
 }
 
 .content-area {
 	float: left;
 	width: 70%;
-	max-width: 620px;
+	max-width: 665px;
 }
 
 .sticky {
 }
 .hentry {
-	margin: 0 0 1.5em;
+	margin: 0 0 2em;
 }
 .byline,
 .updated {
@@ -666,15 +670,17 @@ body {
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 2em 0 0;
 }
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
 }
 
+/* Post header */
+
 .entry-header {
-	border-bottom: 2px solid #309147;
+	border-bottom: 1px solid #efefef;
 	padding-bottom: 10px;
 	width: 100%;
 }
@@ -684,11 +690,13 @@ body {
 		font-weight: bold;
 	}
 
+/* Property information */
+
 .property-details {
 	border: 1px solid #dedede;
 	display: block;
 	overflow: hidden;
-	margin: 20px auto;
+	margin: 40px auto 20px auto;
 	padding-bottom: 5px; 
 }
 
@@ -810,8 +818,8 @@ object {
 .widget-area {
 	float: right;
 	width: 30%;
-	max-width: 250px;
-	padding-left: 20px;
+	max-width: 265px;
+	padding-left: 50px;
 }
 
 
@@ -842,9 +850,9 @@ object {
 	clear: both;
 	float: left;
 	font-size: 14px;
-	padding: 20px;
+	padding: 30px;
 	width: 100%;
-	max-width: 940px;
+	max-width: 1040px;
 }
 
 .site-footer a {
@@ -885,7 +893,7 @@ object {
 	margin-top: 30px;
 	padding-top: 10px;
 	width: 100%;
-	max-width: 900px;
+	max-width: 980px;
 }
 
 	.site-info-copyright p {
