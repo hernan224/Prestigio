@@ -15,17 +15,17 @@
 // Body reset
 
 html {
-  font-size: 62.5%;
+  //font-size: 62.5%;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-body {
-  font-family: $font-family-base;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  color: $text-color;
-  background-color: $body-bg;
-}
+//body {
+//  font-family: $font-family-base;
+//  font-size: $font-size-base;
+//  line-height: $line-height-base;
+//  color: $text-color;
+//  background-color: $body-bg;
+//}
 
 // Reset fonts for relevant elements
 input,
@@ -52,14 +52,14 @@ textarea {
 // Links
 
 a {
-  color: $link-color;
+  //color: $link-color;
   text-decoration: none;
 
-  &:hover,
-  &:focus {
-    color: $link-hover-color;
-    text-decoration: underline;
-  }
+  //&:hover,
+  //&:focus {
+  //  color: $link-hover-color;
+  //  text-decoration: underline;
+  //}
 
   &:focus {
     @include tab-focus();
@@ -79,9 +79,9 @@ img {
 }
 
 // Rounded corners
-.img-rounded {
-  border-radius: $border-radius-large;
-}
+//.img-rounded {
+//  border-radius: $border-radius-large;
+//}
 
 // Image thumbnails
 //
@@ -99,9 +99,9 @@ img {
 }
 
 // Perfect circle
-.img-circle {
-  border-radius: 50%; // set radius in percents
-}
+//.img-circle {
+//  border-radius: 50%; // set radius in percents
+//}
 
 
 // Horizontal rules
