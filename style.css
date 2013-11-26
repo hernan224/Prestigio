@@ -415,7 +415,7 @@ a:active {
 /* -- WRAPPER -- */
 
 body {
-	background: url(images/site-background-satinweave.png) repeat #f0f0f0;
+	background: url(images/site-background.png) repeat #f0f0f0;
 }
 
 #page {
@@ -642,7 +642,7 @@ body {
 .site-content {
 	clear: both;
 	float: left;
-	padding: 30px;
+	padding: 30px 30px 60px 30px;
 	position: relative;
 	width: 100%;
 	max-width: 980px;
@@ -654,10 +654,18 @@ body {
 	max-width: 665px;
 }
 
+.full-width {
+	width: 100%;
+	max-width: 980px;
+}
+
 .sticky {
 }
 .hentry {
 	margin: 0 0 2em;
+}
+.post-type-archive .hentry {
+	margin: 0;
 }
 .byline,
 .updated {
@@ -679,16 +687,110 @@ body {
 
 /* Post header */
 
-.entry-header {
+.entry-header, .page-header {
 	border-bottom: 1px solid #efefef;
 	padding-bottom: 10px;
-	width: 100%;
 }
 
 	.entry-title {
 		font-size: 28px;
 		font-weight: bold;
 	}
+
+.entry-content {
+	float: left;
+}
+
+/* Front page */
+
+.front-property-list {
+	clear: both;
+	margin-bottom: 60px;
+	overflow: auto;
+}
+
+/* Property list archive */
+
+.property-post-list {
+	list-style: none;
+	margin: 0 0 0 -20px;
+	padding: 0;
+	overflow: auto;
+	max-width: 1000px;
+}
+
+	.property-post-list li {
+		float: left;
+		margin: 0 0 0 20px;
+		padding: 0;
+		max-width: 230px;
+	}
+
+.property-post-link {
+	float: left;
+	position: relative;
+	max-width: 230px;
+	max-height: 230px;
+	overflow: hidden;
+}
+
+	.property-post-link img {
+		transition: opacity 0.25s ease;
+	}
+
+	.property-post-link img:hover {
+		opacity: 0.5;
+	}
+
+.property-list-meta {
+	background: #42A056;
+	position: absolute;
+	bottom: -105px;
+	left: 0;
+	width: 100%;
+	max-width: 210px;
+	padding: 10px;
+	transition: all 0.25s ease;
+}
+
+	.property-post-link:hover > .property-list-meta {
+		bottom: 0px;
+	}
+
+	.property-list-meta .entry-title {
+		background: #309147;
+		color: #fff;
+		display: block;
+		font-size: 16px;
+		padding: 10px;
+		position: relative;
+		left: -10px;
+		top: -10px;
+		width: 230px;		
+	}
+
+	.property-list-meta .meta-wrapper {
+		opacity: 0;
+		transition: all 0.25s ease;
+	}
+
+	.property-post-link:hover .meta-wrapper {
+		opacity: 1;
+		
+	}
+
+	.property-list-meta span {
+		border-top: 1px solid rgba(255,255,255,0.1);
+		float: left;
+		color: #fff;
+		font-size: 12px;
+		padding: 5px 0;
+		width: 210px;
+	}
+
+		.property-list-meta span:first-child {
+			border: none;
+		}
 
 /* Property information */
 
