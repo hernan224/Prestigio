@@ -11,8 +11,33 @@ get_header(); ?>
 		<main id="front-page" class="site-front-page" role="main">
 
 			<?php /* Front page slider */ ?>
-			<div class="front-slider">
-				<?php /* Slider code */ ?>
+			<?php
+				$args_slider = array(
+					'post_type' => 'propiedad',
+					'posts_per_page' => 5,
+				);
+				$slider_query = new WP_Query( $args_slider );
+			?>
+
+			<div id="front-slider" class="owl-carousel">
+
+			<?php if( $slider_query->have_posts() ) : ?>
+
+				<?php while( $slider_query->have_posts() ) : $slider_query->the_post(); ?>
+					<div>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+							<?php if( has_post_thumbnail() ) {
+								the_post_thumbnail( 'slider' );
+							} ?>
+							<div class="front-slider-meta">
+								<p><?php the_terms( $post->ID, 'tipo' ); ?> en <?php the_terms( $post->ID, 'operacion' ); ?></p>
+								<h1><?php the_title(); ?></h1>
+							</div><!-- .front-slider-meta -->
+						</a>
+					</div>
+				<?php endwhile; ?>			
+			<?php endif; ?>
+
 			</div> <!-- .front-slider -->
 
 			<?php /* Últimas propiedades en alquiler */ ?>
@@ -34,7 +59,7 @@ get_header(); ?>
 
 				<?php if ( $alquiler_query->have_posts() ) : ?>
 
-						<ul class="property-post-list">
+						<ul class="property-post-list owl-carousel">
 
 						<?php while ( $alquiler_query->have_posts() ) : $alquiler_query->the_post(); ?>
 
@@ -43,7 +68,7 @@ get_header(); ?>
 
 									<div class="entry-content">
 										<a href="<?php the_permalink();?>" class="property-post-link">
-											<?php the_post_thumbnail( 'thumbnail' ); ?>
+											<?php the_post_thumbnail(); ?>
 
 											<div class="property-list-meta">
 												<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -78,7 +103,7 @@ get_header(); ?>
 			<?php // Acá va las últimas propiedades en venta ?>
 			<div class="front-proptery-list">
 				<header class="page-header">
-					<h1 class="entry-title">Últimas propiedades en alquiler</h1>
+					<h1 class="entry-title">Últimas propiedades en venta</h1>
 				</header>
 
 				<div class="list-wrapper">
@@ -94,7 +119,7 @@ get_header(); ?>
 
 				<?php if ( $venta_query->have_posts() ) : ?>
 
-						<ul class="property-post-list">
+						<ul class="property-post-list owl-carousel">
 
 						<?php while ( $venta_query->have_posts() ) : $venta_query->the_post(); ?>
 
@@ -103,7 +128,7 @@ get_header(); ?>
 
 									<div class="entry-content">
 										<a href="<?php the_permalink();?>" class="property-post-link">
-											<?php the_post_thumbnail( 'thumbnail' ); ?>
+											<?php the_post_thumbnail(); ?>
 
 											<div class="property-list-meta">
 												<h1 class="entry-title"><?php the_title(); ?></h1>

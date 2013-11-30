@@ -126,6 +126,7 @@ textarea {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto Condensed', 'Open Sans', Arial, sans-serif;
 	clear: both;
 }
 hr {
@@ -444,8 +445,8 @@ body {
 	background: url(images/site-logo.png) no-repeat;
 	display: block;
 	font-size: 0;
-	width: 176px;
-	height: 80px;
+	width: 196px;
+	height: 100px;
 }
 
 /* Menu */
@@ -453,7 +454,7 @@ body {
 .main-navigation {
 	display: block;
 	float: right;
-	margin-top: 14px;
+	margin-top: 24px;
 }
 .main-navigation ul {
 	list-style: none;
@@ -703,6 +704,39 @@ body {
 
 /* Front page */
 
+#front-slider {
+	position: relative;
+	top:-30px;
+	left: -30px;
+	width: 1040px;
+}
+
+.front-slider-meta {
+	background: #309147;
+	color: #fff;
+	float: left;
+	position: relative;
+	bottom: 200px;
+	left: 50px;
+	padding: 20px 30px;
+}
+
+	.front-slider-meta a {
+		color: #fff;
+	}
+
+	.front-slider-meta p {
+		font-size: 14px;
+		margin: 0;
+		text-transform: uppercase;
+	}
+
+	.front-slider-meta h1 {
+		font-size: 42px;
+		font-weight: bold;
+		line-height: 42px;
+	}
+
 .front-property-list {
 	clear: both;
 	margin-bottom: 60px;
@@ -711,26 +745,30 @@ body {
 
 /* Property list archive */
 
+.list-wrapper {
+	margin: 0 0 0 -20px;
+}
+
 .property-post-list {
 	list-style: none;
-	margin: 0 0 0 -20px;
+	margin: 0;
 	padding: 0;
 	overflow: auto;
-	max-width: 1000px;
+	width: 1000px;
 }
 
 	.property-post-list li {
 		float: left;
-		margin: 0 0 0 20px;
+		margin: 0 0 0 23px;
 		padding: 0;
-		max-width: 230px;
+		width: 310px;
 	}
 
 .property-post-link {
 	float: left;
 	position: relative;
-	max-width: 230px;
-	max-height: 230px;
+	width: 310px;
+	height: 310px;
 	overflow: hidden;
 }
 
@@ -748,7 +786,7 @@ body {
 	bottom: -105px;
 	left: 0;
 	width: 100%;
-	max-width: 210px;
+	width: 290px;
 	padding: 10px;
 	transition: all 0.25s ease;
 }
@@ -766,7 +804,7 @@ body {
 		position: relative;
 		left: -10px;
 		top: -10px;
-		width: 230px;		
+		width: 290px;		
 	}
 
 	.property-list-meta .meta-wrapper {
@@ -785,7 +823,7 @@ body {
 		color: #fff;
 		font-size: 12px;
 		padding: 5px 0;
-		width: 210px;
+		width: 310px;
 	}
 
 		.property-list-meta span:first-child {
