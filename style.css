@@ -686,7 +686,7 @@ body {
 	margin: 0 0 1.5em;
 }
 
-/* Post header */
+/* Post & Page header */
 
 .entry-header, .page-header {
 	border-bottom: 1px solid #efefef;
@@ -704,9 +704,21 @@ body {
 
 /* Front page */
 
+.site-welcome {
+	border-bottom: 1px solid #efefef;
+	clear: both;
+	margin: 20px 20px 40px 20px;
+	padding-bottom: 20px;
+}
+
+	.site-welcome h1 {
+		color: #194C25;
+		font-size: 36px;
+		text-align: center;
+	}
+
 #front-slider {
 	position: relative;
-	top:-30px;
 	left: -30px;
 	width: 1040px;
 }
@@ -715,9 +727,9 @@ body {
 	background: #309147;
 	color: #fff;
 	float: left;
-	position: relative;
-	bottom: 200px;
-	left: 50px;
+	position: absolute;
+	bottom: 80px;
+	left: 80px;
 	padding: 20px 30px;
 }
 
@@ -840,14 +852,35 @@ body {
 	padding-bottom: 5px; 
 }
 
-.property-details-title {
-	background: #efefef;
-	border-bottom: 1px solid #dedede;
-	margin-bottom: 15px;
-	padding: 10px;
-	font-size: 21px;
-	font-weight: bold;
-}
+	.property-tabs {
+		background: #efefef;
+		border-bottom: 1px solid #dedede;
+		list-style: none;
+		margin: 0;
+		padding: 10px;
+	}
+
+	.property-tabs li {
+		float: left;
+	}
+
+	.property-tabs li a {
+		border-right: 1px solid #dedede;
+		color: #333333;
+		font-size: 21px;
+		font-weight: bold;
+		padding-right: 10px;
+		margin-left: 10px; 
+		text-decoration: none;
+	}
+
+		.property-tabs li:first-child a {
+			margin-left: 0;
+		}
+
+		.property-tabs li:last-child a {
+			border: none;
+		}
 
 .property-details-list {
 	float: left;

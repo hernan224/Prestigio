@@ -11,8 +11,8 @@ jQuery(document).ready(function() {
 	});
 
 	/* Owl Carousel -> Carrusel */
-	var $owl_carousel = jQuery(".property-post-list");
-	$owl_carousel.owlCarousel({
+	var owl_carousel = jQuery(".property-post-list");
+	owl_carousel.owlCarousel({
 		autoPlay: false,
 		items : 3,
 		itemsDesktop : [1000,3],
@@ -24,10 +24,13 @@ jQuery(document).ready(function() {
     /* Owl Carousel -> Carrusel botones */
 	jQuery(".venta-next").click(function(){
 		event.preventDefault();
-		$owl_carousel.trigger('owl.next');
+		owl_carousel.trigger('owl.next');
 	});
 	jQuery(".venta-prev").click(function(){
 		event.preventDefault();
-		$ow_carousel.trigger('owl.prev');
+		ow_carousel.trigger('owl.prev');
 	});
+
+	/* Property details tabs */
+	/* Script para hacer andar los tabs */
 });

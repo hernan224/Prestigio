@@ -10,6 +10,10 @@ get_header(); ?>
 	<div id="primary" class="content-area full-width">
 		<main id="front-page" class="site-front-page" role="main">
 
+			<div class="site-welcome">
+				<h1>Bienvenidos a Spinelli Prestigio, Negocios Inmobiliarios</h1>
+			</div><!-- .site-welcome -->
+
 			<?php /* Front page slider */ ?>
 			<?php
 				$args_slider = array(

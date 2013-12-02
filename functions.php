@@ -84,17 +84,22 @@ function prestigio_scripts() {
 
 	/* Register Owl Carousel */
 	if ( is_front_page() ) {
-		wp_enqueue_script( 'prestigio-owl-carousel', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.js' );
-		wp_enqueue_style( 'prestigio-owl-carousel-style', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.css' );
-		wp_enqueue_style( 'prestigio-owl-carousel-theme', get_template_directory_uri() . '/inc/owl-carousel/owl.theme.css' );
-		wp_enqueue_script( 'prestigio-scripts', get_template_directory_uri() . '/js/prestigio-scripts.js' );
+		wp_enqueue_script( 'prestigio-owl-carousel', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.js', array(), false );
+		wp_enqueue_style( 'prestigio-owl-carousel-style', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.css', array(), false );
+		wp_enqueue_style( 'prestigio-owl-carousel-theme', get_template_directory_uri() . '/inc/owl-carousel/owl.theme.css', array(), false );		
 	}
 
-	wp_enqueue_script( 'prestigio-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	if ( is_front_page() || is_single() ) {
+		wp_enqueue_script( 'prestigio-scripts', get_template_directory_uri() . '/js/prestigio-scripts.js', array(), false );
+	}
 
-	wp_enqueue_script( 'prestigio-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	/* Google Map for Advanced Custom Fields */
+	if ( is_single() ) {
+		wp_enqueue_script( 'prestigio-acf-map-api', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), false );
+		wp_enqueue_script( 'prestigio-acf-map-render', get_template_directory_uri() . 'js/acf-map.js', array(), false );
+	}
 
-    wp_enqueue_script('html5_shim', 'http://html5shim.googlecode.com/svn/trunk/html5.js', array(), false);
+    wp_enqueue_script(' prestigio-html5shim', 'http://html5shim.googlecode.com/svn/trunk/html5.js', array(), false );
 
 }
 add_action( 'wp_enqueue_scripts', 'prestigio_scripts' );
