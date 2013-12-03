@@ -30,9 +30,5 @@ jQuery(document).ready(function() {
 		event.preventDefault();
 		ow_carousel.trigger('owl.prev');
 	});
-
-	/* Property details tabs */
-	/* Script para hacer andar los tabs */
-	jQuery('#tab-container').easytabs(); 
 	
 });
