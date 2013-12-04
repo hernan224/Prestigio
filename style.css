@@ -939,7 +939,7 @@ body {
 /* Property information */
 
 #property-gallery {
-	float: left;
+	/*float: left;*//*Causa problemas con el contenido que aparece más abajo, no es necesario*/
 	width: 100%;
 	max-width: 665px;
 	overflow: hidden;
