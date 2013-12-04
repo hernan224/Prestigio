@@ -6,25 +6,18 @@ jQuery(document).ready(function() {
 	
 	
 	/** Silder galería propiedad individual **/
-    jQuery("#galeria-propiedad").owlCarousel({
+    jQuery("#property-gallery").owlCarousel({
         singleItem : true,
 
-        //Autoplay
+        // Autoplay
         autoPlay : true,
         stopOnHover : true,
 
-        // Navigation
-        navigation : true,
-        navigationText : ["<",">"],
-        //rewindNav : false,
+        // Responsive
+        responsiveRefreshRate : 200,
 
-        //Auto height
-        autoHeight : true,
-
-        //Pagination
+        // Pagination
         pagination : true,
-        paginationNumbers: true
+        paginationNumbers: false
     });
-
-	
 });

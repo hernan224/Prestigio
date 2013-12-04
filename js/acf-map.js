@@ -146,7 +146,7 @@ function center_map( map ) {
  
 $(document).ready(function(){
  
-	$('.acf-map').each(function(){
+	$('#property-details-map').each(function(){
  
 		render_map( $(this) );
  

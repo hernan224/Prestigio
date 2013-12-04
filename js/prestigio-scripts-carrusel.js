@@ -10,16 +10,6 @@ jQuery(document).ready(function() {
 		singleItem: true
 	});
 
-	/* Owl Carousel -> Slider para galería en single.php */
-	jQuery(".gallery-item").owlCarousel({
-		autoPlay: 3500,
-        navigation : false,
-		slideSpeed : 900,
-		paginationSpeed : 650,
-		stopOnHover: true,
-		singleItem: true
-	});
-
 	/* Owl Carousel -> Carrusel */
 	var owl_carousel = jQuery(".property-post-list");
 	owl_carousel.owlCarousel({

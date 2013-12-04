@@ -83,14 +83,14 @@ function prestigio_scripts() {
 	wp_enqueue_script( 'jquery' );
 
 	/* Register Owl Carousel */
-	if ( is_front_page() ||  is_single()) {
+	if ( is_front_page() ||  is_single() ) {
 		wp_enqueue_style( 'prestigio-owl-carousel-style', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.css', array(), false );
 		wp_enqueue_style( 'prestigio-owl-carousel-theme', get_template_directory_uri() . '/inc/owl-carousel/owl.theme.css', array(), false );		
-		wp_enqueue_script( 'prestigio-owl-carousel', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.js', array(), false );		
+		wp_enqueue_script( 'prestigio-owl-carousel', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.js', array( 'jquery' ), false );		
 	}
-	
-	if ( is_front_page() ) {
-		wp_enqueue_script( 'prestigio-scripts-carrusel', get_template_directory_uri() . '/js/prestigio-scripts-carrusel.js', array(), false, true );
+
+	if ( is_front_page() || is_single() ) {
+		wp_enqueue_script( 'prestigio-scripts-carrusel', get_template_directory_uri() . '/js/prestigio-scripts-carrusel.js', array( 'jquery' ), false, true );
 	}
 
 	/* Google Map for Advanced Custom Fields & easyTabs para mostrar mapa */
@@ -98,11 +98,11 @@ function prestigio_scripts() {
 		wp_enqueue_script( 'prestigio-acf-map-api', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), false );
 		wp_enqueue_script( 'prestigio-acf-map-render', get_template_directory_uri() . '/js/acf-map.js', array(), false );
 
-		wp_enqueue_script( 'prestigio-easytabs', get_template_directory_uri() . '/js/jquery.easytabs.min.js', array(), false );
-		wp_enqueue_script( 'prestigio-scripts-tabs', get_template_directory_uri() . '/js/prestigio-scripts-tabs.js', array(), false, true );
+		wp_enqueue_script( 'prestigio-easytabs', get_template_directory_uri() . '/js/jquery.easytabs.min.js', array( 'jquery' ), false );
+		wp_enqueue_script( 'prestigio-scripts-tabs', get_template_directory_uri() . '/js/prestigio-scripts-tabs.js', array( 'jquery' ), false, true );
 	}
 
-    wp_enqueue_script(' prestigio-html5shim', 'http://html5shim.googlecode.com/svn/trunk/html5.js', array(), false );
+    wp_enqueue_script(' prestigio-html5shim', 'http://html5shim.googlecode.com/svn/trunk/html5.js', array( 'jquery' ), false );
 	
 }
 add_action( 'wp_enqueue_scripts', 'prestigio_scripts' );
@@ -241,3 +241,140 @@ function prestigio_propiedades_taxonomies()  {
 
 // Hook into the 'init' action
 add_action( 'init', 'prestigio_propiedades_taxonomies', 0 );
+
+// Wrap gallery in a div
+
+add_filter( 'post_gallery', 'my_post_gallery', 10, 2 );
+function my_post_gallery( $output, $attr ) 
+{
+    global $post, $wp_locale;
+    static $instance = 0;
+
+    $instance ++;
+
+    if ( isset( $attr['orderby'] ) ) 
+    {
+        $attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
+        if( !$attr['orderby'] )
+        {
+            unset( $attr['orderby'] );
+        }
+    }
+
+    extract( shortcode_atts( array(
+        'order'      => 'ASC',
+        'orderby'    => 'menu_order ID',
+        'id'         => $post->ID,
+        'itemtag'    => 'div',
+        'icontag'    => 'dt',
+        'captiontag' => 'figcaption',
+        'columns'    => 3,
+        'size'       => 'full',
+        'attachment' => 'large',
+        'include'    => '',
+        'exclude'    => ''
+    ), $attr ) );
+
+    $id = intval( $id );
+
+    if ( 'RAND' == $order )
+    {
+        $orderby = 'none';
+    }
+    if ( !empty( $include ) ) 
+    {
+        $include      = preg_replace( '/[^0-9,]+/', '', $include );
+        $_attachments = get_posts( array( 
+            'include'        => $include, 
+            'post_status'    => 'inherit', 
+            'post_type'      => 'attachment', 
+            'post_mime_type' => 'image', 
+            'order'          => $order, 
+            'orderby'        => $orderby 
+        ));
+
+        $attachments = array();
+        foreach( $_attachments as $key => $val ) 
+        {
+            $attachments[ $val->ID ] = $_attachments[ $key ];
+        }
+    } 
+    elseif ( !empty( $exclude ) ) 
+    {
+        $exclude = preg_replace( '/[^0-9,]+/', '', $exclude );
+        $attachments = get_children( array( 
+            'post_parent'    => $id, 
+            'exclude'        => $exclude, 
+            'post_status'    => 'inherit', 
+            'post_type'      => 'attachment', 
+            'post_mime_type' => 'image', 
+            'order'          => $order, 
+            'orderby'        => $orderby
+        ));
+    } 
+    else 
+    {
+        $attachments = get_children( array(
+            'post_parent'    => $id, 
+            'post_status'    => 'inherit', 
+            'post_type'      => 'attachment', 
+            'post_mime_type' => 'image', 
+            'order'          => $order, 
+            'orderby'        => $orderby
+        ));
+    }
+
+    if( empty( $attachments ) )
+    {
+        return;
+    }
+
+    if( is_feed() ) 
+    {
+        $output = '';
+        foreach( $attachments as $att_id => $attachment )
+        {
+            $output .= wp_get_attachment_link($att_id, $size, true) . "\n";
+        }
+
+        return $output;
+    }
+
+    $itemtag    = tag_escape( $itemtag );
+    $captiontag = tag_escape( $captiontag );
+    $columns    = intval( $columns );
+    $itemwidth  = $columns > 0 ? floor( 100 / $columns ) : 100;
+    $float      = is_rtl() ? 'right' : 'left';
+    $selector   = "gallery-{$instance}";
+    $output     = apply_filters( 'gallery_style', '' );
+    $i          = 0;
+
+    // The div
+    $output .= '<div id="property-gallery" class="owl-carousel owl-theme">';
+
+        foreach( $attachments as $id => $attachment ) 
+        {
+            $link = isset( $attr['link'] ) && 'file' == $attr['link'] ? wp_get_attachment_link( $id, $size, false, false ) : wp_get_attachment_link( $id, $size, true, false );
+
+            $output .= "<{$itemtag} class='item'>";
+            $output .= "$link";
+
+            if ( $captiontag && trim( $attachment->post_excerpt ) ) 
+            {
+                $output .= "<{$captiontag}>" . wptexturize( $attachment->post_excerpt ) . "</{$captiontag}>";
+            }
+            $output .= "</{$itemtag}>";
+
+            if ( $columns > 0 && ++$i % $columns == 0 )
+            {
+                $output .= '';
+            }
+        }
+
+        $output .= "<br>\n";
+
+    // End div
+    $output .= '</div>';
+
+    return $output;
+}

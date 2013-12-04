@@ -19,6 +19,8 @@ get_header(); ?>
 				$args_slider = array(
 					'post_type' => 'propiedad',
 					'posts_per_page' => 5,
+					'meta_key' => 'propiedad_destacada',
+					'meta_value' => true
 				);
 				$slider_query = new WP_Query( $args_slider );
 			?>
@@ -105,7 +107,7 @@ get_header(); ?>
 			</div> <!-- .font-list-property -->
 
 			<?php // Acá va las últimas propiedades en venta ?>
-			<div class="front-proptery-list">
+			<div class="front-property-list">
 				<header class="page-header">
 					<h1 class="entry-title">Últimas propiedades en venta</h1>
 				</header>
@@ -163,6 +165,38 @@ get_header(); ?>
 					<?php wp_reset_postdata(); ?>
 				</div><!-- .list-wrapper -->
 			</div> <!-- .font-list-property -->
+
+			<div class="front-ending">
+				<div class="ending-box">
+					<a href="la-empresa">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/front-ending-empresa.jpg" />
+						<div class="ending-box-meta">
+							<h1>La Empresa</h1>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+					</a>
+				</div>
+
+				<div class="ending-box">
+					<a href="servicios">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/front-ending-servicios.jpg" />
+						<div class="ending-box-meta">
+							<h1>Servicios</h1>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+					</a>
+				</div>
+
+				<div class="ending-box">
+					<a href="contacto">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/front-ending-contacto.jpg" />
+						<div class="ending-box-meta">
+							<h1>Contacto</h1>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						</div>
+					</a>
+				</div>
+			</div><!-- .front-ending -->
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

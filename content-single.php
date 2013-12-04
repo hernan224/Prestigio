@@ -10,35 +10,6 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-	 
-	<?php /** Mostrar todas als imágenes pertenecientes a la propiedad en forma de carrusel **/  ?>
-		<?php
-			$images =& get_children( array (
-				'post_parent' => $post->ID,
-				'post_type' => 'attachment',
-				'post_mime_type' => 'image'
-			));
-
-			if ( empty($images) ) {
-			// no attachments here
-			} else {
-				
-				echo '<div id="galeria-propiedad" class="owl-carousel owl-theme owl-theme-propiedad">';
-				
-					foreach ( $images as $attachment_id => $attachment ) :?>
-					
-					<?php $url_imagen = wp_get_attachment_image_src( $attachment_id, 'full' ); ?>
-					
-					  <a href="<?php echo $url_imagen[0]; ?>">	
-						<?php echo wp_get_attachment_image( $attachment_id, 'slider' );?>
-					  </a>
-					
-					<?php endforeach; 
-				
-				echo '</div>';
-			}
-		?>
-	
 		<?php the_content(); ?>
 
 		<?php $location = get_field( 'mapa' ); ?>
@@ -105,6 +76,10 @@
 			<?php endif; ?>
 
 		</div><!-- .property-details -->
+
+		<div class="property-social">
+			<?php echo do_shortcode( '[shareaholic app="share_buttons" id="610199"]' ); ?>
+		</div>
 
 		<div class="property-contact-form">
 			<h2>Consultar por esta propiedad</h2>
