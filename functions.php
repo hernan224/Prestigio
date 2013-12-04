@@ -83,30 +83,27 @@ function prestigio_scripts() {
 	wp_enqueue_script( 'jquery' );
 
 	/* Register Owl Carousel */
-	if ( is_front_page() ) {
+	if ( is_front_page() ||  is_single()) {
 		wp_enqueue_style( 'prestigio-owl-carousel-style', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.css', array(), false );
 		wp_enqueue_style( 'prestigio-owl-carousel-theme', get_template_directory_uri() . '/inc/owl-carousel/owl.theme.css', array(), false );		
-		wp_enqueue_script( 'prestigio-owl-carousel', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.js', array(), false );
-		wp_enqueue_script( 'prestigio-scripts-home', get_template_directory_uri() . '/js/prestigio-scripts-home.js', array(), false, true );
+		wp_enqueue_script( 'prestigio-owl-carousel', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.js', array(), false );		
+	}
+	
+	if ( is_front_page() ) {
+		wp_enqueue_script( 'prestigio-scripts-carrusel', get_template_directory_uri() . '/js/prestigio-scripts-carrusel.js', array(), false, true );
 	}
 
-	/* Google Map for Advanced Custom Fields */
+	/* Google Map for Advanced Custom Fields & easyTabs para mostrar mapa */
 	if ( is_single() ) {
 		wp_enqueue_script( 'prestigio-acf-map-api', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), false );
 		wp_enqueue_script( 'prestigio-acf-map-render', get_template_directory_uri() . '/js/acf-map.js', array(), false );
-		/*Plugin Easytabs para mostrar contenido por solapas*/
+
 		wp_enqueue_script( 'prestigio-easytabs', get_template_directory_uri() . '/js/jquery.easytabs.min.js', array(), false );
-		wp_enqueue_script( 'prestigio-scripts-single', get_template_directory_uri() . '/js/prestigio-scripts-single.js', array(), false, true );
+		wp_enqueue_script( 'prestigio-scripts-tabs', get_template_directory_uri() . '/js/prestigio-scripts-tabs.js', array(), false, true );
 	}
 
     wp_enqueue_script(' prestigio-html5shim', 'http://html5shim.googlecode.com/svn/trunk/html5.js', array(), false );
 	
-	
-	/*if ( is_front_page() || is_single() ) {
-		wp_enqueue_script( 'prestigio-scripts', get_template_directory_uri() . '/js/prestigio-scripts.js', array(), false, true );
-	}*/
-
-
 }
 add_action( 'wp_enqueue_scripts', 'prestigio_scripts' );
 
