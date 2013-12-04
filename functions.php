@@ -371,7 +371,7 @@ function my_post_gallery( $output, $attr )
             }
         }
 
-        $output .= "<br>\n";
+        $output .= "\n";
 
     // End div
     $output .= '</div>';
