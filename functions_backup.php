@@ -133,11 +133,6 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
-*Requerir framework WP Adveced Search
-*/
-require_once('wp-advanced-search/wpas.php');
-
-/**
  * Register Propiedades Custom Post Type
  */
 function prestigio_propiedades() {
@@ -382,88 +377,4 @@ function my_post_gallery( $output, $attr )
     $output .= '</div>';
 
     return $output;
-}
-
-
-
-/** Función para pasar los argumentos al WP Advaced Search **/
-function my_search_args() {
-
-    /** Iniciando par?metros para Wp Advaced Search **/
-    $args = array();
-    $args['wp_query'] = array('post_type' => 'propiedad',
-        'posts_per_page' => 6,
-        'orderby' => 'date',
-        'order' => 'DESC'
-    );
-    /** Definiendo los campos de busqueda **/
-    /* Campo de busqueda de texto */
-    $args['fields'][] = array('type' => 'search',
-        'placeholder' => '¿Qué estas buscando?'
-    );
-    /*Campo de busqueda select para el tipo de propiedad*/
-    $args['fields'][] = array('type' => 'taxonomy',
-        //'label' => 'Tipo de propiedad',
-        'format' => 'multi-select',
-        'terms' => array(
-            'casa' => 'Casa',
-            'departamento' => 'Departamento',
-            'local-comercial' => 'Local Comercial',
-            'oficina' => 'Oficina',
-            'campo' => 'Campo',
-            'terreno' => 'Terreno',
-            'galpon-deposito' => 'Galpon / Deposito'
-        ),
-        'operator' => 'IN',
-        'taxonomy' => 'tipo',
-        //'default' => ''
-    );
-    /*Campo de busqueda checkbox para la operacion*/
-    $args['fields'][] = array('type' => 'taxonomy',
-        //'label' => 'Tipo de operación',
-        'format' => 'checkbox',
-        'operator' => 'IN',
-        'taxonomy' => 'operacion'
-    );
-    /*Boton de envio*/
-    $args['fields'][] = array('type' => 'submit',
-        'value' => 'Buscar'
-    );
-    /** Definiendo los par?metros del formulario de contacto **/
-    $args['form'] = array(
-        'action' => 'http://localhost/prestigio/propiedades-buscadas',
-        //'action' => 'http://www.spinelliprestigio.com.ar/busqueda-de-propiedades/',
-        'method' => 'GET',
-        'id' => 'busqueda_propiedad_form',
-        'name' => 'busqueda_propiedad_form',
-        'class' => 'busqueda_propiedad_form');
-
-
-    return $args;
-
-}
-
-
-/** Función para obtener el los terms de una publicación, sin link **/
-
-function custom_taxonomies_terms($id, $tax){
-
-    $terms = get_the_terms( $id, $tax );
-    $los_links_array = array();
-
-    if ( $terms && ! is_wp_error( $terms ) ) {
-
-        foreach ( $terms as $term ) {
-
-            $los_links_array[] = $term->name;
-        }
-
-        $los_links_string = implode(', ', $los_links_array);
-    }
-    else {
-        $los_links_string = '';
-    }
-
-
-    return $los_links_string;
 }

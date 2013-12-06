@@ -19,12 +19,6 @@
 <?php wp_head(); ?>
 </head>
 
-<?php
-    /** Generando la nueva busqueda **/
-    $args = my_search_args();
-    $busqueda_propiedad = new WP_Advanced_Search($args);
- ?>
-
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
@@ -37,11 +31,8 @@
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
 
-		<nav id="property-navigation" class="secondary-navigation" role="navigation">			
-			<div class="menu_propiedades"><?php wp_nav_menu( array('theme_location' => 'secondary' ) ); ?></div>
-			
-			<div class="property-search"><?php /** El formulario de busqueda **/ $busqueda_propiedad->the_form(); ?></div> <!-- Acá va el formualrio de busqueda -->
-			
+		<nav id="property-navigation" class="secondary-navigation" role="navigation">
+			<?php wp_nav_menu( array('theme_location' => 'secondary' ) ); ?>
 		</nav><!-- #property-navigation -->
 	</header><!-- #masthead -->
 
