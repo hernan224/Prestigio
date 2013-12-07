@@ -9,94 +9,70 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<section id="primary" class="content-area full-width">
 
-		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-						if ( is_category() ) :
-							single_cat_title();
 
-						elseif ( is_tag() ) :
-							single_tag_title();
+    <main id="main" class="site-main" role="main">
 
-						elseif ( is_author() ) :
-							/* Queue the first post, that way we know
-							 * what author we're dealing with (if that is the case).
-							*/
-							the_post();
-							printf( __( 'Author: %s', 'prestigio' ), '<span class="vcard">' . get_the_author() . '</span>' );
-							/* Since we called the_post() above, we need to
-							 * rewind the loop back to the beginning that way
-							 * we can run the loop properly, in full.
-							 */
-							rewind_posts();
+        <header class="page-header">
+            <h1 class="entry-title">Listado de propiedades</h1>
+        </header><!-- .page-header -->
 
-						elseif ( is_day() ) :
-							printf( __( 'Day: %s', 'prestigio' ), '<span>' . get_the_date() . '</span>' );
+        <div class="list-wrapper">
 
-						elseif ( is_month() ) :
-							printf( __( 'Month: %s', 'prestigio' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
+            <?php if ( have_posts() ) : ?>
 
-						elseif ( is_year() ) :
-							printf( __( 'Year: %s', 'prestigio' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
+                <ul class="property-post-list">
 
-						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-							_e( 'Asides', 'prestigio' );
+                    <?php while ( have_posts() ) : the_post(); ?>
 
-						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', 'prestigio');
+                        <li>
+                            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-							_e( 'Videos', 'prestigio' );
+                                <div class="entry-content">
+                                    <a href="<?php the_permalink();?>" class="property-post-link">
+                                        <?php the_post_thumbnail(); ?>
 
-						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-							_e( 'Quotes', 'prestigio' );
+                                        <div class="property-list-meta">
+                                            <h1 class="entry-title"><?php the_title(); ?></h1>
 
-						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-							_e( 'Links', 'prestigio' );
+                                            <div class="meta-wrapper">
+                                                <?php $el_id = get_the_ID(); ?>
 
-						else :
-							_e( 'Archives', 'prestigio' );
+                                                <span><strong> <?php echo custom_taxonomies_terms($el_id, 'tipo'); ?> en <?php echo custom_taxonomies_terms($el_id, 'operacion'); ?></strong></span>
 
-						endif;
-					?>
-				</h1>
-				<?php
-					// Show an optional term description.
-					$term_description = term_description();
-					if ( ! empty( $term_description ) ) :
-						printf( '<div class="taxonomy-description">%s</div>', $term_description );
-					endif;
-				?>
-			</header><!-- .page-header -->
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+                                                <?php if( get_field( 'direccion' ) ): ?>
+                                                    <span>Dirección: <?php the_field( 'direccion' ); ?></span>
+                                                <?php endif; ?>
 
-				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-				?>
+                                                <?php if( get_field( 'localidad' ) ): ?>
+                                                    <span>Localidad: <?php the_field( 'localidad' ); ?></span>
+                                                <?php endif; ?>
+                                            </div>
 
-			<?php endwhile; ?>
+                                        </div><!-- .property-list-meta -->
 
-			<?php prestigio_content_nav( 'nav-below' ); ?>
+                                    </a><!-- .property-list-wrapper -->
+                                </div><!-- .entry-content -->
+                            </article><!-- #post-## -->
+                        </li>
 
-		<?php else : ?>
+                    <?php endwhile; ?>
 
-			<?php get_template_part( 'content', 'none' ); ?>
+                </ul><!-- .property-post-list -->
 
-		<?php endif; ?>
+                <?php prestigio_content_nav( 'nav-below' ); ?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+            <?php else : ?>
 
-<?php get_sidebar(); ?>
+                <?php get_template_part( 'content', 'none' ); ?>
+
+            <?php endif; ?>
+        </div><!-- .list-wrapper -->
+
+    </main><!-- #main -->
+</section><!-- #primary -->
+
 <?php get_footer(); ?>
