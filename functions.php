@@ -431,8 +431,8 @@ function my_search_args() {
     );
     /** Definiendo los par?metros del formulario de contacto **/
     $args['form'] = array(
-        'action' => 'http://localhost/prestigio/propiedades-buscadas',
-        //'action' => 'http://www.spinelliprestigio.com.ar/busqueda-de-propiedades/',
+        
+        'action' => 'http://www.spinelliprestigio.com.ar/busqueda-de-propiedades/',
         'method' => 'GET',
         'id' => 'busqueda_propiedad_form',
         'name' => 'busqueda_propiedad_form',
