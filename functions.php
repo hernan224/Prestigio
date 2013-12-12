@@ -404,7 +404,7 @@ function my_search_args() {
     /*Campo de busqueda select para el tipo de propiedad*/
     $args['fields'][] = array('type' => 'taxonomy',
         //'label' => 'Tipo de propiedad',
-        'format' => 'multi-select',
+        'format' => 'select',
         'terms' => array(
             'casa' => 'Casa',
             'departamento' => 'Departamento',
@@ -416,7 +416,8 @@ function my_search_args() {
         ),
         'operator' => 'IN',
         'taxonomy' => 'tipo',
-        //'default' => ''
+        // 'default' => 'Tipo de propiedad...',
+        // 'term_args' => array('hide_empty' => false )
     );
     /*Campo de busqueda checkbox para la operacion*/
     $args['fields'][] = array('type' => 'taxonomy',

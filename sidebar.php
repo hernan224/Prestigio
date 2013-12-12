@@ -7,27 +7,34 @@
 ?>
 	<div id="secondary" class="widget-area" role="complementary">
 		<?php do_action( 'before_sidebar' ); ?>
-		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
-			<aside id="search" class="widget widget_search">
-				<?php get_search_form(); ?>
-			</aside>
+		<?php
+			$args_featured_sidebar = array(
+				'post_type' => 'propiedad',
+				'posts_per_page' => 5,
+				'meta_key' => 'propiedad_destacada',
+				'meta_value' => true
+			);
+			$sidebar_query = new WP_Query( $args_featured_sidebar );
+		?>
 
-			<aside id="archives" class="widget">
-				<h1 class="widget-title"><?php _e( 'Archives', 'prestigio' ); ?></h1>
-				<ul>
-					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-				</ul>
-			</aside>
+		<aside id="sidebar-property-featured" class="widget">
+			<header class="widget-header">
+				<h1 class="widget-title">Propiedades destacadas</h1>
+			</header><!-- .widget-header -->
 
-			<aside id="meta" class="widget">
-				<h1 class="widget-title"><?php _e( 'Meta', 'prestigio' ); ?></h1>
-				<ul>
-					<?php wp_register(); ?>
-					<li><?php wp_loginout(); ?></li>
-					<?php wp_meta(); ?>
-				</ul>
-			</aside>
-
-		<?php endif; // end sidebar widget area ?>
+		<?php if( $sidebar_query->have_posts() ) : ?>
+		<?php while( $sidebar_query->have_posts() ) : $sidebar_query->the_post(); ?>
+			<div class="sidebar-property-post">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+				<?php if( has_post_thumbnail() ) {
+					the_post_thumbnail();
+				} ?>
+					<h1><?php the_title(); ?></h1>
+				</a>
+			</div>
+		<?php endwhile; ?>			
+		<?php endif; ?>
+		
+		</aside><!-- #sidebar-property-featured -->
 	</div><!-- #secondary -->

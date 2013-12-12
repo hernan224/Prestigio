@@ -38,9 +38,13 @@
 		</nav><!-- #site-navigation -->
 
 		<nav id="property-navigation" class="secondary-navigation" role="navigation">			
-			<div class="menu_propiedades"><?php wp_nav_menu( array('theme_location' => 'secondary' ) ); ?></div>
+			<div class="property-menu">
+                <?php wp_nav_menu( array('theme_location' => 'secondary' ) ); ?>
+            </div><!-- .property-menu -->
 			
-			<div class="property-search"><?php /** El formulario de busqueda **/ $busqueda_propiedad->the_form(); ?></div> <!-- Acá va el formualrio de busqueda -->
+			<div class="property-search">
+                <?php $busqueda_propiedad->the_form(); ?>
+            </div><!-- .property-search -->
 			
 		</nav><!-- #property-navigation -->
 	</header><!-- #masthead -->
@@ -49,7 +53,7 @@
 
         <?php /** Mostrar breadcrumb navigation dependiendo la seccion **/ ?>
 
-        <?php if (!is_front_page()): /*Si no es home*/?>
+        <?php if (!is_front_page()): /* Si no es front page */?>
             <p class="breadcrumb">
 
                 <a href="/">Inicio </a>
@@ -151,4 +155,4 @@
                 <?php endif; /*Fin Si es single*/ ?>
 
 
-        <?php endif; /*Fin Si no es home*/ ?>
+        <?php endif; /* Fin Si no es front page */ ?>

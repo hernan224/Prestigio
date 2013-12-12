@@ -568,76 +568,57 @@ body {
 .property-search {
 	color: #eee;
 	float: right;
-	font-size: 14px;
-	margin: 20px 40px 0 0;
-	position: relative;
+	margin: 10px 0 0 0;
 }
 
-	.property-search .widget,
-    .property-search form
-    {
+    .property-search form {
 		margin: 0;
 	}
 
-	.wpp_search_properties_widget {
-		float: right;
+	.property-search input {
+		padding: 5px;
 	}
 
-	.property-search li,
-    .wpas-field{
+    .wpas-field {
+    	border-radius: none;
 		float: left;
 		clear: none;
 		list-style: none;
-        margin: 0 15px;
+        margin: 0 0 0 30px;
 	}
 
-	.property-search ul ul {
-		display: block;
-		position: relative;
-		top: 0;
-	}
-
-	.property-search ul ul li {
-		border: none;
-	}
-
-	.wpp_search_label {
-		float: left;
-		width: auto !important;
-	}
-
-	.wpp_search_form_element {
-		float: left;
-		margin-right: 10px;
-		width: 80px;
-	}
-
-	.wpp_search_form_element:first-child {
-		width: 290px;
-	}
-
-		.property-search .submit {
-			margin-right: 0 !important;
+		.wpas-field:focus {
+			border: 1px solid #309147;
+			outline: none;
 		}
 
-	.wpp_search_post_label_colon {
-		visibility: hidden;
+	.wpas-checkbox-container {
+		float: left;
 	}
 
-	.wpp_search_elements input[type=submit],
-    .wpas-submit input[type=submit]{
+	.property-search input[type="checkbox"] {
+		padding: 5px;
+		background: #309147;
+	}
+
+	.property-search input[type="submit"] {
 		background: #194C25;
 		border: none;
+		border-radius: 0;
 		box-shadow: none;
 		color: #eee;
 		font-size: 14px;
 		font-weight: bold;
 		padding: 10px 20px;
 		text-shadow: none;
-		position: relative;
-		top: -5px;
 		width: auto;
 	}
+
+		.property-search input[type="submit"]:hover {
+			background: #42A056;
+			border: none;
+			box-shadow: none;
+		}
 
 	
 /* -- MAIN -- */
@@ -1147,6 +1128,16 @@ object {
 	margin: 0 0 1.5em;
 }
 
+.widget-header {
+	border-bottom: 1px solid #efefef;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+}
+
+.widget-title { 
+	font-size: 21px;
+}
+
 /* Make sure select elements fit in widgets */
 .widget select {
 	max-width: 100%;
@@ -1156,6 +1147,29 @@ object {
 .widget_search .search-submit {
 	display: none;
 }
+
+/* Featured properties */
+.sidebar-property-post {
+	float: left;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.sidebar-property-post h1 {
+	background: #309147;
+	color: #fff;
+	font-size: 18px;
+	margin-top: -5px;
+	padding: 10px;
+}
+
+.sidebar-property-post img {
+	transition: opacity 0.25s ease;
+}
+
+	.sidebar-property-post img:hover {
+		opacity: 0.5;
+	}
 
 
 /* --- FOOTER --- */
