@@ -517,21 +517,25 @@ body {
 	max-width: 1040px;
 }
 
-.secondary-navigation ul {
+.property-menu {
+	float: left;
+}
+
+.property-menu ul {
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
 }
-.secondary-navigation li {
+.property-menu li {
 	float: left;
 	position: relative;
 }
 
-	.secondary-navigation li:hover {
+	.property-menu li:hover {
 		background: #42A056;
 	}
 
-.secondary-navigation a {
+.property-menu a {
 	border-right: 1px solid rgba(255,255,255,0.1);
 	color: #eee;
 	display: block;
@@ -540,7 +544,7 @@ body {
 	text-decoration: none;
 }
 
-.secondary-navigation ul ul {
+.property-menu ul ul {
 	background: #309147;
 	display: none;
 	float: left;
@@ -550,16 +554,16 @@ body {
 	z-index: 99999;
 }
 
-.secondary-navigation ul ul li {
+.property-menu ul ul li {
 	border-top: 1px solid rgba(255,255,255,0.2);
 }
 
-.secondary-navigation ul ul a {
+.property-menu ul ul a {
 	width: 140px;
 	font-weight: normal;
 }
 
-.secondary-navigation ul li:hover > ul {
+.property-menu ul li:hover > ul {
 	display: block;
 }
 
@@ -568,55 +572,73 @@ body {
 .property-search {
 	color: #eee;
 	float: right;
-	margin: 10px 0 0 0;
+	margin: 12px 0 0 0;
+	position: relative;
+	right: -30px;
 }
 
     .property-search form {
 		margin: 0;
 	}
 
-	.property-search input {
+		.property-search input:focus,
+		.property-search select:focus {
+			outline: none;
+		}
+
+	.property-search input,
+	.property-search select {
+		border: none;
+		border-radius: 0;
 		padding: 5px;
 	}
 
+	.property-search input[type="text"] {
+		background: #194C25;
+		color: #eee;
+		width: 200px;
+	}
+
+	.property-search select {
+		padding: 4px;
+	}
+
     .wpas-field {
-    	border-radius: none;
 		float: left;
 		clear: none;
 		list-style: none;
-        margin: 0 0 0 30px;
+        margin: 3px 0 0 30px;
 	}
-
-		.wpas-field:focus {
-			border: 1px solid #309147;
-			outline: none;
-		}
 
 	.wpas-checkbox-container {
 		float: left;
 	}
 
+	.wpas-tax_operacion {
+		margin-top: 5px;
+	}
+
 	.property-search input[type="checkbox"] {
-		padding: 5px;
-		background: #309147;
+		margin-left: 10px;
 	}
 
 	.property-search input[type="submit"] {
-		background: #194C25;
-		border: none;
+		background: #42A056;
+		border: 1px solid rgba(255,255,255,0.1);
 		border-radius: 0;
 		box-shadow: none;
 		color: #eee;
 		font-size: 14px;
 		font-weight: bold;
+		margin-top: -3px;
 		padding: 10px 20px;
 		text-shadow: none;
 		width: auto;
 	}
 
 		.property-search input[type="submit"]:hover {
-			background: #42A056;
-			border: none;
+			background: #194C25;
+			border: 1px solid rgba(255,255,255,0.1);
 			box-shadow: none;
 		}
 
@@ -739,6 +761,27 @@ body {
 	overflow: auto;
 }
 
+.front-property-list header{
+    position: relative;
+}
+
+/*Botones carrusel*/
+.botones-carrusel{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.botones-carrusel a{
+    display: inline-block;
+    padding: 1em;
+    margin-right: 1em;
+}
+
+.botones-carrusel a:hover{
+    color: #194C25;
+}
+
 .front-ending {
 	border-top: 1px solid #efefef;
 	clear: both;
@@ -749,7 +792,7 @@ body {
 }
 
 .ending-box {
-	background: #309147;
+	background: rgb(134, 151, 145);
 	float: left;
 	margin-right: 25px;
 	width: 100%;
@@ -760,19 +803,29 @@ body {
 		margin: 0;
 	}
 
+    .ending-box:hover {
+        background-color: rgb(48, 145, 71);
+    }
+
 .ending-box-meta {
-	padding: 10px;
+	padding: 15px;
 }
-	.ending-box-meta h1, .ending-box-meta p {
+	.ending-box-meta h1,
+    .ending-box-meta p,
+    .ending-box-title{
 		color: #fff;
 	}
 
-	.ending-box-meta h1 {
-		border-bottom: 1px solid rgba(255,255,255,0.1);
+	.ending-box-meta h1,
+    .ending-box-title
+        {
+		font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+		/*border-bottom: 1px solid rgba(255,255,255,0.1);*/
 		display: block;
-		font-size: 18px;
-		margin-bottom: 10px;
-		padding-bottom: 5px;
+		font-size: 21px;
+		/*margin-bottom: 10px;*/
+		padding: 15px;
 		width: 100%;
 		max-width: 290px;		
 	}
@@ -943,7 +996,6 @@ body {
 	}
 
 .property-details {
-	border: 1px solid #dedede;
 	display: block;
 	overflow: hidden;
 	margin: 40px 0 20px 0;
@@ -953,33 +1005,52 @@ body {
 
 	.property-tabs {
 		background: #efefef;
-		border-bottom: 1px solid #dedede;
+		border: 1px solid #dedede;
+		border-bottom: none;
+		float: left;
 		list-style: none;
 		margin: 0;
-		padding: 10px;
+		overflow: hidden;
 	}
 
 	.property-tabs li {
 		float: left;
+		display: inline-block;
 	}
 
 	.property-tabs li a {
 		border-right: 1px solid #dedede;
+		display: block;
 		color: #333333;
-		font-size: 21px;
+		font-size: 16px;
 		font-weight: bold;
-		padding-right: 10px;
-		margin-left: 10px; 
+		padding: 0.75em 1.5em;
+		/*margin-left: 0;*/
 		text-decoration: none;
 	}
 
-		.property-tabs li:first-child a {
-			margin-left: 0;
-		}
+/*.property-tabs li:first-child a {
+    margin-left: 0;
+    padding-left: 0;
+		}*/
 
 		.property-tabs li:last-child a {
 			border: none;
 		}
+
+        .property-tabs li a.active{
+            background-color: #309147;
+            color: #fff;
+        }
+
+    .property-tabs li a .fa{
+        margin-right: 0.3em;
+    }
+
+#property-tab-details {
+	border: 1px solid #dedede;
+	clear: both;
+}
 
 .property-details-list {
 	float: left;
@@ -1009,6 +1080,7 @@ body {
 #property-details-map {
 	width: 100%;
 	height: 400px;
+    clear: both;
 }
 
 /* Property Social Sharing */
@@ -1115,9 +1187,9 @@ object {
 
 .widget-area {
 	float: right;
-	width: 30%;
-	max-width: 265px;
-	padding-left: 50px;
+	width: 29%;
+	/*max-width: 265px;*/
+	/*padding-left: 50px;*/
 }
 
 
@@ -1125,7 +1197,7 @@ object {
 ----------------------------------------------- */
 
 .widget {
-	margin: 0 0 1.5em;
+	margin: 16px 0 1.5em;
 }
 
 .widget-header {
@@ -1152,7 +1224,8 @@ object {
 .sidebar-property-post {
 	float: left;
 	overflow: hidden;
-	margin-bottom: 20px;
+    position: relative;
+	margin-bottom: 30px;
 }
 
 .sidebar-property-post h1 {
@@ -1161,10 +1234,14 @@ object {
 	font-size: 18px;
 	margin-top: -5px;
 	padding: 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 
 .sidebar-property-post img {
 	transition: opacity 0.25s ease;
+    width:100%
 }
 
 	.sidebar-property-post img:hover {
@@ -1212,9 +1289,24 @@ object {
 		height: 60px;
 	}
 
+.site-info-contact li{
+    margin-bottom: 0.75em;
+}
+
+.site-info-contact i.fa{
+    margin-right: 0.5em;
+    color: #194C25;
+}
+
 .footer-navigation {
 	margin-right: 0;
 }
+
+.footer-navigation .menu-item {
+    margin-bottom: 0.75em;
+}
+
+
 
 .site-info-copyright {
 	border-top: 1px solid #fff;

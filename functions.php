@@ -77,6 +77,10 @@ function prestigio_scripts() {
 	wp_register_style( 'prestigio-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Condensed:700' );
 	wp_enqueue_style( 'prestigio-fonts');
 
+    /* Register Font Awsome (iconos) */
+	wp_register_style( 'prestigio-iconos', '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css' );
+	wp_enqueue_style( 'prestigio-iconos');
+
 	/* Register style.css */
 	wp_enqueue_style( 'prestigio-style', get_stylesheet_uri() );
 

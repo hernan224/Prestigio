@@ -50,6 +50,11 @@ get_header(); ?>
 			<div class="front-property-list">
 				<header class="page-header">
 					<h1 class="entry-title">Últimas propiedades en alquiler</h1>
+
+                    <div class="botones-carrusel">
+                        <a id="alquiler-anterior" href="#"><i class="fa fa-chevron-left fa-2x"></i></a>
+                        <a id="alquiler-siguiente" href="#"><i class="fa fa-chevron-right fa-2x"></i></a>
+                    </div>
 				</header>
 
 				<div class="list-wrapper">
@@ -65,7 +70,7 @@ get_header(); ?>
 
 				<?php if ( $alquiler_query->have_posts() ) : ?>
 
-						<ul class="property-post-list owl-carousel">
+						<ul id="carrusel-alquiler" class="property-post-list owl-carousel">
 
 						<?php while ( $alquiler_query->have_posts() ) : $alquiler_query->the_post(); ?>
 
@@ -110,6 +115,10 @@ get_header(); ?>
 			<div class="front-property-list">
 				<header class="page-header">
 					<h1 class="entry-title">Últimas propiedades en venta</h1>
+                    <div class="botones-carrusel">
+                        <a id="venta-anterior" href="#"><i class="fa fa-chevron-left fa-2x"></i></a>
+                        <a id="venta-siguiente" href="#"><i class="fa fa-chevron-right fa-2x"></i></a>
+                    </div>
 				</header>
 
 				<div class="list-wrapper">
@@ -125,7 +134,7 @@ get_header(); ?>
 
 				<?php if ( $venta_query->have_posts() ) : ?>
 
-						<ul class="property-post-list owl-carousel">
+						<ul id="carrusel-venta" class="property-post-list owl-carousel">
 
 						<?php while ( $venta_query->have_posts() ) : $venta_query->the_post(); ?>
 
@@ -169,9 +178,9 @@ get_header(); ?>
 			<div class="front-ending">
 				<div class="ending-box">
 					<a href="la-empresa">
+                        <h3 class="ending-box-title">La Empresa</h3>
 						<img src="<?php echo get_template_directory_uri(); ?>/images/front-ending-empresa.jpg" />
 						<div class="ending-box-meta">
-							<h1>La Empresa</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 						</div>
 					</a>
@@ -179,9 +188,9 @@ get_header(); ?>
 
 				<div class="ending-box">
 					<a href="servicios">
+                        <h3 class="ending-box-title">Servicios</h3>
 						<img src="<?php echo get_template_directory_uri(); ?>/images/front-ending-servicios.jpg" />
 						<div class="ending-box-meta">
-							<h1>Servicios</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 						</div>
 					</a>
@@ -189,9 +198,9 @@ get_header(); ?>
 
 				<div class="ending-box">
 					<a href="contacto">
+                        <h3 class="ending-box-title">Contacto</h3>
 						<img src="<?php echo get_template_directory_uri(); ?>/images/front-ending-contacto.jpg" />
 						<div class="ending-box-meta">
-							<h1>Contacto</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 						</div>
 					</a>

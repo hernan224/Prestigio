@@ -10,9 +10,9 @@ jQuery(document).ready(function() {
 		singleItem: true
 	});
 
-	/* Owl Carousel -> Carrusel */
-	var owl_carousel = jQuery(".property-post-list");
-	owl_carousel.owlCarousel({
+	/* Owl Carousel -> Carrusel Venta*/
+    var $carrusel_venta = jQuery("#carrusel-venta");
+    $carrusel_venta.owlCarousel({
 		autoPlay: false,
 		items : 3,
 		itemsDesktop : [1000,3],
@@ -22,13 +22,34 @@ jQuery(document).ready(function() {
     });
 
     /* Owl Carousel -> Carrusel botones */
-	jQuery(".venta-next").click(function(){
+	jQuery("#venta-siguiente").click(function(event){
 		event.preventDefault();
-		owl_carousel.trigger('owl.next');
+        $carrusel_venta.trigger('owl.next');
 	});
-	jQuery(".venta-prev").click(function(){
+	jQuery("#venta-anterior").click(function(event){
 		event.preventDefault();
-		ow_carousel.trigger('owl.prev');
+        $carrusel_venta.trigger('owl.prev');
+	});
+
+	/* Owl Carousel -> Carrusel Alquiler*/
+    var $carrusel_alquiler = jQuery("#carrusel-alquiler");
+    $carrusel_alquiler.owlCarousel({
+		autoPlay: false,
+		items : 3,
+		itemsDesktop : [1000,3],
+		itemsDesktopSmall : [979,2],
+		itemsTablet: [767,1],
+		itemsMobile : false
+    });
+
+    /* Owl Carousel -> Carrusel botones */
+	jQuery("#alquiler-siguiente").click(function(event){
+		event.preventDefault();
+        $carrusel_alquiler.trigger('owl.next');
+	});
+	jQuery("#alquiler-anterior").click(function(event){
+		event.preventDefault();
+        $carrusel_alquiler.trigger('owl.prev');
 	});
 	
 });

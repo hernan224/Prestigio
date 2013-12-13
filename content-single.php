@@ -17,15 +17,14 @@
 		<div id="property-tab-wrapper" class="property-details">
 		
 			<ul class="property-tabs clear">
-				<li><a href="#property-tab-details">Detalles de la propiedad</a></li>
+				<li><a href="#property-tab-details"><i class="fa fa-info-circle"></i>   Detalles de la propiedad</a></li>
 				
 			<?php if( !empty( $location ) ): ?>	
-				<li><a href="#property-tab-map">Ver mapa</a></li>
-			<?php endif; ?>
-				
+				<li><a href="#property-tab-map"><i class="fa fa-globe"></i>   Ver mapa</a></li>
+			<?php endif; ?>				
 			</ul>
 
-			<div id="property-tab-details">
+			<div id="property-tab-details" class="clear">
 
 				<ul class="property-details-list">
 					<li><?php the_terms( $post->ID, 'tipo', '<span>Propiedad: </span>', ', ', ' ' ); ?></li>
