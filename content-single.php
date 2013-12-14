@@ -68,7 +68,8 @@
 			
 			<div id="property-tab-map">
 				<div id="property-details-map">
-					<div id="marker" class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+					<!--<div id="marker" class="marker" data-lat="<?php /*echo $location['lat']; */?>" data-lng="<?php /*echo $location['lng']; */?>"></div>-->
+                    <?php echo do_shortcode( '[su_gmap address="'.$location["lat"].','.$location["lng"].'"]' ); ?>
 				</div>
 			</div><!-- #property-tab-map -->
 

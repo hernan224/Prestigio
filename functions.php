@@ -85,15 +85,15 @@ function prestigio_scripts() {
 	wp_enqueue_style( 'prestigio-style', get_stylesheet_uri() );
 
     /* Google Map for Advanced Custom Fields */
-    if ( is_single() ) {
+    //if ( is_single() ) {
         /*Google Map*/
         //wp_enqueue_script( 'prestigio-acf-map-api', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), false );
         //wp_enqueue_script( 'prestigio-acf-map-render', get_template_directory_uri() . '/js/acf-map.js', array(), false );
 
         /*Leaflet Map*/
-        wp_enqueue_style( 'prestigio-acf-map-leaf-css', 'http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css', array(), false );
-        wp_enqueue_script( 'prestigio-acf-map-leaf-script', get_template_directory_uri() . '/js/leaflet-src.js', array(), false );
-    }
+        //wp_enqueue_style( 'prestigio-acf-map-leaf-css', 'http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css', array(), false );
+        //wp_enqueue_script( 'prestigio-acf-map-leaf-script', get_template_directory_uri() . '/js/leaflet-src.js', array(), false );
+    //}
 
 	wp_enqueue_script( 'jquery' );
 
