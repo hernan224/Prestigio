@@ -84,6 +84,17 @@ function prestigio_scripts() {
 	/* Register style.css */
 	wp_enqueue_style( 'prestigio-style', get_stylesheet_uri() );
 
+    /* Google Map for Advanced Custom Fields */
+    if ( is_single() ) {
+        /*Google Map*/
+        //wp_enqueue_script( 'prestigio-acf-map-api', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), false );
+        //wp_enqueue_script( 'prestigio-acf-map-render', get_template_directory_uri() . '/js/acf-map.js', array(), false );
+
+        /*Leaflet Map*/
+        wp_enqueue_style( 'prestigio-acf-map-leaf-css', 'http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css', array(), false );
+        wp_enqueue_script( 'prestigio-acf-map-leaf-script', get_template_directory_uri() . '/js/leaflet-src.js', array(), false );
+    }
+
 	wp_enqueue_script( 'jquery' );
 
 	/* Register Owl Carousel */
@@ -99,8 +110,15 @@ function prestigio_scripts() {
 
 	/* Google Map for Advanced Custom Fields & easyTabs para mostrar mapa */
 	if ( is_single() ) {
-		wp_enqueue_script( 'prestigio-acf-map-api', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), false );
-		wp_enqueue_script( 'prestigio-acf-map-render', get_template_directory_uri() . '/js/acf-map.js', array(), false );
+        /*Google Map*/
+		//wp_enqueue_script( 'prestigio-acf-map-api', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), false );
+		//wp_enqueue_script( 'prestigio-acf-map-render', get_template_directory_uri() . '/js/acf-map.js', array(), false );
+
+        /*Leaflet Map*/
+        //wp_enqueue_style( 'prestigio-acf-map-leaf-css', 'http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css', array(), false );
+        //wp_enqueue_script( 'prestigio-acf-map-leaf-script', get_template_directory_uri() . '/js/leaflet-src.js', array(), false );
+        //wp_enqueue_script( 'prestigio-acf-map-leaf-script', 'http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js', array( 'jquery' ), false );
+
 
 		wp_enqueue_script( 'prestigio-easytabs', get_template_directory_uri() . '/js/jquery.easytabs.min.js', array( 'jquery' ), false );
 		wp_enqueue_script( 'prestigio-scripts-tabs', get_template_directory_uri() . '/js/prestigio-scripts-tabs.js', array( 'jquery' ), false, true );

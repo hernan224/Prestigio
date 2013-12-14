@@ -17,10 +17,10 @@
 		<div id="property-tab-wrapper" class="property-details">
 		
 			<ul class="property-tabs clear">
-				<li><a href="#property-tab-details"><i class="fa fa-info-circle"></i>   Detalles de la propiedad</a></li>
+				<li><a id="tab-detalle-btn" href="#property-tab-details"><i class="fa fa-info-circle"></i>   Detalles de la propiedad</a></li>
 				
 			<?php if( !empty( $location ) ): ?>	
-				<li><a href="#property-tab-map"><i class="fa fa-globe"></i>   Ver mapa</a></li>
+				<li><a id="tab-map-btn" href="#property-tab-map"><i class="fa fa-globe"></i>   Ver mapa</a></li>
 			<?php endif; ?>				
 			</ul>
 
@@ -68,7 +68,7 @@
 			
 			<div id="property-tab-map">
 				<div id="property-details-map">
-					<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+					<div id="marker" class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
 				</div>
 			</div><!-- #property-tab-map -->
 
