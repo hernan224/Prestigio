@@ -106,8 +106,10 @@ function prestigio_scripts() {
 		wp_enqueue_script( 'prestigio-scripts-tabs', get_template_directory_uri() . '/js/prestigio-scripts-tabs.js', array( 'jquery' ), false, true );
 	}
 
+    wp_enqueue_script('prestigio-scripts-general', get_template_directory_uri() . '/js/prestigio-scripts-general.js', array( 'jquery' ), false, true );
+
     wp_enqueue_script(' prestigio-html5shim', 'http://html5shim.googlecode.com/svn/trunk/html5.js', array( 'jquery' ), false );
-	
+
 }
 add_action( 'wp_enqueue_scripts', 'prestigio_scripts' );
 

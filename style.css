@@ -610,12 +610,12 @@ body {
         margin: 3px 0 0 30px;
 	}
 
-	.wpas-checkbox-container {
+	/*.wpas-checkbox-container {
 		float: left;
-	}
+	}*/
 
 	.wpas-tax_operacion {
-		margin-top: 5px;
+		margin-top: 0;
 	}
 
 	.property-search input[type="checkbox"] {
