@@ -19,8 +19,11 @@
 			<ul class="property-tabs clear">
 				<li><a id="tab-detalle-btn" href="#property-tab-details"><i class="fa fa-info-circle"></i>   Detalles de la propiedad</a></li>
 				
-			<?php if( !empty( $location ) ): ?>	
-				<li><a id="tab-map-btn" href="#property-tab-map"><i class="fa fa-globe"></i>   Ver mapa</a></li>
+			<?php if( !empty( $location["lat"] ) && !empty( $location["lng"] ) ): ?>
+				<li><a id="tab-map-btn" href="#property-tab-map"><i class="fa fa-globe"></i>   Ver mapa</a>
+
+
+                </li>
 			<?php endif; ?>				
 			</ul>
 
@@ -64,12 +67,20 @@
 
 			</div><!-- #property-tab-details -->
 
-			<?php if( !empty( $location ) ): ?>
+            <?php if( !empty( $location["lat"] ) && !empty( $location["lng"] ) ): ?>
+
+                <?php
+                    $texto_popup="<h3>". get_the_title(); "</h3>";
+                    $texto_popup.="<p><strong>Dirección: </strong> ".get_field( 'direccion' )."</p>";
+                    $texto_popup.="<p><strong>Localidad: </strong> ".get_field( 'localidad' )."</p>";
+
+                ?>
 			
 			<div id="property-tab-map">
 				<div id="property-details-map">
 					<!--<div id="marker" class="marker" data-lat="<?php /*echo $location['lat']; */?>" data-lng="<?php /*echo $location['lng']; */?>"></div>-->
-                    <?php echo do_shortcode( '[su_gmap address="'.$location["lat"].','.$location["lng"].'"]' ); ?>
+                    <?php //echo do_shortcode( '[su_gmap address="'.$location["lat"].','.$location["lng"].'"]' ); ?>
+                    <?php echo do_shortcode( '[mapsmarker mlat="'.$location["lat"].'" mlon="'.$location["lng"].'" mpopuptext="'.$texto_popup.'" basemap="mapquest_osm" zoom="16"  mapwidth="100" mapwidthunit="%" mapheight="400"]' ); ?>
 				</div>
 			</div><!-- #property-tab-map -->
 
