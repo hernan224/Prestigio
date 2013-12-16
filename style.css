@@ -1,3 +1,4 @@
+
 /*
 Theme Name: Spinelli Prestigio
 Theme URI: http://underscores.me/
@@ -954,7 +955,6 @@ body {
 		top: -10px;
 		width: 290px;
         height: 100%;
-        min-height: 30px;
 	}
 
 	.property-list-meta .meta-wrapper {

@@ -145,12 +145,18 @@ function center_map( map ) {
 */
  
 $(document).ready(function(){
- 
+
 	$('#property-details-map').each(function(){
  
 		render_map( $(this) );
  
 	});
+
+   /* jQuery('#property-tab-map').bind('easytabs:after', function() {
+
+        google.maps.event.trigger(map, 'resize');
+
+    });*/
  
 });
  
