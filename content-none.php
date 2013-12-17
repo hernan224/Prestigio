@@ -14,7 +14,7 @@
 	</header><!-- .page-header -->
 
 	<div class="page-content">
-		<?php if ( is_search() ) : ?>
+		<?php if ( is_search() OR is_page_template('busqueda-propiedad.php') ) : ?>
 
 			<p>No hay resultado a partir de la búsqueda.</p>
 
