@@ -12,10 +12,7 @@ get_header(); ?>
             <h1 class="entry-title">Propiedades buscadas</h1>
         </header><!-- .page-header -->
 
-        <div class="list-wrapper">
-
             <?php
-
             /** Query para mostrar resultados de busqueda **/
             /** Generando la nueva busqueda **/
             $args = my_search_args();
@@ -25,6 +22,8 @@ get_header(); ?>
             $wp_query = $busqueda_propiedad->query();
 
             if ( have_posts() ) : ?>
+
+            <div class="list-wrapper">
 
                 <ul class="property-post-list">
 
@@ -74,6 +73,8 @@ get_header(); ?>
                     $busqueda_propiedad->pagination();
                 ?>
 
+             </div><!-- .list-wrapper -->
+
             <?php else : ?>
 
                 <?php get_template_part( 'content', 'none' ); ?>
@@ -85,7 +86,6 @@ get_header(); ?>
                 wp_reset_query();
                 $wp_query = $temp_query;
             ?>
-        </div><!-- .list-wrapper -->
 
     </main><!-- #main -->
 </section><!-- #primary -->
