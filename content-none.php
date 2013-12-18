@@ -9,13 +9,6 @@
 ?>
 
 <section class="no-results not-found">
-
-<?php if( !is_search() OR !is_page_template( 'busqueda-propiedad.php' ) ) : ?>
-	<header class="page-header">
-		<h1 class="page-title">No se ha encontrado nada</h1>
-	</header><!-- .page-header -->
-<?php endif; ?>
-
 	<div class="entry-content">
 		<?php if ( is_search() OR is_page_template( 'busqueda-propiedad.php' ) ) : ?>
 
