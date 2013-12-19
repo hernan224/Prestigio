@@ -879,11 +879,22 @@ body {
 }
 
 .cform .sendbutton {
+	background: #42A056;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	color: #eee;
 	font-size: 14px;
 	font-weight: bold;
 	padding: 15px 30px;
+	text-shadow: none;
 	width: auto;
 }
+
+	.cform .sendbutton:hover {
+		background: #194C25;
+		box-shadow: none;
+	}
 
 .cform .reqtxt, .cform .emailreqtxt, .linklove {
 	visibility: hidden;
