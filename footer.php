@@ -24,7 +24,6 @@
 			        <li><i class="fa fa-map-marker"></i> Rodriguez 315 - Bahía Blanca</li>
 			        <li><i class="fa fa-phone-square"></i>(0291) 454-8845 / 452-5289</li>
 			        <li><i class="fa fa-envelope"></i><a href="#">info@spinellipretigio.com.ar</a></li>
-			        <li><i class="fa fa-qrcode"></i><a href="#">Data Fiscal</a></li>
 			    </ul>
 			</div>
 			
