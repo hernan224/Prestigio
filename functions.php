@@ -272,7 +272,6 @@ function prestigio_propiedades_taxonomies()  {
 add_action( 'init', 'prestigio_propiedades_taxonomies', 0 );
 
 // Wrap gallery in a div
-
 add_filter( 'post_gallery', 'my_post_gallery', 10, 2 );
 function my_post_gallery( $output, $attr ) 
 {

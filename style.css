@@ -1181,8 +1181,10 @@ object {
 ----------------------------------------------- */
 
 .site-main [class*="navigation"] {
-	margin: 0 0 1.5em;
+	font-weight: bold;
+	margin: 20px auto;
 	overflow: hidden;
+	width: 200px;
 }
 [class*="navigation"] .nav-previous {
 	float: left;
