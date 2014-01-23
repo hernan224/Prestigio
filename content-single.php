@@ -10,6 +10,16 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+	
+		<?php  if (strpos($post->post_content,'[gallery') === false){ 
+			
+			 if( has_post_thumbnail() ){ 
+					the_post_thumbnail( 'large' ); 
+				} else {
+					echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/no-foto-slide.png" />';
+				}
+			}?>
+	
 		<?php the_content(); ?>
 
 		<?php $location = get_field( 'mapa' ); ?>

@@ -27,9 +27,18 @@
 		<?php while( $sidebar_query->have_posts() ) : $sidebar_query->the_post(); ?>
 			<div class="sidebar-property-post">
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-				<?php if( has_post_thumbnail() ) {
-					the_post_thumbnail();
-				} ?>
+				
+				<?php
+					// Must be inside a loop.
+
+					if ( has_post_thumbnail() ) {
+						the_post_thumbnail();
+					}
+					else {
+						echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/no-foto-thumb.png" />';
+					}
+					?>			
+				
 					<h1><?php the_title(); ?></h1>
 				</a>
 			</div>

@@ -30,17 +30,21 @@ get_header(); ?>
 			<?php if( $slider_query->have_posts() ) : ?>
 
 				<?php while( $slider_query->have_posts() ) : $slider_query->the_post(); ?>
+				
 					<div>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-							<?php if( has_post_thumbnail() ) {
-								the_post_thumbnail( 'slider' );
+							
+							<?php if( has_post_thumbnail() ){ 
+							the_post_thumbnail( 'slider' ); 
 							} ?>
+							
 							<div class="front-slider-meta">
 								<p><?php the_terms( $post->ID, 'tipo' ); ?> en <?php the_terms( $post->ID, 'operacion' ); ?></p>
 								<h1><?php the_title(); ?></h1>
 							</div><!-- .front-slider-meta -->
 						</a>
 					</div>
+				
 				<?php endwhile; ?>			
 			<?php endif; ?>
 
@@ -79,7 +83,17 @@ get_header(); ?>
 
 									<div class="entry-content">
 										<a href="<?php the_permalink();?>" class="property-post-link">
-											<?php the_post_thumbnail(); ?>
+											
+											<?php
+											// Must be inside a loop.
+
+											if ( has_post_thumbnail() ) {
+												the_post_thumbnail();
+											}
+											else {
+												echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/no-foto-thumb.png" />';
+											}
+											?>
 
 											<div class="property-list-meta">
 												<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -143,7 +157,17 @@ get_header(); ?>
 
 									<div class="entry-content">
 										<a href="<?php the_permalink();?>" class="property-post-link">
-											<?php the_post_thumbnail(); ?>
+											
+										<?php
+										// Must be inside a loop.
+
+										if ( has_post_thumbnail() ) {
+											the_post_thumbnail();
+										}
+										else {
+											echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/no-foto-thumb.png" />';
+										}
+										?>
 
 											<div class="property-list-meta">
 												<h1 class="entry-title"><?php the_title(); ?></h1>
