@@ -90,9 +90,20 @@
                         /**  Si existe el nombre y el link al archive, muestro el item en el breadcrumb  **/
                         if ( $bread_name && !is_wp_error( $bread_link )) : ?>
                             &rsaquo;  <a href="<?php echo $bread_link; ?>"> <?php echo $bread_name ?></a>
-                        <?php endif; ?>
-
+                        <?php endif; ?>					
+						
                     <?php endif; /*Fin Si existe term 'tipo'*/ ?>
+					
+						<?php
+							/** Comprobar paginacion y agregar número de pagina al breadcrumb **/						
+							$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : false;
+							if ( $paged !== false )
+							{
+								// This is not a paginated page (or it's simply the first page of a paginated page/post)
+								echo "&rsaquo; Página $paged";
+
+							};						
+						?>
 
                     <?php /* Fin si es archive */ ?>
 
@@ -101,7 +112,16 @@
                     global $post;
                     $titulo_pagina = get_the_title($post->ID);
 
-                    echo "&rsaquo; $titulo_pagina"
+                    echo "&rsaquo; $titulo_pagina";
+					
+					/** Comprobar paginacion y agregar número de pagina al breadcrumb **/						
+					$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : false;
+					if ( $paged !== false )
+					{
+						// This is not a paginated page (or it's simply the first page of a paginated page/post)
+						echo " &rsaquo; Página $paged";
+
+					};	
 
                     /*Fin Si es page*/?>
 

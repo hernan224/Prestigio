@@ -80,7 +80,11 @@ get_header(); ?>
 
                 <?php //prestigio_content_nav( 'nav-below' );
                     /** Paginación de la busqueda **/
-                    $busqueda_propiedad->pagination();
+					
+                    $busqueda_propiedad->pagination(array(						
+						'prev_text'    => '&larr; Anterior',
+						'next_text'    => 'Siguiente &rarr;'						
+					));
                 ?>
 
              </div><!-- .list-wrapper -->

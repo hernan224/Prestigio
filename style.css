@@ -1182,7 +1182,8 @@ object {
 
 .site-main [class*="navigation"] {
 	font-weight: bold;
-	margin: 20px auto;
+	margin: 1.5em auto 0;
+	padding:1em 0;
 	overflow: hidden;
 	width: 200px;
 }
@@ -1194,6 +1195,24 @@ object {
 	float: right;
 	text-align: right;
 	width: 50%;
+}
+
+.pagination{
+	text-align: center;
+	margin-top: 1.5em;
+	padding: 1em 0;
+	font-weight: bold;
+}
+
+.pagination .page-numbers{
+	display: none;
+}
+
+.pagination >.page-numbers.prev,
+.pagination >.page-numbers.next
+{
+	display: inline-block;
+	margin: 0 1em;
 }
 
 /* Sidebar */
