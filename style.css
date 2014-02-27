@@ -5,7 +5,7 @@ Theme URI: http://underscores.me/
 Author: IMotion Consulting
 Author URI: http://imotionconsulting.com.ar
 Description: Theme oficial para Spinelli Prestigio Servicios Inmobiliarios.
-Version: 1.0
+Version: 1.1
 License: GNU General Public License
 License URI: license.txt
 Text Domain: prestigio
@@ -127,8 +127,43 @@ textarea {
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Roboto Condensed', 'Open Sans', Arial, sans-serif;
+    line-height: 1.5;
 	clear: both;
 }
+
+h1{
+    font-weight: 700;
+    font-size: 2.375em;
+}
+
+h2{
+    font-weight: 700;
+    font-size: 1.75em;
+}
+
+h3{
+    font-size: 1.3125em;
+    font-weight: 700;
+}
+
+h4{
+    font-size: 1.125em;
+    font-weight: 700;
+    font-style: italic;
+}
+
+h5{
+    font-size: 1.125em;
+    font-weight: 400;
+    font-style: italic;
+}
+
+h6{
+    font-size: 1.125em;
+    font-weight: 400;
+    font-style: normal;
+}
+
 hr {
 	background-color: #ccc;
 	border: 0;
@@ -695,7 +730,7 @@ body {
 /* Post & Page header */
 
 .entry-header, .page-header {
-	border-bottom: 1px solid #efefef;
+	border-bottom: 4px solid rgb(184, 195, 187);
 	padding-bottom: 10px;
 }
 
@@ -725,13 +760,13 @@ body {
 
 #front-slider {
 	position: relative;
-	left: -30px;
+	/*left: -30px;*/
 	margin-bottom: 40px;
-	width: 1040px;
+	/*width: 1040px;*/
 }
 
 .front-slider-meta {
-	background: #309147;
+	background: #194C25;
 	color: #fff;
 	float: left;
 	position: absolute;
@@ -756,20 +791,31 @@ body {
 		line-height: 42px;
 	}
 
+.front-list-wrapper{
+    margin:0 10px 0 -10px;
+}
+
 .front-property-list {
 	clear: both;
 	margin-bottom: 60px;
 	overflow: auto;
+    background-color: rgb(238, 238, 238);
+    border-bottom: 4px solid rgb(25, 76, 37);
+    padding-bottom: 10px;
 }
 
 .front-property-list header{
     position: relative;
+    background-color: rgb(184, 195, 187);
+    padding: 20px;
+    /*color: #000;*/
+    border-bottom: 4px solid rgb(25, 76, 37);
 }
 
 /*Botones carrusel*/
 .botones-carrusel{
     position: absolute;
-    top: 0px;
+    top: 20px;
     right: 0px;
 }
 
@@ -784,7 +830,7 @@ body {
 }
 
 .front-ending {
-	border-top: 1px solid #efefef;
+	/*border-top: 1px solid #efefef;*/
 	clear: both;
 	float: left;
 	padding-top: 50px;
@@ -938,7 +984,7 @@ body {
 	}
 
 .property-list-meta {
-	background: #42A056;
+	background: #309147;
 	position: absolute;
 	bottom: -105px;
 	left: 0;
@@ -953,7 +999,7 @@ body {
 	}
 
 	.property-list-meta .entry-title {
-		background: #309147;
+		background: #194C25;
 		color: #fff;
 		display: block;
 		font-size: 16px;
@@ -1015,10 +1061,10 @@ body {
 }
 
 	.property-tabs {
-		background: #efefef;
-		border: 1px solid #dedede;
+		float: none;
+		/*border: 1px solid #dedede;
 		border-bottom: none;
-		float: left;
+		float: left;*/
 		list-style: none;
 		margin: 0;
 		overflow: hidden;
@@ -1030,6 +1076,7 @@ body {
 	}
 
 	.property-tabs li a {
+        background: #B8C3BB;
 		border-right: 1px solid #dedede;
 		display: block;
 		color: #333333;
@@ -1050,7 +1097,7 @@ body {
 		}
 
         .property-tabs li a.active{
-            background-color: #309147;
+            background-color: #194C25;
             color: #fff;
         }
 
@@ -1058,9 +1105,19 @@ body {
         margin-right: 0.3em;
     }
 
-#property-tab-details {
+/*#property-tab-details {
 	border: 1px solid #dedede;
 	clear: both;
+}*/
+
+.property-tab-content{
+    border: solid #194C25;
+    border-width: 4px 0;
+}
+
+.property-tab-bg{
+    padding:10px;
+    background-color: #EEEEEE;
 }
 
 .property-details-list {
@@ -1083,6 +1140,13 @@ body {
 		.property-details-list li:last-child {
 			border: none;
 		}
+
+
+.prop-descripcion{
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 2px solid #B8C3BB;
+}
 
 .property-details span {
 	font-weight: bold;
@@ -1108,7 +1172,7 @@ body {
 }
 
 .property-contact-form h2 {
-	border-bottom: 1px solid #efefef;
+	border-bottom: 4px solid #309147;
 	font-size: 21px;
 	font-weight: bold;
 	margin-bottom: 20px;
@@ -1233,7 +1297,7 @@ object {
 }
 
 .widget-header {
-	border-bottom: 1px solid #efefef;
+	border-bottom: 4px solid #B8C3BB;
 	margin-bottom: 20px;
 	padding-bottom: 10px;
 }
@@ -1261,7 +1325,7 @@ object {
 }
 
 .sidebar-property-post h1 {
-	background: #309147;
+	background: #194C25;
 	color: #fff;
 	font-size: 18px;
 	margin-top: -5px;
@@ -1284,9 +1348,9 @@ object {
 /* --- FOOTER --- */
 
 .site-footer {
-	background: #eee;
-	border-top: 1px solid #fff;
-	box-shadow: 0 -1px 0 #dedede;
+	background: #B8C3BB;
+	border-top: 4px solid #194C25;
+	/*box-shadow: 0 -1px 0 #dedede;*/
 	clear: both;
 	display: block;
 	font-size: 14px;
@@ -1341,8 +1405,8 @@ object {
 
 
 .site-info-copyright {
-	border-top: 1px solid #fff;
-	box-shadow: 0 -1px 0 #dedede;
+	border-top: 2px solid #194C25;
+	/*box-shadow: 0 -1px 0 #dedede;*/
 	clear: both;
 	float: left;
 	margin-top: 30px;

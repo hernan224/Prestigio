@@ -271,7 +271,7 @@ function prestigio_propiedades_taxonomies()  {
 // Hook into the 'init' action
 add_action( 'init', 'prestigio_propiedades_taxonomies', 0 );
 
-// Wrap gallery in a div
+/*// Wrap gallery in a div
 add_filter( 'post_gallery', 'my_post_gallery', 10, 2 );
 function my_post_gallery( $output, $attr ) 
 {
@@ -406,7 +406,24 @@ function my_post_gallery( $output, $attr )
 
     return $output;
 }
+*/
 
+
+/** Función para extraer la galería del contenido **/
+
+function  strip_shortcode_gallery( $content ) {
+    preg_match_all( '/'. get_shortcode_regex() .'/s', $content, $matches, PREG_SET_ORDER );
+    if ( ! empty( $matches ) ) {
+        foreach ( $matches as $shortcode ) {
+            if ( 'gallery' === $shortcode[2] ) {
+                $pos = strpos( $content, $shortcode[0] );
+                if ($pos !== false)
+                    return substr_replace( $content, '', $pos, strlen($shortcode[0]) );
+            }
+        }
+    }
+    return $content;
+}
 
 
 /** Función para pasar los argumentos al WP Advaced Search **/
