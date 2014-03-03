@@ -17,7 +17,7 @@ jQuery(document).ready(function() {
 		items : 3,
 		itemsDesktop : [1000,3],
 		itemsDesktopSmall : [979,2],
-		itemsTablet: [767,1],
+		itemsTablet: [710,1],
 		itemsMobile : false
     });
 
@@ -38,7 +38,7 @@ jQuery(document).ready(function() {
 		items : 3,
 		itemsDesktop : [1000,3],
 		itemsDesktopSmall : [979,2],
-		itemsTablet: [767,1],
+		itemsTablet: [710,1],
 		itemsMobile : false
     });
 

@@ -1,11 +1,11 @@
 
 /*
-Theme Name: Spinelli Prestigio
+Theme Name: Spinelli Prestigio (beta)
 Theme URI: http://underscores.me/
 Author: IMotion Consulting
 Author URI: http://imotionconsulting.com.ar
 Description: Theme oficial para Spinelli Prestigio Servicios Inmobiliarios.
-Version: 1.1
+Version: 1.5
 License: GNU General Public License
 License URI: license.txt
 Text Domain: prestigio
@@ -262,6 +262,7 @@ th {
 img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
+	width: 100%; /* Adhere to container width. */
 }
 button,
 input,
@@ -458,7 +459,7 @@ body {
 	background: #fff;
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
-	width: 100%;
+	width: 96%;
 	max-width: 1040px;
 	margin: 0 auto;
 	overflow: auto;
@@ -685,7 +686,7 @@ body {
 	clear: both;
 	display: block;
 	padding: 30px 30px 60px 30px;
-	width: 100%;
+	width: auto;
 	max-width: 980px;
 	overflow: hidden;
 }
@@ -841,8 +842,8 @@ body {
 .ending-box {
 	background: rgb(134, 151, 145);
 	float: left;
-	margin-right: 25px;
-	width: 100%;
+	margin-right: 2%;
+	width: 32%;
 	max-width: 310px;
 }
 
@@ -880,15 +881,15 @@ body {
 /* Contact form */
 
 .cform ol {
-	float: left;
+	/*float: left;*/
 	list-style: none;
 	margin: 0;
 	overflow: hidden;
 }
 
 .cform li {
-	clear: both;
-	float: left;
+	/*clear: both;
+	float: left;*/
 	padding-bottom: 20px;
 }
 
@@ -897,15 +898,17 @@ body {
 	}
 
 .cform label {
-	float: left;
+	/*float: left;*/
+    display: block;
 	font-weight: bold;
 }
 
 .cform input, textarea {
 	border: 1px solid #dedede;
 	border-radius: 0;
-	clear: both;
-	float: left;
+	/*clear: both;
+	float: left;*/
+    display: block;
 	margin-top: 10px;
 	padding: 10px;
 }
@@ -916,12 +919,13 @@ body {
 	}
 
 .cform input {
-	width: 450px;
+	max-width: 450px;
+    width: 90%;
 }
 
 .cform textarea {
-	width: 645px;
-	max-width: 645px !important;
+	width: 95%;
+	max-width: 640px;
 }
 
 .cform .sendbutton {
@@ -944,6 +948,7 @@ body {
 
 .cform .reqtxt, .cform .emailreqtxt, .linklove {
 	visibility: hidden;
+    display: none;
 }
 
 /* Property list archive */
@@ -1422,3 +1427,103 @@ object {
 
 /* =Media Queries
 ----------------------------------------------- */
+@media all and (max-width: 899px){
+
+
+    .widget-area{
+        display: none;
+    }
+
+    .content-area{
+        width: 100%;
+    }
+
+    .property-search{
+        float: left;
+        right: auto;
+    }
+
+}
+
+@media all and (max-width: 699px){
+
+    #page{
+        width:100%;
+    }
+
+    .site-content{
+        padding: 30px 15px 60px
+    }
+
+    .front-ending{
+        padding-top: 0;
+    }
+
+    .ending-box{
+        float: none;
+        width:100%;
+        margin: 0 0 20px;
+    }
+
+    .ending-box:last-child{
+        margin: 0;
+    }
+
+    .property-details-list{
+        float: none;
+        width: 100%;
+    }
+
+    .property-tabs li a{
+        font-size: 14px;
+        padding: 1em;
+    }
+
+    .property-search{
+        float: none;
+        overflow: hidden;
+    }
+
+    .wpas-field{
+        margin: 10px 15px;
+    }
+
+    .property-menu{
+        display: none;
+        float: none;
+    }
+
+    .footer-navigation{
+        display: none;
+    }
+
+    .site-info-logo,
+    .site-info-contact{
+        width: 48%;
+    }
+
+}
+
+@media all and (max-width: 499px){
+
+    #front-slider{
+        display: none !important;
+    }
+
+    .botones-carrusel{
+        position: relative;
+    }
+
+    .site-info-logo,
+    .site-info-contact{
+        width: 98%;
+        float: none;
+        /*margin-bottom: 10px;*/
+    }
+
+    .site-info-copyright p{
+        text-align: left;
+        width: 70%;
+    }
+
+}
