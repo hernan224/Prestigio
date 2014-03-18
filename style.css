@@ -1249,7 +1249,7 @@ object {
 /* =Navigation
 ----------------------------------------------- */
 
-.site-main [class*="navigation"] {
+/*.site-main [class*="navigation"] {
 	font-weight: bold;
 	margin: 1.5em auto 0;
 	padding:1em 0;
@@ -1264,21 +1264,25 @@ object {
 	float: right;
 	text-align: right;
 	width: 50%;
-}
+}*/
 
-.pagination{
+.pagination,
+.paging-navigation{
 	text-align: center;
 	margin-top: 1.5em;
 	padding: 1em 0;
 	font-weight: bold;
 }
 
-.pagination .page-numbers{
-	display: none;
+.pagination .page-numbers,
+.paging-navigation .page-numbers{
+	margin: 0 0.35em;
 }
 
 .pagination >.page-numbers.prev,
-.pagination >.page-numbers.next
+.pagination >.page-numbers.next,
+.paging-navigation >.page-numbers.prev,
+.paging-navigation >.page-numbers.next
 {
 	display: inline-block;
 	margin: 0 1em;

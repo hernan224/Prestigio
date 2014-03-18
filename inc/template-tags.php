@@ -13,6 +13,7 @@ if ( ! function_exists( 'prestigio_content_nav' ) ) :
  */
 function prestigio_content_nav( $nav_id ) {
 	global $wp_query, $post;
+    $bignum = 999999999;
 
 	// Don't print empty markup on single pages if there's nowhere to navigate.
 	if ( is_single() ) {
@@ -39,15 +40,29 @@ function prestigio_content_nav( $nav_id ) {
 
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 
-		<?php if ( get_next_posts_link() ) : ?>
-		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Anteriores', 'prestigio' ) ); ?></div>
-		<?php endif; ?>
+		<?php /*if ( get_next_posts_link() ) : */?><!--
+		<div class="nav-previous"><?php /*next_posts_link( __( '<span class="meta-nav">&larr;</span> Anteriores', 'prestigio' ) ); */?></div>
+		<?php /*endif; */?>
 
-		<?php if ( get_previous_posts_link() ) : ?>
-		<div class="nav-next"><?php previous_posts_link( __( 'Siguiente <span class="meta-nav">&rarr;</span>', 'prestigio' ) ); ?></div>
-		<?php endif; ?>
+		<?php /*if ( get_previous_posts_link() ) : */?>
+		<div class="nav-next"><?php /*previous_posts_link( __( 'Siguiente <span class="meta-nav">&rarr;</span>', 'prestigio' ) ); */?></div>
+		--><?php /*endif;*/ ?>
 
-	<?php endif; ?>
+     <?php
+
+        echo paginate_links( array(
+        'base' 			=> str_replace( $bignum, '%#%', esc_url( get_pagenum_link($bignum) ) ),
+        'format' 		=> '',
+        'current' 		=> max( 1, get_query_var('paged') ),
+        'total' 		=> $wp_query->max_num_pages,
+        'prev_text' 	=> __( '<span class="meta-nav">&larr;</span> Anteriores', 'prestigio' ),
+        'next_text' 	=> __( 'Siguiente <span class="meta-nav">&rarr;</span>', 'prestigio' ),
+        'type'			=> 'plain',
+        'end_size'		=> 1,
+        'mid_size'		=> 2
+        ) );
+
+	 endif; ?>
 
 	</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
 	<?php

@@ -432,7 +432,7 @@ function my_search_args() {
     /** Iniciando par?metros para Wp Advaced Search **/
     $args = array();
     $args['wp_query'] = array('post_type' => 'propiedad',
-        'posts_per_page' => 6,
+        'posts_per_page' => 9,
         'orderby' => 'date',
         'order' => 'DESC'
     );
@@ -478,6 +478,8 @@ function my_search_args() {
         'id' => 'busqueda_propiedad_form',
         'name' => 'busqueda_propiedad_form',
         'class' => 'busqueda_propiedad_form');
+		
+	$args['relevanssi'] = true;
 
 
     return $args;
