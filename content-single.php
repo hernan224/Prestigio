@@ -141,7 +141,11 @@
                     <div id="property-details-map">
                         <!--<div id="marker" class="marker" data-lat="<?php /*echo $location['lat']; */?>" data-lng="<?php /*echo $location['lng']; */?>"></div>-->
                         <?php //echo do_shortcode( '[su_gmap address="'.$location["lat"].','.$location["lng"].'"]' ); ?>
-                        <?php echo do_shortcode( '[mapsmarker mlat="'.$location["lat"].'" mlon="'.$location["lng"].'" mpopuptext="'.$texto_popup.'" basemap="mapquest_osm" zoom="16"  mapwidth="100" mapwidthunit="%" mapheight="400"]' ); ?>
+                        <?php/* echo do_shortcode( '[mapsmarker mlat="'.$location["lat"].'" mlon="'.$location["lng"].'" mpopuptext="'.$texto_popup.'" basemap="googleLayer_roadmap" zoom="16"  mapwidth="100" mapwidthunit="%" mapheight="400"]' ); */?>
+						
+						<?php echo do_shortcode('[google-map-v3 shortcodeid="TO_BE_GENERATED" width="100%" height="400" zoom="16" maptype="roadmap" mapalign="center" directionhint="false" language="es" poweredby="false" maptypecontrol="false" pancontrol="true" zoomcontrol="false" scalecontrol="true" streetviewcontrol="false" scrollwheelcontrol="false" draggable="true" tiltfourtyfive="false" enablegeolocationmarker="false" enablemarkerclustering="false" addmarkermashup="false" addmarkermashupbubble="false" addmarkerlist="'.$location["lat"].','.$location['lng'].'{}1-default.png" bubbleautopan="true" distanceunits="km" showbike="false" showtraffic="false" showpanoramio="false"]'); ?>
+						
+						
                     </div>
                 </div><!-- #property-tab-map -->
 
